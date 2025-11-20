@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="daftar.css">
+</head>
+
+<body>
+  <div class="phone">
+    <!-- status bar -->
+<div class="status-bar">
+  <div class="status-left">
+    <img src="assets/jam.png" alt="Jam" class="status-clock">
+  </div>
+
+  <div class="status-icons">
+    <img src="assets/icons.png" alt="Status icons" class="status-img">
+  </div>
+</div>
+
+    <div class="screen">
+
+      <!-- ilustrasi -->
+      <div class="illustration">
+        <img src="assets/logo1.png" alt="Ilustrasi" class="illustration-img">
+      </div>
+
+      <h1 class="title">Daftar</h1>
+      <p class="subtitle">Masukkan detail anda untuk Mendaftar</p>
+
+      <form>
+
+        <div class="input-group">
+          <input type="text" class="input-field" placeholder="Nama" />
+        </div>
+
+        <div class="input-group">
+          <input type="email" class="input-field" placeholder="Alamat Email" />
+        </div>
+
+        <div class="input-group">
+          <input type="tel" class="input-field" placeholder="Nomor Telepon" />
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <div class="input-with-icon">
+            <input type="password" id="password" placeholder="Kata Sandi" />
+            <button type="button" class="eye-icon" onclick="togglePassword('password', this)">
+              <img src="assets/eye-closed.png" alt="">
+            </button>
+          </div>
+        </div>
+
+        <!-- Konfirmasi password -->
+        <div class="input-group">
+          <div class="input-with-icon">
+            <input type="password" id="confirmPassword" placeholder="Konfirmasi Kata Sandi" />
+            <button type="button" class="eye-icon" onclick="togglePassword('confirmPassword', this)">
+              <img src="assets/eye-closed.png" alt="">
+            </button>
+          </div>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="terms" />
+          <label for="terms">
+            Saya setuju dengan <a href="#">syarat dan ketentuan</a>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-daftar">Daftar</button>
+      </form>
+
+      <div class="google-section">
+  <button type="button" class="google-btn">
+    <img src="assets/google.png" alt="Google" class="google-logo">
+  </button>
+</div>
+
+      <p class="bottom-text">
+        Sudah punya akun? <a href="#">Masuk</a>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- JS untuk show/hide password -->
+  <script>
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const img = btn.querySelector("img");
+
+      if (input.type === "password") {
+        input.type = "text";
+        img.src = "assets/eye-open.png";
+      } else {
+        input.type = "password";
+        img.src = "assets/eye-closed.png";
+      }
+    }
+  </script>
+
+</body>
+</html>

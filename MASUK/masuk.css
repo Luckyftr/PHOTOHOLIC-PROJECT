@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Frame HP */
+.phone {
+  width: 360px;
+  height: 800px;        /* <- tambahin ini biar sama tinggi */
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+}
+
+/* Status Bar */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* kiri: jam */
+.status-left {
+  display: flex;
+  align-items: center;
+}
+
+.status-clock {
+  height: 14px;
+  width: auto;
+}
+
+/* kanan: icon sinyal/wifi/baterai */
+.status-icons {
+  display: flex;
+  align-items: center;
+}
+
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Container isi */
+.screen {
+  padding: 24px 32px 32px;
+}
+
+.illustration {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.illustration-img {
+  width: 140px;
+}
+
+/* Title & Subtitle */
+.title {
+  text-align: center;
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #4b5563;
+  margin-bottom: 24px;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.input-field,
+.input-with-icon {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 12px 14px;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.input-with-icon input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 13px;
+}
+
+/* Eye icon */
+.eye-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+}
+
+.eye-icon img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Lupa kata sandi */
+.forgot-row {
+  margin-top: 4px;
+  text-align: right;
+  font-size: 11px;
+}
+
+.forgot-row a {
+  color: #111827;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Button Masuk */
+.btn-primary {
+  margin-top: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+  background: #add3cc;   /* hijau pastel */
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Google */
+.google-section {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.google-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.google-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom text */
+.bottom-text {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 11px;
+  color: #4b5563;
+}
+
+.bottom-text a {
+  font-weight: 600;
+  color: #111827;
+}

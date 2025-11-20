@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Frame HP */
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status Bar */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.status-left {
+  display: flex;
+  align-items: center;
+}
+
+.status-clock {
+  height: 14px;
+  width: auto;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+}
+
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* HEADER PINK */
+.app-header {
+  background: #ff9bb1; /* sesuaikan dengan warna figma */
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 22px;
+  width: auto;
+}
+
+.header-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  font-size: 11px;
+  text-decoration: none;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.nav-link.active {
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* Main content */
+.screen {
+  flex: 1;
+  padding: 16px 24px 24px;
+  overflow-y: auto;
+}
+
+/* Back + title */
+.page-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain; /* kalau back.png sudah lingkaran hijau */
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f766e; /* hijau judul */
+}
+
+/* Ilustrasi + brand */
+.about-illustration {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.about-image {
+  width: 150px;
+  height: auto;
+}
+
+.brand-block {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-image {
+  width: 160px;
+  height: auto;
+}
+
+/* kalau pakai teks, bisa pakai ini
+.brand-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f8a70;
+  text-transform: lowercase;
+}
+
+.brand-tagline {
+  font-size: 11px;
+  color: #4b5563;
+}
+*/
+
+/* Card deskripsi */
+.about-card {
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+  font-size: 11px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Footer pink bawah */
+.footer-bar {
+  background: #ff9bb1;
+  padding: 6px 10px;
+  font-size: 9px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
