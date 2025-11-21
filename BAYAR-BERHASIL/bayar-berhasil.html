@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,13 +14,13 @@
 
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <img src="assets/jam.png" class="status-clock">
-      <img src="assets/icons.png" class="status-img">
+      <img src="assets/jam.png" class="status-clock" alt="clock">
+      <img src="assets/icons.png" class="status-img" alt="status">
     </div>
 
     <!-- HEADER -->
     <header class="app-header">
-      <img src="assets/logo-header.png" class="header-logo">
+      <img src="assets/logo-header.png" class="header-logo" alt="logo">
 
       <nav class="header-nav">
         <a href="#" class="nav-link">Beranda</a>
@@ -31,7 +30,7 @@
       </nav>
 
       <button class="profile-btn">
-        <img src="assets/icon-profil.png" class="profile-icon">
+        <img src="assets/icon-profil.png" class="profile-icon" alt="profil">
       </button>
     </header>
 
@@ -40,13 +39,16 @@
 
       <!-- TITLE -->
       <div class="page-title-row">
-        <button class="back-btn"><img src="assets/back.png" class="back-icon"></button>
+        <button class="back-btn">
+          <img src="assets/back.png" class="back-icon" alt="back">
+        </button>
         <h1 class="page-title">Bukti Pembayaran</h1>
       </div>
 
       <!-- INVOICE CARD -->
       <div class="invoice-card">
 
+        <!-- HEADER FAKTUR -->
         <div class="invoice-header">
           <h2 class="invoice-title">Bukti<br>Pembayaran</h2>
 
@@ -56,44 +58,50 @@
           </div>
         </div>
 
-<div class="invoice-section two-col">
-  <div>
-    <h4>Ditagihkan Kepada :</h4>
-    <p>
-      Berlian Ika Isabela<br>
-      082134567890<br>
-      berlianikaisabella@gmail.com
-    </p>
-  </div>
+        <!-- INFO PELANGGAN & PEMESANAN -->
+        <div class="invoice-section two-col">
+          <div class="col-left">
+            <h4>Ditagihkan Kepada :</h4>
+            <p>
+              Berlian Ika Isabela<br>
+              082134567890<br>
+              berlianikaisabella@gmail.com
+            </p>
+          </div>
 
-  <div>
-    <h4>Informasi Pemesanan :</h4>
-    <p>
-      14 Februari 2026<br>
-      Classy (5x40)<br>
-      15:00 WIB – 15:05 WIB
-    </p>
-  </div>
-</div>
+          <div class="col-right">
+            <h4>Informasi Pemesanan :</h4>
+            <p>
+              14 Februari 2026<br>
+              Classy (5x40)<br>
+              15:00 WIB – 15:05 WIB
+            </p>
+          </div>
+        </div>
 
         <div class="divider"></div>
 
+        <!-- TABEL ITEM -->
         <table class="invoice-table">
-          <tr>
-            <th>Deskripsi</th>
-            <th>Harga</th>
-            <th>Sesi</th>
-            <th>Jumlah</th>
-          </tr>
-
-          <tr>
-            <td>Studio 1 : Classy (5x40)</td>
-            <td>Rp45.000/Sesi</td>
-            <td>1</td>
-            <td>Rp45.000</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Deskripsi</th>
+              <th>Harga</th>
+              <th>Sesi</th>
+              <th>Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Studio 1 : Classy (5x40)</td>
+              <td>Rp45.000/Sesi</td>
+              <td>1</td>
+              <td>Rp45.000</td>
+            </tr>
+          </tbody>
         </table>
 
+        <!-- RINGKASAN -->
         <div class="invoice-summary">
           <p>Subtotal <span>Rp45.000</span></p>
           <p>Pajak (0%) <span>Rp0</span></p>
@@ -102,6 +110,7 @@
 
         <div class="divider"></div>
 
+        <!-- METODE PEMBAYARAN + LOGO -->
         <div class="invoice-bottom">
           <div class="payment-info">
             <h4>Metode Pembayaran</h4>
@@ -114,17 +123,16 @@
             <p>15 Oktober 2025</p>
           </div>
 
-          <img src="assets/logo1.png" class="brand-small">
+          <img src="assets/logo1.png" class="brand-small" alt="brand">
         </div>
 
-      </div>
+      </div> <!-- /invoice-card -->
 
       <!-- BUTTON -->
       <button class="btn-pay">Bayar Sekarang</button>
 
-    </div>
+    </div> 
 
-  </div>
+  </div> 
 </body>
-
 </html>

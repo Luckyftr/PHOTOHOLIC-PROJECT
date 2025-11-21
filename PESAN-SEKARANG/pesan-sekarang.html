@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Classy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pesan-sekarang.css">
+</head>
+
+<body>
+  <div class="phone">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <img src="assets/jam.png" class="status-clock" alt="clock">
+      <img src="assets/icons.png" class="status-img" alt="status">
+    </div>
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <img src="assets/logo-header.png" class="header-logo" alt="logo">
+
+      <nav class="header-nav">
+        <a href="#" class="nav-link">Beranda</a>
+        <a href="#" class="nav-link active">Studio</a>
+        <a href="#" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">Pemesanan</a>
+      </nav>
+
+      <button class="profile-btn">
+        <img src="assets/icon-profil.png" class="profile-icon" alt="profil">
+      </button>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="screen">
+
+      <!-- HERO STUDIO -->
+      <div class="studio-hero">
+        <img src="assets/studio-classy.png" class="studio-image" alt="Studio Classy">
+        <div class="studio-overlay"></div>
+
+        <button class="hero-back-btn">
+          <img src="assets/back.png" class="hero-back-icon" alt="kembali">
+        </button>
+
+        <div class="studio-info">
+          <h1>Studio Classy</h1>
+          <p class="studio-price">Rp 45.000/Sesi</p>
+          <p class="studio-sub">Max 10 Orang · Paper Negatif Film</p>
+        </div>
+      </div>
+
+      <!-- FORM BOOKING -->
+      <div class="booking-content">
+
+        <!-- TANGGAL -->
+        <div class="field-group">
+          <label for="tanggal">Tanggal</label>
+          <button class="input-box">
+            <span>Pilih tanggal booking</span>
+            <img src="assets/icon-calendar.png" class="input-icon" alt="kalender">
+          </button>
+        </div>
+
+        <!-- SESI -->
+        <div class="field-group">
+          <label for="sesi">Sesi</label>
+          <button class="input-box">
+            <span>Pilih sesi booking</span>
+            <img src="assets/icon-chevron-down.png" class="input-icon" alt="dropdown">
+          </button>
+        </div>
+
+        <!-- WAKTU -->
+        <div class="field-group">
+          <label for="waktu">Waktu</label>
+          <button class="input-box">
+            <span>Pilih waktu booking</span>
+            <img src="assets/icon-time.png" class="input-icon" alt="waktu">
+          </button>
+        </div>
+
+      </div> >
+
+    </div> 
+
+    <!-- BOTTOM BAR -->
+    <div class="booking-bottom">
+      <div class="total-row">
+        <span>Total</span>
+        <span class="total-amount">Rp. 0</span>
+      </div>
+      <button class="btn-book" disabled>Pesan Sekarang</button>
+    </div>
+
+  </div>
+</body>
+</html>

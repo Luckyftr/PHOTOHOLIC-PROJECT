@@ -42,7 +42,7 @@ body {
 
 /* jam.png */
 .status-clock {
-  height: 14px;       /* sesuaikan kalau terlalu besar/kecil */
+  height: 14px;
   width: auto;
 }
 
@@ -54,7 +54,7 @@ body {
 
 /* icons.png */
 .status-img {
-  height: 14px;       /* sama seperti jam biar seimbang */
+  height: 14px;
   width: auto;
   object-fit: contain;
 }

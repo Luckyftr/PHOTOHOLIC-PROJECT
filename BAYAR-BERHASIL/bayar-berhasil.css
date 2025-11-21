@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
 }
 
+/* FRAME HP */
 .phone {
   width: 360px;
   height: 800px;
@@ -41,7 +42,7 @@ body {
   height: 14px;
 }
 
-/* HEADER */
+/* HEADER APP */
 .app-header {
   background: #F2B6BB;
   padding: 10px 14px;
@@ -90,7 +91,7 @@ body {
   padding: 22px;
 }
 
-/* TITLE */
+/* TITLE ATAS */
 .page-title-row {
   display: flex;
   align-items: center;
@@ -114,20 +115,21 @@ body {
   color: #0f766e;
 }
 
-/* INVOICE CARD */
+/* KARTU INVOICE */
 .invoice-card {
   background: #fff;
   border-radius: 14px;
   padding: 22px;
   border: 2px solid #F2B6BB;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .invoice-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .invoice-title {
@@ -140,6 +142,7 @@ body {
   font-size: 11px;
 }
 
+/* INFO ATAS */
 .invoice-section {
   margin-top: 14px;
   font-size: 12px;
@@ -148,11 +151,24 @@ body {
 .two-col {
   display: flex;
   justify-content: space-between;
+  gap: 16px;
+}
+
+.col-left,
+.col-right {
+  width: 48%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .two-col h4 {
   margin-bottom: 6px;
   font-weight: 600;
+  font-size: 12px;
+}
+
+.two-col p {
+  line-height: 1.4;
 }
 
 .divider {
@@ -160,21 +176,49 @@ body {
   margin: 14px 0;
 }
 
+/* TABEL DESKRIPSI */
 .invoice-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 12px;
+  margin-top: 4px;
 }
 
 .invoice-table th {
   text-align: left;
   padding-bottom: 6px;
+  font-weight: 600;
 }
 
 .invoice-table td {
   padding: 4px 0;
 }
 
+/* Atur lebar & alignment kolom */
+.invoice-table th:nth-child(1),
+.invoice-table td:nth-child(1) {
+  width: 42%; /* Deskripsi */
+}
+
+.invoice-table th:nth-child(2),
+.invoice-table td:nth-child(2) {
+  width: 22%; /* Harga */
+  text-align: right;
+}
+
+.invoice-table th:nth-child(3),
+.invoice-table td:nth-child(3) {
+  width: 12%; /* Sesi */
+  text-align: center;
+}
+
+.invoice-table th:nth-child(4),
+.invoice-table td:nth-child(4) {
+  width: 24%; /* Jumlah */
+  text-align: right;
+}
+
+/* RINGKASAN TOTAL */
 .invoice-summary {
   margin-top: 14px;
   font-size: 12px;
@@ -184,24 +228,45 @@ body {
 .invoice-summary h3 {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 4px;
 }
 
+.invoice-summary h3 {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* METODE PEMBAYARAN + LOGO */
 .invoice-bottom {
   margin-top: 16px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.payment-info h4 {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 4px 0 2px;
+}
+
+.payment-info p {
+  font-size: 12px;
+  margin: 0 0 6px;
 }
 
 .brand-small {
-  width: 90px;
+  width: 100px;      
   height: auto;
+  object-fit: contain;
 }
 
-/* PAY BUTTON */
+/* TOMBOL BAYAR */
 .btn-pay {
   width: 100%;
   background: #0f766e;
-  color: white;
+  color: #fff;
   padding: 12px;
   border-radius: 10px;
   font-weight: 600;

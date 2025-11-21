@@ -43,7 +43,7 @@ body {
 
 /* HEADER PINK */
 .app-header {
-  background: #F2B6BB;      /* pink muda */
+  background: #F2B6BB;
   padding: 10px 14px;
   display: flex;
   justify-content: space-between;
@@ -123,12 +123,12 @@ body {
 
 /* KARTU FAKTUR */
 .invoice-card {
-  width: 95%;                 /* lebih panjang */
+  width: 95%; 
   margin: 0 auto;
   background: #ffffff;
-  border: 2px solid #F2B6BB;  /* border pink muda */
-  border-radius: 14px;        /* sudut lebih halus */
-  padding: 18px 20px;         /* ruang lebih lega */
+  border: 2px solid #F2B6BB;
+  border-radius: 14px;
+  padding: 18px 20px; 
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   font-size: 12px;
   line-height: 1.5;
@@ -248,11 +248,11 @@ body {
 /* TOMBOL BAYAR SEKARANG */
 .btn-pay {
   width: 100%;
-  margin: 20px auto 60px;   /* tambah jarak bawah */
+  margin: 20px auto 60px;
   border: none;
   border-radius: 10px;
   padding: 12px 0;
-  background: #0f766e;   /* hijau */
+  background: #0f766e;
   color: #ffffff;
   font-size: 15px;
   font-weight: 600;

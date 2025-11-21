@@ -167,14 +167,14 @@ body {
 /* BADGE STATUS */
 .badge {
   font-size: 10px;
-  padding: 4px 14px;           /* diperbesar biar panjang */
+  padding: 4px 14px;  
   border-radius: 50px;
   font-weight: 600;
-  white-space: nowrap;         /* BIAR TIDAK TURUN BARIS */
-  display: inline-flex;        /* biar rapi */
+  white-space: nowrap;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 110px;            /* FIX → bikin memanjang */
+  min-width: 110px;
 }
 
 /* Status Lunas */
@@ -185,7 +185,7 @@ body {
 
 /* Status Menunggu Pembayaran */
 .badge.pending {
-  background: #f4a400;         /* warna kuning oranye */
+  background: #f4a400;
   color: white;
 }
 

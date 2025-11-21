@@ -61,7 +61,7 @@ body {
 
 /* HEADER PINK ATAS */
 .app-header {
-  background: #F2B6BB;             /* pink muda */
+  background: #F2B6BB;
   padding: 10px 16px;
   display: flex;
   align-items: center;
@@ -91,14 +91,14 @@ body {
 .nav-link {
   font-size: 13px;
   font-weight: 500;
-  color: #F24957;                  /* semua menu merah */
+  color: #F24957; 
   text-decoration: none;
   opacity: 0.7;
 }
 
 .nav-link.active {
   opacity: 1;
-  font-weight: 700;                /* menu aktif lebih tebal */
+  font-weight: 700; 
 }
 
 /* PROFIL ICON DI KANAN */
@@ -146,13 +146,13 @@ body {
 .back-icon {
   width: 32px;
   height: 32px;
-  object-fit: contain; /* back.png lingkaran hijau */
+  object-fit: contain; 
 }
 
 .page-title {
   font-size: 18px;
   font-weight: 600;
-  color: #0f766e;                  /* hijau judul */
+  color: #0f766e;
 }
 
 /* ILUSTRASI + BRAND */
@@ -194,7 +194,7 @@ body {
 
 /* FOOTER PINK BAWAH */
 .footer-bar {
-  background: #F2B6BB;             /* pink muda */
+  background: #F2B6BB; 
   padding: 10px 10px;
   border-top: 1px solid #f1a6ad;
 
@@ -221,5 +221,5 @@ body {
 
 .footer-text {
   white-space: nowrap;
-  color: #F24957;                  /* pink tua */
+  color: #F24957; 
 }

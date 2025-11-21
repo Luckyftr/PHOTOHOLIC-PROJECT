@@ -80,7 +80,7 @@ body {
 
 /* atur ukuran icon back di sini */
 .back-icon {
-  width: 32px;   /* coba 32–36px, sesuaikan dengan desain */
+  width: 32px;
   height: 32px;
   object-fit: contain;
 }
