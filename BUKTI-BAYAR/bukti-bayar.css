@@ -1,0 +1,226 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-clock,
+.status-img {
+  height: 14px;
+}
+
+/* HEADER */
+.app-header {
+  background: #F2B6BB;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  height: 26px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-link {
+  font-size: 13px;
+  color: #F24957;
+  text-decoration: none;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.nav-link.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* PROFILE BTN */
+.profile-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.profile-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.profile-icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* SCREEN */
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 20px;
+}
+
+/* TITLE ROW */
+.page-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.back-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.back-icon {
+  width: 32px;
+}
+
+.page-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #0f766e;
+}
+
+/* LIST CARD */
+.booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* CARD */
+.booking-card {
+  display: flex;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.studio-img {
+  width: 95px;
+  height: 95px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.card-body {
+  flex: 1;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.studio-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* BADGE STATUS */
+.badge {
+  font-size: 10px;
+  padding: 4px 14px;           /* diperbesar biar panjang */
+  border-radius: 50px;
+  font-weight: 600;
+  white-space: nowrap;         /* BIAR TIDAK TURUN BARIS */
+  display: inline-flex;        /* biar rapi */
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;            /* FIX → bikin memanjang */
+}
+
+/* Status Lunas */
+.badge.available {
+  background: #0f766e;
+  color: white;
+}
+
+/* Status Menunggu Pembayaran */
+.badge.pending {
+  background: #f4a400;         /* warna kuning oranye */
+  color: white;
+}
+
+/* Status Dibatalkan */
+.badge.cancelled {
+  background: #d62828;
+  color: white;
+}
+
+.studio-info {
+  font-size: 11px;
+  color: #444;
+  margin-bottom: 2px;
+}
+
+.studio-total {
+  font-size: 11px;
+  font-weight: 600;
+  margin: 6px 0 4px;
+}
+
+/* BUTTON */
+.btn-payment {
+  width: 100%;
+  padding: 6px 0;
+  background: #F24957;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-payment.disabled {
+  background: #ffb3bb;
+  cursor: not-allowed;
+}
