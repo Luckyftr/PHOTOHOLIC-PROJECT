@@ -1,0 +1,204 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HP FRAME */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  background: #f9f9f9;
+  padding: 0 12px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+
+.status-left,
+.status-icons {
+  display: flex;
+  align-items: center;
+}
+
+.status-clock,
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* HEADER (back + title) */
+.studio-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  z-index: 2;
+  position: relative;
+  background: #ffffff;
+}
+
+.back-btn {
+  background: #0f766e;
+  border-radius: 999px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.back-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* KONTEN */
+.studio-screen {
+  flex: 1;
+  overflow-y: auto;
+  background: #f3f4f6;
+}
+
+/* FOTO ATAS */
+.upload-box {
+  background: #ffffff;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.upload-image {
+  width: 100%;
+  display: block;
+}
+
+/* tombol Ubah Foto DIJAMIN TENGAH */
+.upload-btn {
+  background: #0f766e;
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+
+  display: block;
+  margin: 10px auto 14px;
+}
+
+/* WRAPPER FORM */
+.form-wrapper {
+  padding: 12px 20px 80px; 
+}
+
+/* FORM */
+.form-label {
+  font-size: 13px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.form-textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* BUTTONS BAWAH */
+.btn-primary {
+  width: 100%;
+  background: #0f766e;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  margin-top: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  width: 100%;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0f766e;
+  border: 2px solid #0f766e;
+  margin-top: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  height: 64px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9px;
+  color: #9ca3af;
+}
+
+.nav-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #ef4444;
+}

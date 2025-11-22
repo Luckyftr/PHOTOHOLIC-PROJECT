@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halaman Utama</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="edit-studio2.css">
+</head>
+
+<body>
+  <div class="phone">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock">
+      </div>
+
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img">
+      </div>
+    </div>
+
+ <!-- HEADER -->
+    <header class="studio-header">
+      <button class="back-btn">
+        <img src="assets/back.png" class="back-icon">
+      </button>
+      <h1 class="page-title">Tambah Studio</h1>
+    </header>
+
+    <!-- KONTEN -->
+    <main class="studio-screen">
+
+      <!-- UPLOAD FOTO -->
+      <div class="upload-box">
+        <img src="assets/classy-studio.png" class="upload-placeholder">
+        <button class="upload-btn">Ubah Foto</button>
+      </div>
+
+      <!-- FORM -->
+      <section class="form-wrapper">
+        <label class="form-label">Nama Studio</label>
+        <input type="text" class="form-input" value="Classy">
+
+        <label class="form-label">Deskripsi</label>
+        <textarea class="form-input form-textarea">Max 10 Orang, Paper Negatif Film</textarea>
+
+        <label class="form-label">Harga Per Sesi</label>
+        <input type="text" class="form-input" value="Rp 45.000">
+
+        <!-- BUTTONS -->
+        <button class="btn-primary" type="button">Tambahkan Studio</button>
+        <button class="btn-secondary" type="button">Batalkan</button>
+      </section>
+
+    </main>
+
+    <!-- NAV BAR -->
+    <nav class="bottom-nav">
+      <div class="nav-item">
+        <img src="assets/nav-home.png" class="nav-item-icon">
+        <span>Halaman Utama</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-booking.png" class="nav-item-icon">
+        <span>Pemesanan</span>
+      </div>
+
+      <div class="nav-item active">
+        <img src="assets/nav-studio.png" class="nav-item-icon">
+        <span>Studio</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-payment.png" class="nav-item-icon">
+        <span>Pembayaran</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-more.png" class="nav-item-icon">
+        <span>Lainnya</span>
+      </div>
+    </nav>
+
+  </div>
+</body>
+</html>

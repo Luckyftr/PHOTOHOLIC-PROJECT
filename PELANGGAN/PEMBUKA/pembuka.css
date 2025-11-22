@@ -1,0 +1,191 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY & FRAME HP */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR (NO IMAGE) */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.status-left {
+  display: flex;
+  align-items: center;
+}
+
+.status-time {
+  font-weight: 500;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Signal bars */
+.signal-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.signal-bars span {
+  width: 2px;
+  background: #111827;
+  border-radius: 1px;
+}
+
+.signal-bars span:nth-child(1) { height: 4px; opacity: 0.5; }
+.signal-bars span:nth-child(2) { height: 6px; opacity: 0.7; }
+.signal-bars span:nth-child(3) { height: 8px; opacity: 0.9; }
+.signal-bars span:nth-child(4) { height: 10px; }
+
+/* Wifi icon simple */
+.wifi-symbol {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.wifi-symbol::before,
+.wifi-symbol::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #111827;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.wifi-symbol::after {
+  inset: 3px;
+}
+
+/* Battery icon */
+.battery {
+  width: 18px;
+  height: 9px;
+  border: 1px solid #111827;
+  border-radius: 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+}
+
+.battery::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  width: 2px;
+  height: 5px;
+  border-radius: 1px;
+  background: #111827;
+}
+
+.battery-level {
+  width: 70%;
+  height: 100%;
+  background: #16a34a;
+  border-radius: 1px;
+}
+
+/* SPLASH AREA */
+.splash-screen {
+  flex: 1;
+  background: #f2b6bb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-circle {
+  width: 180px;
+  height: 180px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-logo {
+  width: 120px;
+  height: auto;
+}
+
+/* NAV BAR BAWAH (NO IMAGE) */
+.nav-bar {
+  height: 48px;
+  background: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+/* Tombol-tombol bentuk icon sistem */
+.nav-btn {
+  position: relative;
+}
+
+/* Back (segitiga) */
+.nav-back {
+  width: 14px;
+  height: 14px;
+  border-left: 2px solid #4b5563;
+  border-bottom: 2px solid #4b5563;
+  transform: rotate(45deg);
+}
+
+/* Home (lingkaran) */
+.nav-home {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 2px solid #4b5563;
+}
+
+/* Recent (kotak) */
+.nav-recent {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 2px solid #4b5563;
+}

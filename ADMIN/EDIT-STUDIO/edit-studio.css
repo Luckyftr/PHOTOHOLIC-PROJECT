@@ -1,0 +1,187 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HP FRAME */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  background: #f9f9f9;
+  padding: 0 12px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-clock,
+.status-img {
+  height: 14px;
+}
+
+/* HEADER (back + title kecil) */
+.studio-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  z-index: 2;
+  position: relative;
+}
+
+.back-btn {
+  background: #0f766e;
+  border-radius: 999px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.back-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* KONTEN */
+.studio-screen {
+  flex: 1;
+  overflow-y: auto;
+  background: #f3f4f6;
+}
+
+/* HERO FOTO ATAS */
+.upload-box {
+  background: #ffffff;
+  margin-bottom: 12px;
+}
+
+.upload-image {
+  width: 100%;
+  display: block;
+}
+
+.upload-footer {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 10px;
+}
+
+.upload-btn {
+  background: #0f766e;
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* FORM WRAPPER */
+.form-wrapper {
+  padding: 12px 20px 80px;
+}
+
+/* FORM */
+.form-label {
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.form-textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* BUTTONS */
+.btn-primary {
+  width: 100%;
+  background: #f05252;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  margin-top: 24px;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  width: 100%;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #f05252;
+  border: 2px solid #f05252;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  height: 64px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9px;
+  color: #9ca3af;
+}
+
+.nav-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #ef4444;
+}
