@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelola Blog</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kelola-blog.css">
+</head>
+
+<body>
+  <div class="phone">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <img src="assets/jam.png" class="status-clock">
+      <img src="assets/icons.png" class="status-icons">
+    </div>
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <img src="assets/logo-header.png" class="logo" alt="Photoholic">
+        <h1 class="page-title">Kelola Blog</h1>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="blog-wrapper">
+
+      <!-- INTRO CARD -->
+      <section class="blog-intro-card">
+        <div class="blog-intro-icon">
+          📄
+        </div>
+        <div class="blog-intro-text">
+          <h2>Manajemen Blog</h2>
+          <p>Buat dan kelola artikel blog untuk informasi & promo Photoholic.</p>
+        </div>
+      </section>
+
+      <!-- ACTION ROW: BUTTON + SEARCH -->
+      <section class="blog-action-row">
+        <button class="btn-add-blog">+ Tambah Blog</button>
+      </section>
+
+      <section class="blog-search-section">
+        <input type="text" class="blog-search-input" placeholder="Cari judul atau penulis...">
+      </section>
+
+      <!-- FILTER STATUS (opsional aja buat tampilan) -->
+      <section class="blog-filter-row">
+        <button class="filter-chip filter-chip-active">Semua</button>
+        <button class="filter-chip">Dipublikasikan</button>
+        <button class="filter-chip">Draft</button>
+      </section>
+
+      <!-- LIST TITLE -->
+      <h3 class="blog-list-title">Daftar Artikel</h3>
+
+      <!-- BLOG LIST -->
+      <section class="blog-list">
+
+        <!-- ITEM 1 -->
+        <article class="blog-card">
+          <div class="blog-main">
+            <div class="blog-thumbnail">PH</div>
+            <div class="blog-info">
+              <h4 class="blog-title">Tips Pose di Studio Biar Nggak Kaku</h4>
+              <p class="blog-meta">Dipublikasikan • 20 Nov 2025</p>
+              <p class="blog-meta">Penulis: Admin</p>
+              <span class="blog-status blog-status-published">Published</span>
+            </div>
+          </div>
+          <div class="blog-actions">
+            <button class="blog-btn-outline">Edit</button>
+            <button class="blog-btn-outline">Lihat</button>
+            <button class="btn-more">⋮</button>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="blog-card">
+          <div class="blog-main">
+            <div class="blog-thumbnail">BO</div>
+            <div class="blog-info">
+              <h4 class="blog-title">Behind The Scene: Persiapan Photobooth</h4>
+              <p class="blog-meta">Draft • 18 Nov 2025</p>
+              <p class="blog-meta">Penulis: Berlian Admin</p>
+              <span class="blog-status blog-status-draft">Draft</span>
+            </div>
+          </div>
+          <div class="blog-actions">
+            <button class="blog-btn-outline">Edit</button>
+            <button class="blog-btn-outline">Preview</button>
+            <button class="btn-more">⋮</button>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="blog-card">
+          <div class="blog-main">
+            <div class="blog-thumbnail">EV</div>
+            <div class="blog-info">
+              <h4 class="blog-title">Ide Tema Foto untuk Event Spesial</h4>
+              <p class="blog-meta">Dipublikasikan • 10 Nov 2025</p>
+              <p class="blog-meta">Penulis: Team Photoholic</p>
+              <span class="blog-status blog-status-published">Published</span>
+            </div>
+          </div>
+          <div class="blog-actions">
+            <button class="blog-btn-outline">Edit</button>
+            <button class="blog-btn-outline">Lihat</button>
+            <button class="btn-more">⋮</button>
+          </div>
+        </article>
+
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

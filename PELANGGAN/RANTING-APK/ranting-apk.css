@@ -1,0 +1,177 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY & PHONE FRAME */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  position: relative;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-clock,
+.status-icons {
+  height: 16px;
+}
+
+/* HEADER */
+.topbar {
+  background: #F2B6BB;
+  padding: 12px 16px;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.logo {
+  height: 32px;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e84a5f;
+}
+
+/* CONTENT WRAPPER */
+.rating-wrapper {
+  padding: 16px;
+  background: #ffffff;
+  overflow-y: auto;
+  height: calc(800px - 32px - 56px);
+}
+
+/* HERO CARD */
+.rating-hero-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  background: #fff5f7;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
+.rating-logo-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffe0e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-logo {
+  width: 38px;
+  height: auto;
+}
+
+.rating-hero-text h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e84a5f;
+  margin-bottom: 4px;
+}
+
+.rating-hero-text p {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* SECTION TITLE */
+.rating-section {
+  margin-bottom: 18px;
+}
+
+.rating-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e84a5f;
+  margin-bottom: 8px;
+}
+
+/* STARS */
+.stars {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.star {
+  font-size: 26px;
+  cursor: pointer;
+  color: #f0c5cb;         /* warna bintang default (pink muda) */
+  transition: transform 0.1s ease;
+}
+
+.star.active {
+  color: #e84a5f;         /* bintang yang dipilih */
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+.rating-caption {
+  font-size: 11px;
+  color: #777;
+}
+
+/* TEXTAREA */
+.rating-textarea {
+  width: 100%;
+  min-height: 90px;
+  resize: none;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #f3b7c4;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  color: #444;
+}
+
+/* BUTTON */
+.rating-submit-btn {
+  width: 100%;
+  background: #e84a5f;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+}

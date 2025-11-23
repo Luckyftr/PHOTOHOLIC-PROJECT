@@ -1,0 +1,162 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY & PHONE FRAME */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  position: relative;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-clock,
+.status-icons {
+  height: 16px;
+}
+
+/* HEADER */
+.topbar {
+  background: #F2B6BB;
+  padding: 12px 16px;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.logo {
+  height: 32px;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e84a5f;
+}
+
+/* CONTENT WRAPPER */
+.faq-wrapper {
+  padding: 16px;
+  background: #ffffff;
+}
+
+/* INTRO CARD */
+.faq-intro-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  background: #fff5f7;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.faq-intro-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e84a5f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.faq-intro-text h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e84a5f;
+  margin-bottom: 2px;
+}
+
+.faq-intro-text p {
+  font-size: 12px;
+  color: #555;
+}
+
+/* FAQ CARD LIST */
+.faq-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+/* Setiap baris FAQ */
+.faq-row {
+  border-bottom: 1px solid #f2e1e4;
+}
+
+.faq-row:last-child {
+  border-bottom: none;
+}
+
+/* Tombol pertanyaan */
+.faq-question {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Icon panah */
+.faq-chevron {
+  font-size: 16px;
+  color: #e84a5f;
+  transition: transform 0.2s ease;
+}
+
+/* Jawaban */
+.faq-answer {
+  display: none;
+  padding: 0 14px 12px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Saat row aktif */
+.faq-row.open .faq-answer {
+  display: block;
+}
+
+.faq-row.open .faq-chevron {
+  transform: rotate(180deg);
+}
