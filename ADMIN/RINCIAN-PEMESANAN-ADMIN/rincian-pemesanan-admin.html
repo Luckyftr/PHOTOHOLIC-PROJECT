@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rincian Pemesanan</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="rincian-pemesanan-admin.css">
+</head>
+
+<body>
+  <div class="phone">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock">
+      </div>
+
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img">
+      </div>
+    </div>
+
+    <!-- KONTEN UTAMA -->
+    <main class="detail-screen">
+
+      <!-- HEADER ATAS -->
+      <header class="detail-header">
+        <button class="back-btn" type="button">
+          <img src="assets/back.png" alt="Kembali" class="back-icon">
+        </button>
+        <h1 class="page-title-detail">Rincian Pemesanan</h1>
+      </header>
+
+      <!-- INFORMASI PEMESAN -->
+      <section class="section-block">
+        <h2 class="section-title">Informasi Pemesan</h2>
+
+        <div class="card">
+          <div class="buyer-row">
+            <div class="avatar-circle">
+              <img src="assets/icon-orang.png" alt="User" class="avatar-img">
+            </div>
+
+            <div class="buyer-text">
+              <p class="buyer-name">Berlian Ika</p>
+              <p class="buyer-contact">
+                berlianikasalsabel@gmail.com<br>
+                081234567890
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INFORMASI PEMESANAN -->
+      <section class="section-block">
+        <h2 class="section-title">Informasi Pemesanan</h2>
+
+        <div class="card">
+          <div class="info-row">
+            <span class="info-label">Studio</span>
+            <span class="info-value">Classy</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Tanggal</span>
+            <span class="info-value">17 Oktober 2025</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Waktu</span>
+            <span class="info-value">15:00 - 15:25 WIB</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Durasi Sesi</span>
+            <span class="info-value">25 Menit</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- RINCIAN BIAYA -->
+      <section class="section-block">
+        <h2 class="section-title">Rincian Biaya</h2>
+
+        <div class="card">
+          <div class="info-row">
+            <span class="info-label">Harga Sesi</span>
+            <span class="info-value price-strong">Rp 45.000</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Jumlah Sesi</span>
+            <span class="info-value">5</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Subtotal</span>
+            <span class="info-value price-strong">Rp 225.000</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATUS PEMBAYARAN -->
+      <section class="section-block">
+        <h2 class="section-title">Status Pembayaran</h2>
+
+        <div class="card">
+          <div class="status-header">
+            <span>Status Pembayaran</span>
+            <span class="status-badge">LUNAS</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Metode Pembayaran</span>
+            <span class="info-value">QRIS</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">ID Transaksi</span>
+            <span class="info-value">912481948QR</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Tanggal Bayar</span>
+            <span class="info-value">15 Oktober 2025</span>
+          </div>
+
+          <button class="btn-bukti" type="button">Lihat Bukti Pembayaran</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+      <div class="nav-item">
+        <img src="assets/nav-home.png" alt="Halaman Utama" class="nav-item-icon">
+        <span>Halaman Utama</span>
+      </div>
+
+      <div class="nav-item active">
+        <img src="assets/nav-booking.png" alt="Pemesanan" class="nav-item-icon">
+        <span>Pemesanan</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-studio.png" alt="Studio" class="nav-item-icon">
+        <span>Studio</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-payment.png" alt="Pembayaran" class="nav-item-icon">
+        <span>Pembayaran</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-more.png" alt="Lainnya" class="nav-item-icon">
+        <span>Lainnya</span>
+      </div>
+    </nav>
+
+  </div>
+</body>
+
+</html>

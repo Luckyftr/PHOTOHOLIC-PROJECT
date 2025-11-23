@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembayaran</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pembayaran-admin.css">
+</head>
+
+<body>
+  <div class="phone">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock">
+      </div>
+
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img">
+      </div>
+    </div>
+
+    <!-- KONTEN UTAMA -->
+    <main class="payment-screen">
+      <h1 class="page-title-main">Pembayaran</h1>
+
+      <!-- BAR PENCARIAN + FILTER -->
+      <div class="filter-row">
+        <div class="search-box">
+          <img src="assets/icon-search.png" alt="Cari" class="search-icon">
+          <input type="text" placeholder="Cari" class="search-input">
+        </div>
+
+        <button class="chip chip-outline" type="button">
+          Terbaru
+          <span class="chip-arrow">▾</span>
+        </button>
+
+        <button class="chip chip-outline" type="button">
+          Semua
+          <span class="chip-arrow">▾</span>
+        </button>
+      </div>
+
+      <!-- LIST PEMBAYARAN -->
+      <section class="payment-list">
+
+        <!-- ITEM 1 - LUNAS -->
+        <article class="payment-item">
+          <div class="payment-card">
+            <div class="payment-row">
+              <div class="payment-left">
+                <p class="payment-id">9876543210QR</p>
+                <p class="payment-name">Berlian Ika</p>
+                <p class="payment-method">Metode Pembayaran : QRIS</p>
+                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
+              </div>
+
+              <span class="status-pill status-lunas">LUNAS</span>
+            </div>
+          </div>
+
+          <div class="btn-detail-wrapper">
+            <button class="btn-detail" type="button">Lihat Rincian</button>
+          </div>
+        </article>
+
+        <!-- ITEM 2 - MENUNGGU PEMBAYARAN -->
+        <article class="payment-item">
+          <div class="payment-card">
+            <div class="payment-row">
+              <div class="payment-left">
+                <p class="payment-id">9876543210QR</p>
+                <p class="payment-name">Berlian Ika</p>
+                <p class="payment-method">Metode Pembayaran : QRIS</p>
+                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
+              </div>
+
+              <span class="status-pill status-pending">Menunggu Pembayaran</span>
+            </div>
+          </div>
+
+          <div class="btn-detail-wrapper">
+            <button class="btn-detail" type="button">Lihat Rincian</button>
+          </div>
+        </article>
+
+        <!-- ITEM 3 - LUNAS -->
+        <article class="payment-item">
+          <div class="payment-card">
+            <div class="payment-row">
+              <div class="payment-left">
+                <p class="payment-id">9876543210QR</p>
+                <p class="payment-name">Berlian Ika</p>
+                <p class="payment-method">Metode Pembayaran : QRIS</p>
+                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
+              </div>
+
+              <span class="status-pill status-lunas">LUNAS</span>
+            </div>
+          </div>
+
+          <div class="btn-detail-wrapper">
+            <button class="btn-detail" type="button">Lihat Rincian</button>
+          </div>
+        </article>
+
+        <!-- ITEM 4 - LUNAS -->
+        <article class="payment-item">
+          <div class="payment-card">
+            <div class="payment-row">
+              <div class="payment-left">
+                <p class="payment-id">9876543210QR</p>
+                <p class="payment-name">Berlian Ika</p>
+                <p class="payment-method">Metode Pembayaran : QRIS</p>
+                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
+              </div>
+
+              <span class="status-pill status-lunas">LUNAS</span>
+            </div>
+          </div>
+
+          <div class="btn-detail-wrapper">
+            <button class="btn-detail" type="button">Lihat Rincian</button>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+      <div class="nav-item">
+        <img src="assets/nav-home.png" alt="Halaman Utama" class="nav-item-icon">
+        <span>Halaman Utama</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-booking.png" alt="Pemesanan" class="nav-item-icon">
+        <span>Pemesanan</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-studio.png" alt="Studio" class="nav-item-icon">
+        <span>Studio</span>
+      </div>
+
+      <div class="nav-item active">
+        <img src="assets/nav-payment.png" alt="Pembayaran" class="nav-item-icon">
+        <span>Pembayaran</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-more.png" alt="Lainnya" class="nav-item-icon">
+        <span>Lainnya</span>
+      </div>
+    </nav>
+
+  </div>
+</body>
+</html>

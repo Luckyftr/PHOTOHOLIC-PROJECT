@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masuk</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="masuk-admin.css">
+</head>
+
+<body>
+  <div class="phone">
+    <!-- status bar -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock">
+      </div>
+
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img">
+      </div>
+    </div>
+
+    <div class="screen">
+
+      <!-- ilustrasi -->
+      <div class="illustration">
+        <img src="assets/admin-fiks.png" alt="Ilustrasi" class="illustration-img">
+      </div>
+
+      <h1 class="title">Masuk</h1>
+      <p class="subtitle">
+        Selamat datang kembali! Silakan masukkan detail Anda.
+      </p>
+
+      <form>
+        <div class="input-group">
+          <input type="email" class="input-field" placeholder="Alamat Email" />
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <div class="input-with-icon">
+            <input type="password" id="password" placeholder="Kata Sandi" />
+            <button type="button" class="eye-icon" onclick="togglePassword('password', this)">
+              <img src="assets/eye-closed.png" alt="">
+            </button>
+          </div>
+        </div>
+
+        <!-- Lupa kata sandi -->
+        <div class="forgot-row">
+          <a href="#">Lupa Kata Sandi?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Masuk</button>
+      </form>
+
+  <!-- JS show/hide password -->
+  <script>
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const img = btn.querySelector("img");
+
+      if (input.type === "password") {
+        input.type = "text";
+        img.src = "assets/eye-open.png";
+      } else {
+        input.type = "password";
+        img.src = "assets/eye-closed.png";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-clock,
+.status-img {
+  height: 14px;
+}
+
+/* CONTENT */
+.screen {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  background: none;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.back-icon {
+  width: 28px;
+}
+
+/* TITLE */
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f766e;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* QR CARD */
+.qr-card {
+  width: 100%;
+  border: 2px solid #F2B6BB;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.qr-img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.note {
+  margin-top: 14px;
+  font-size: 11px;
+  text-align: center;
+  color: #555;
+  line-height: 1.4;
+}
