@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tambah Jadwal Pemesanan</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tambah-jadwal-offline.css">
+</head>
+
+<body>
+  <div class="phone">
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock">
+      </div>
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img">
+      </div>
+    </div>
+
+    <!-- KONTEN -->
+    <main class="schedule-screen">
+      <!-- HEADER ATAS -->
+      <div class="top-bar">
+        <button class="back-btn" type="button">
+          <img src="assets/back.png" alt="Kembali" class="back-icon">
+        </button>
+        <h1 class="page-title">Tambah Jadwal Pemesanan</h1>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-wrapper">
+
+        <!-- NAMA -->
+        <div class="form-group">
+          <label class="form-label">Nama Lengkap</label>
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Nama lengkap pemesan">
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="input-field"
+            placeholder="Email pemesan">
+        </div>
+
+        <!-- NOMOR TELP -->
+        <div class="form-group">
+          <label class="form-label">Nomor Telp</label>
+          <input
+            type="tel"
+            class="input-field"
+            placeholder="Nomor telp pemesan">
+        </div>
+
+        <!-- STUDIO -->
+        <div class="form-group">
+          <label class="form-label">Studio</label>
+          <div class="select-field">
+            <span class="select-text">Pilih studio photobooth</span>
+            <img src="assets/icon-chevron-down.png" alt="" class="select-icon">
+          </div>
+        </div>
+
+        <!-- TANGGAL -->
+        <div class="form-group">
+          <label class="form-label">Tanggal</label>
+          <div class="field-with-icon">
+            <span class="field-placeholder">Pilih tanggal booking</span>
+            <img src="assets/icon-calendar.png" alt="" class="icon-right">
+          </div>
+        </div>
+
+        <!-- SESI -->
+        <div class="form-group">
+          <label class="form-label">Sesi</label>
+          <div class="select-field">
+            <span class="select-text">Pilih sesi booking</span>
+            <img src="assets/icon-chevron-down.png" alt="" class="select-icon">
+          </div>
+        </div>
+
+        <!-- WAKTU -->
+        <div class="form-group">
+          <label class="form-label">Waktu</label>
+          <div class="field-with-icon">
+            <span class="field-placeholder">Pilih waktu booking</span>
+            <img src="assets/icon-info.png" alt="" class="icon-right">
+          </div>
+        </div>
+
+        <!-- METODE PEMBAYARAN -->
+        <div class="form-group">
+          <label class="form-label">Metode Pembayaran</label>
+          <div class="select-field">
+            <span class="select-text">Pilih metode pembayaran</span>
+            <img src="assets/icon-chevron-down.png" alt="" class="select-icon">
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL BAWAH -->
+      <div class="bottom-panel">
+        <div class="total-row">
+          <span class="total-label">Total</span>
+          <span class="total-value">Rp 0</span>
+        </div>
+
+        <button class="btn-pay" type="button">Ke Pembayaran</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY & FRAME HP */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.status-left,
+.status-icons {
+  display: flex;
+  align-items: center;
+}
+
+.status-clock,
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* KONTEN UTAMA */
+.screen {
+  flex: 1;
+  padding: 12px 16px 80px;
+  background: #f3f4f6;
+  overflow-y: auto;
+}
+
+/* TOP BAR (BACK) */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+  background: #1f9b76;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.back-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* KARTU BUKTI PEMBAYARAN */
+.invoice-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.invoice-card {
+  width: 100%;
+  max-width: 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #f24957;
+  padding: 16px 16px 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+/* HEADER INVOICE */
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.invoice-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.invoice-meta {
+  font-size: 9px;
+  text-align: right;
+  color: #4b5563;
+}
+
+.close-btn {
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.close-icon {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+}
+
+/* BLOK INFO ATAS */
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 10px;
+}
+
+.info-col-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.info-text {
+  line-height: 1.4;
+}
+
+/* GARIS PEMISAH */
+.separator {
+  border-top: 1px solid #d1d5db;
+  margin: 8px 0;
+}
+
+/* TABEL DESKRIPSI */
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.8fr 1fr;
+  font-size: 10px;
+  align-items: flex-start;
+}
+
+.table-header {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.table-row {
+  margin-bottom: 6px;
+}
+
+.table-cell-right {
+  text-align: right;
+}
+
+/* SUBTOTAL / TOTAL */
+.total-block {
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.total-label {
+  font-weight: 500;
+}
+
+.total-strong {
+  font-weight: 700;
+}
+
+/* METODE PEMBAYARAN */
+.pay-method {
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.pay-method-title {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.pay-method-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.pay-method-label {
+  font-weight: 500;
+}
+
+.pay-method-value-green {
+  color: #1f9b76;
+  font-weight: 600;
+}
+
+/* FOOTER COMPANY */
+.invoice-footer {
+  font-size: 9px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.footer-text {
+  line-height: 1.4;
+}
+
+.footer-logo {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  height: 64px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9px;
+  color: #9ca3af;
+}
+
+.nav-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #ef4444;
+}

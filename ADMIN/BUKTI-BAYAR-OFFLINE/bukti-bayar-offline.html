@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bukti Pembayaran</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bukti-bayar-offline.css">
+</head>
+
+<body>
+  <div class="phone">
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock">
+      </div>
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img">
+      </div>
+    </div>
+
+    <!-- KONTEN -->
+    <main class="screen">
+      <!-- TOP BAR BACK -->
+      <div class="top-bar">
+        <button class="back-btn" type="button">
+          <img src="assets/back.png" alt="Kembali" class="back-icon">
+        </button>
+      </div>
+
+      <!-- KARTU BUKTI PEMBAYARAN -->
+      <div class="invoice-wrapper">
+        <section class="invoice-card">
+          <button class="close-btn" type="button">
+            <img src="assets/close.png" alt="Tutup" class="close-icon">
+          </button>
+
+          <!-- HEADER -->
+          <div class="invoice-header">
+            <h1 class="invoice-title">
+              Bukti<br>Pembayaran
+            </h1>
+            <div class="invoice-meta">
+              <div>30 Oktober 2025</div>
+              <div>Bukti No. 12435</div>
+            </div>
+          </div>
+
+          <!-- INFO ATAS -->
+          <div class="info-top">
+            <div class="info-col">
+              <div class="info-col-title">Ditagihkan Kepada :</div>
+              <div class="info-text">
+                Lovina Putri<br>
+                081234567890<br>
+                lovinaputri@email.com
+              </div>
+            </div>
+
+            <div class="info-col">
+              <div class="info-col-title">Informasi Pemesanan :</div>
+              <div class="info-text">
+                30 Oktober 2025<br>
+                Studio 3 – Lavatory (GA040)<br>
+                15:00 WIB – 15:05 WIB
+              </div>
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <!-- TABEL DESKRIPSI -->
+          <div class="table-header">
+            <div>Deskripsi</div>
+            <div class="table-cell-right">Harga</div>
+            <div class="table-cell-right">Sesi</div>
+            <div class="table-cell-right">Jumlah</div>
+          </div>
+
+          <div class="table-row">
+            <div>Studio 3 – Lavatory (GA040)</div>
+            <div class="table-cell-right">Rp35.000/Sesi</div>
+            <div class="table-cell-right">1</div>
+            <div class="table-cell-right">Rp35.000</div>
+          </div>
+
+          <div class="separator"></div>
+
+          <!-- SUBTOTAL / TOTAL -->
+          <div class="total-block">
+            <div class="total-line">
+              <span class="total-label">Subtotal</span>
+              <span>Rp35.000</span>
+            </div>
+            <div class="total-line">
+              <span class="total-label">Pajak(0%)</span>
+              <span>Rp0</span>
+            </div>
+            <div class="total-line">
+              <span class="total-label total-strong">Total</span>
+              <span class="total-strong">Rp35.000</span>
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <!-- METODE PEMBAYARAN -->
+          <div class="pay-method">
+            <div class="pay-method-title">Metode Pembayaran</div>
+
+            <div class="pay-method-row">
+              <span class="pay-method-label">Metode:</span>
+              <span class="pay-method-value-green">Tunai</span>
+            </div>
+
+            <div class="pay-method-row">
+              <span class="pay-method-label">ID Transaksi:</span>
+              <span>912481948QR</span>
+            </div>
+
+            <div class="pay-method-row">
+              <span class="pay-method-label">Tanggal Bayar:</span>
+              <span>30 Oktober 2025</span>
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <!-- FOOTER PERUSAHAAN -->
+          <div class="invoice-footer">
+            <div class="footer-text">
+              Photoholic Indonesia<br>
+              Plaza Tunjungan Lt. 2 no. 24–08<br>
+              0851 2400 0950
+            </div>
+            <img src="assets/logo1.png" alt="Photoholic" class="footer-logo">
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+      <div class="nav-item">
+        <img src="assets/nav-home.png" alt="Halaman Utama" class="nav-item-icon">
+        <span>Halaman Utama</span>
+      </div>
+
+      <div class="nav-item active">
+        <img src="assets/nav-booking.png" alt="Pemesanan" class="nav-item-icon">
+        <span>Pemesanan</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-studio.png" alt="Studio" class="nav-item-icon">
+        <span>Studio</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-payment.png" alt="Pembayaran" class="nav-item-icon">
+        <span>Pembayaran</span>
+      </div>
+
+      <div class="nav-item">
+        <img src="assets/nav-more.png" alt="Lainnya" class="nav-item-icon">
+        <span>Lainnya</span>
+      </div>
+    </nav>
+  </div>
+</body>
+</html>
