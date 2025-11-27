@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Masuk</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="masuk.css">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="masuk.css">
 </head>
 
 <body>
@@ -22,6 +22,7 @@
       </div>
     </div>
 
+    <!-- KONTEN UTAMA -->
     <div class="screen">
 
       <!-- ilustrasi -->
@@ -59,7 +60,7 @@
 
       <!-- Google login -->
       <div class="google-section">
-        <button type="button" class="google-btn">
+        <button type="button" class="google-btn" id="btnGoogleLogin">
           <img src="assets/google.png" alt="Google" class="google-logo">
         </button>
       </div>
@@ -69,9 +70,123 @@
       </p>
 
     </div>
+
+    <!-- ========== POPUP 0: sistem “ingin masuk menggunakan google.com” ========== -->
+    <div class="google-modal-backdrop" id="googleModalStep0">
+      <div class="google-modal">
+        <h2 class="google-modal-title">
+          “Photoholic” ingin masuk menggunakan "google.com"
+        </h2>
+
+        <p class="google-modal-text">
+          Hal ini memungkinkan aplikasi dan situs web untuk berbagi informasi Anda.
+        </p>
+
+        <div class="google-modal-actions">
+          <button class="btn-outline" id="btnBatalStep0">Batal</button>
+          <button class="btn-filled" id="btnLanjutStep0">Lanjut</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== POPUP 1: PILIH AKUN ========== -->
+    <div class="google-modal-backdrop" id="googleModalStep1">
+      <div class="google-modal google-modal-large">
+        <!-- header bar -->
+        <div class="google-modal-header-bar">
+          <img src="assets/google.png" alt="Google" class="google-header-logo">
+          <span>Masuk dengan Google</span>
+        </div>
+
+        <div class="google-modal-body">
+          <h2 class="google-modal-title center">
+            Pilih Akun
+          </h2>
+          <p class="google-modal-subtitle">
+            untuk melanjutkan ke Photoholic
+          </p>
+
+          <div class="google-account-list">
+            <!-- akun 1 -->
+            <button type="button" class="google-account-item account-select">
+              <img src="assets/user1.png" alt="Foto profil" class="google-account-avatar">
+              <div class="google-account-text">
+                <p class="google-account-name">23081010056 BERLIAN IKA ISABELA</p>
+                <p class="google-account-email">23081010056@student.upnjatim.ac.id</p>
+              </div>
+            </button>
+
+            <!-- akun 2 -->
+            <button type="button" class="google-account-item account-select">
+              <img src="assets/user2.png" alt="Foto profil" class="google-account-avatar">
+              <div class="google-account-text">
+                <p class="google-account-name">beerlnkaaIsabella</p>
+                <p class="google-account-email">beerlnkaaIsabella@gmail.com</p>
+              </div>
+            </button>
+
+            <!-- gunakan akun lain -->
+            <button type="button" class="google-account-item account-select no-border" id="btnUseAnother">
+              <div class="google-account-icon">
+                <span class="google-user-icon-circle"></span>
+              </div>
+              <div class="google-account-text">
+                <p class="google-account-name">Gunakan akun lain</p>
+              </div>
+            </button>
+          </div>
+
+          <p class="google-modal-footer-note">
+            Untuk melanjutkan, Google akan membagikan nama Anda, alamat email, dan foto profil dengan Photoholic.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== POPUP 2: KONFIRMASI MASUK ========== -->
+    <div class="google-modal-backdrop" id="googleModalStep2">
+      <div class="google-modal google-modal-confirm">
+        <!-- header bar -->
+        <div class="google-modal-header-bar">
+          <img src="assets/google.png" alt="Google" class="google-header-logo">
+          <span>Masuk dengan Google</span>
+        </div>
+
+        <div class="google-modal-body">
+          <h2 class="google-modal-title">
+            Masuk ke Photoholic
+          </h2>
+
+          <!-- akun terpilih -->
+          <button type="button" class="google-selected-account">
+            <div class="selected-account-left">
+              <img src="assets/user2.png" alt="Foto profil" class="google-account-avatar">
+              <span class="selected-account-email">beerlnkaaIsabella@gmail.com</span>
+            </div>
+            <span class="selected-account-chevron">▾</span>
+          </button>
+
+          <p class="google-modal-text detail">
+            Dengan melanjutkan, Google akan membagikan nama Anda, alamat email,
+            preferensi bahasa, dan foto profil Anda dengan Photoholic.
+            Silakan merujuk ke Kebijakan Privasi dan Syarat Layanan Photoholic.
+          </p>
+
+          <p class="google-modal-text link-note">
+            Anda dapat mengelola masuk Google di <span class="text-link">Akun Google</span> Anda.
+          </p>
+
+          <div class="google-modal-actions bottom">
+            <button class="btn-outline" id="btnBatalStep2">Batal</button>
+            <button class="btn-filled" id="btnLanjutStep2">Lanjut</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- JS show/hide password -->
+  <!-- JS -->
   <script>
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
@@ -85,6 +200,73 @@
         img.src = "assets/eye-closed.png";
       }
     }
+
+    // tombol utama
+    const btnGoogleLogin = document.getElementById('btnGoogleLogin');
+
+    // modal step 0
+    const modal0 = document.getElementById('googleModalStep0');
+    const btnBatal0 = document.getElementById('btnBatalStep0');
+    const btnLanjut0 = document.getElementById('btnLanjutStep0');
+
+    // modal step 1
+    const modal1 = document.getElementById('googleModalStep1');
+    const accountButtons = document.querySelectorAll('.account-select');
+    const btnUseAnother = document.getElementById('btnUseAnother');
+
+    // modal step 2
+    const modal2 = document.getElementById('googleModalStep2');
+    const btnBatal2 = document.getElementById('btnBatalStep2');
+    const btnLanjut2 = document.getElementById('btnLanjutStep2');
+
+    // klik icon Google -> buka step 0
+    btnGoogleLogin.addEventListener('click', () => {
+      modal0.classList.add('show');
+    });
+
+    // step 0: batal / lanjut
+    btnBatal0.addEventListener('click', () => {
+      modal0.classList.remove('show');
+    });
+
+    btnLanjut0.addEventListener('click', () => {
+      modal0.classList.remove('show');
+      modal1.classList.add('show');
+    });
+
+    // step 1: pilih akun -> ke step 2
+    accountButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal1.classList.remove('show');
+        modal2.classList.add('show');
+      });
+    });
+
+    // khusus "Gunakan akun lain" -> langsung ke login Google
+    btnUseAnother.addEventListener('click', (e) => {
+      e.stopPropagation(); // biar gak ikut open step2
+      modal1.classList.remove('show');
+      window.location.href = "https://accounts.google.com/signin";
+    });
+
+    // step 2: batal / lanjut
+    btnBatal2.addEventListener('click', () => {
+      modal2.classList.remove('show');
+    });
+
+    btnLanjut2.addEventListener('click', () => {
+      // ganti dengan beranda kamu
+      window.location.href = 'beranda.html';
+    });
+
+    // klik area abu-abu menutup modal (opsional)
+    [modal0, modal1, modal2].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+        }
+      });
+    });
   </script>
 </body>
 </html>

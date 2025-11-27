@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profil</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="edit-profil.css">
+</head>
+
+<body>
+  <div class="phone">
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock">
+      </div>
+
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img">
+      </div>
+    </div>
+
+    <!-- HEADER ATAS -->
+    <header class="app-header">
+      <button class="back-btn">
+        <!-- pakai icon sendiri kalau ada -->
+        <img src="assets/back.png" alt="Kembali">
+      </button>
+      <h1 class="header-title">Edit Profil</h1>
+      <div class="header-spacer"></div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main class="edit-screen">
+      <!-- KARTU PROFIL -->
+      <section class="profile-card">
+        <div class="photo-wrapper">
+          <img src="assets/profile-photo.png" alt="Foto Profil" class="profile-photo" id="profilePreview">
+          <button type="button" class="change-photo-btn" id="changePhotoBtn">
+            Ganti Foto
+          </button>
+          <input type="file" id="photoInput" accept="image/*" hidden>
+        </div>
+
+        <p class="profile-email-info">
+          Foto dan data ini akan digunakan untuk akun Photoholic Anda.
+        </p>
+      </section>
+
+      <!-- FORM EDIT DATA -->
+      <section class="form-section">
+        <form>
+          <div class="form-group">
+            <label for="fullName">Nama Lengkap</label>
+            <input type="text" id="fullName" placeholder="Berlian Ika Isabela" value="Berlian Ika Isabela">
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="@berliann" value="@berliann">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Terhubung</label>
+            <input type="email" id="email" placeholder="beerlnkaaisbella@gmail.com" value="beerlnkaaisbella@gmail.com">
+            <p class="helper-text">Email ini digunakan untuk masuk dan menerima notifikasi.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Nomor Telepon</label>
+            <div class="phone-row">
+              <span class="phone-code">+62</span>
+              <input type="tel" id="phone" placeholder="81234567899" value="81234567899">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-secondary">Batal</button>
+            <button type="submit" class="btn-primary">Simpan</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+        <!-- POPUP BERHASIL DISIMPAN -->
+    <div class="success-modal-backdrop" id="successModal">
+      <div class="success-modal">
+        <div class="success-icon">✓</div>
+        <h2 class="success-title">Profil berhasil disimpan</h2>
+        <p class="success-text">
+          Perubahan data profilmu sudah diperbarui.
+        </p>
+        <button type="button" class="success-btn" id="successOkBtn">
+          Oke
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS kecil buat ganti foto -->
+  <script>
+    const changePhotoBtn = document.getElementById('changePhotoBtn');
+    const photoInput = document.getElementById('photoInput');
+    const profilePreview = document.getElementById('profilePreview');
+
+    changePhotoBtn.addEventListener('click', () => {
+      photoInput.click();
+    });
+
+    photoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        profilePreview.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+        // FORM: tampilkan popup "berhasil disimpan"
+    const form = document.querySelector('.form-section form');
+    const successModal = document.getElementById('successModal');
+    const successOkBtn = document.getElementById('successOkBtn');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();          // biar ga reload dulu
+      successModal.classList.add('show');
+      // di sini nanti kamu bisa kirim data ke backend pakai fetch/AJAX
+    });
+
+    successOkBtn.addEventListener('click', () => {
+      successModal.classList.remove('show');
+      // optional: balik ke halaman profil utama
+      // window.location.href = 'profil.html';
+    });
+  </script>
+</body>
+</html>

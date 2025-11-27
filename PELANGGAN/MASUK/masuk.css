@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Commissioner", sans-serif;
   background: #d4d4d4;
   display: flex;
   justify-content: center;
@@ -21,6 +21,7 @@ body {
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 0 0 2px #bdbdbd;
+  position: relative;
 }
 
 /* Status Bar */
@@ -35,27 +36,16 @@ body {
   border-bottom: 1px solid #eeeeee;
 }
 
-/* kiri: jam */
-.status-left {
-  display: flex;
-  align-items: center;
-}
-
-.status-clock {
-  height: 14px;
-  width: auto;
-}
-
-/* kanan: icon sinyal/wifi/baterai */
+.status-left,
 .status-icons {
   display: flex;
   align-items: center;
 }
 
+.status-clock,
 .status-img {
   height: 14px;
   width: auto;
-  object-fit: contain;
 }
 
 /* Container isi */
@@ -197,4 +187,262 @@ form {
 .bottom-text a {
   font-weight: 600;
   color: #111827;
+}
+
+/* ========================= */
+/*       MODAL BASE          */
+/* ========================= */
+
+.google-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  z-index: 50;
+}
+
+.google-modal-backdrop.show {
+  display: flex;
+}
+
+.google-modal {
+  width: 100%;
+  max-width: 320px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 18px 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins", sans-serif;
+}
+
+.google-modal-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.google-modal-text {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.google-modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.google-modal-actions.bottom {
+  margin-top: 18px;
+}
+
+/* BUTTON BATAL (OUTLINE) */
+.google-modal-actions .btn-outline {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+/* BUTTON LANJUT (HIJAU) */
+.google-modal-actions .btn-filled {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: #159b75;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* ========================= */
+/* MODAL 1: PILIH AKUN       */
+/* ========================= */
+
+.google-modal-large {
+  max-width: 340px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.google-modal-header-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.google-header-logo {
+  width: 18px;
+  height: 18px;
+}
+
+.google-modal-body {
+  padding: 16px 20px 18px;
+}
+
+.google-modal-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.google-account-list {
+  margin-top: 16px;
+}
+
+.google-account-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  text-align: left;
+}
+
+.google-account-item.no-border {
+  border-bottom: none;
+}
+
+.google-account-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.google-account-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.google-account-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.google-account-email {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* icon user garis */
+.google-account-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-user-icon-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+}
+
+.google-modal-footer-note {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #6b7280;
+}
+
+/* ========================= */
+/* MODAL 2: KONFIRMASI       */
+/* ========================= */
+
+.google-modal-confirm {
+  max-width: 320px;
+  padding: 0;
+}
+
+.google-modal-confirm .google-modal-body {
+  padding: 16px 20px 18px;
+}
+
+.google-selected-account {
+  margin-top: 12px;
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #2563eb;
+  background: #e0ecff;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.selected-account-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selected-account-email {
+  font-size: 11px;
+  color: #111827;
+}
+
+.selected-account-chevron {
+  font-size: 12px;
+}
+
+.google-modal-text.detail {
+  margin-top: 14px;
+}
+
+.google-modal-text.link-note {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.text-link {
+  color: #2563eb;
+}
+
+/* ========================= */
+/* KHUSUS POPUP STEP 0       */
+/* ========================= */
+
+#googleModalStep0 .google-modal {
+  text-align: center;        /* ini bikin semua konten di tengah */
+}
+
+#googleModalStep0 .google-modal-title,
+#googleModalStep0 .google-modal-text {
+  text-align: center;        /* jaga-jaga override style lain */
+}
+
+#googleModalStep0 .google-modal-title {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+#googleModalStep0 .google-modal-text {
+  font-size: 12px;
+  margin-bottom: 20px;
 }
