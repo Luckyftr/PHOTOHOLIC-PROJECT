@@ -1,0 +1,142 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* BODY & PHONE FRAME */
+  body {
+    font-family: "Commissioner", sans-serif;
+    background: #d4d4d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .phone {
+    width: 360px;
+    height: 800px;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px #bdbdbd;
+    position: relative;
+  }
+  
+  /* STATUS BAR */
+  .status-bar {
+    height: 32px;
+    padding: 0 12px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status-clock,
+  .status-icons {
+    height: 16px;
+  }
+  
+  /* HEADER */
+  .topbar {
+    background: #F2B6BB;
+    padding: 12px 16px;
+  }
+  
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .logo {
+    height: 32px;
+  }
+  
+  .page-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e84a5f;
+  }
+  
+  /* CONTENT WRAPPER */
+  .logout-wrapper {
+    padding: 24px 16px;
+    background: #ffffff;
+    height: calc(800px - 32px - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* LOGOUT CARD */
+  .logout-card {
+    width: 100%;
+    padding: 24px 18px 20px;
+    background: #fff5f7;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+  
+  .logout-icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ffe0e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+  
+  .logout-icon {
+    font-size: 26px;
+    color: #e84a5f;
+    transform: rotate(180deg); /* biar kayak icon keluar */
+  }
+  
+  .logout-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e84a5f;
+    margin-bottom: 8px;
+  }
+  
+  .logout-text {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  /* BUTTONS */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 11px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* Keluar */
+  .btn-primary {
+    border: none;
+    background: #e84a5f;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  
+  /* Batal */
+  .btn-secondary {
+    border: 1px solid #e84a5f;
+    background: transparent;
+    color: #e84a5f;
+  }
+  

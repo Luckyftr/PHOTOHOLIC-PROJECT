@@ -1,0 +1,112 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Commissioner", sans-serif;
+    background: #d4d4d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .phone {
+    width: 360px;
+    height: 800px;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px #bdbdbd;
+    position: relative;
+  }
+  
+  /* STATUS BAR */
+  .status-bar {
+    height: 32px;
+    padding: 0 12px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status-clock,
+  .status-icons {
+    height: 16px;
+  }
+  
+  /* HEADER */
+  .topbar {
+    background: #F2B6BB;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #F2B6BB;
+  }
+  
+  .logo {
+    height: 50px;
+    margin-bottom: 4px;
+  }
+  
+  .page-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e84a5f;
+  }
+  
+  /* FORM CARD */
+  .form-card {
+    margin: 24px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  }
+  
+  .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #f3b7c4;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  
+  .btn-ganti {
+    width: 100%;
+    background: #e84a5f;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .btn-cancel {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #e84a5f;
+    color: #e84a5f;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  

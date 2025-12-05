@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #d4d4d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Frame HP */
+  .phone {
+    width: 360px;
+    height: 800px;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px #bdbdbd;
+  }
+  
+  /* Status Bar */
+  .status-bar {
+    height: 32px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  /* kiri: jam */
+  .status-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-clock {
+    height: 14px;
+    width: auto;
+  }
+  
+  /* kanan: icon sinyal/wifi/baterai */
+  .status-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-img {
+    height: 14px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  /* Container isi */
+  .screen {
+    padding: 16px 32px 32px;
+  }
+  
+  /* baris tombol back */
+  .top-row {
+    margin-bottom: 16px;
+  }
+  
+  /* tombol back pakai gambar back.png */
+  .back-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .back-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  /* Title & Subtitle */
+  .title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  
+  .subtitle {
+    text-align: left;
+    font-size: 12px;
+    color: #4b5563;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .input-group {
+    width: 100%;
+  }
+  
+  .input-field,
+  .input-with-icon {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 12px 14px;
+    font-size: 13px;
+    background: #ffffff;
+  }
+  
+  .input-with-icon {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+  }
+  
+  .input-with-icon input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 13px;
+  }
+  
+  /* Eye icon */
+  .eye-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .eye-icon img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Button Kirim */
+  .btn-primary {
+    margin-top: 16px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    background: #add3cc;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  

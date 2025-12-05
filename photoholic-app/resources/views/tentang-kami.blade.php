@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang Kami</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/pelanggan/tentang-kami.css') }}">
+</head>
+
+<body>
+  <div class="phone">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <img src="{{ asset('asset/pelanggan/tentang-kami/jam.png') }}" class="status-clock">
+      <img src="{{ asset('asset/pelanggan/tentang-kami/icons.png') }}" class="status-icons">
+    </div>
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <img src="{{ asset('asset/pelanggan/tentang-kami/logo-header.png') }}" class="logo">
+        <h1 class="page-title">Tentang Kami</h1>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="about-wrapper">
+
+      <!-- LOGO & SHORT TEXT -->
+      <section class="about-hero-card">
+        <div class="about-logo-circle">
+          <img src="{{ asset('asset/pelanggan/tentang-kami/logo1.png') }}" alt="Photoholic" class="about-logo">
+        </div>
+        <div class="about-hero-text">
+          <h2>Photoholic</h2>
+          <p>
+            Photoholic adalah layanan studio & photobooth
+            yang siap menangkap momen spesialmu dengan cara
+            yang fun dan estetik.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION: VISI MISI -->
+      <section class="about-section">
+        <h3 class="about-title">Visi</h3>
+        <p class="about-paragraph">
+          Menjadi pilihan utama untuk mengabadikan momen
+          bahagia dengan pengalaman pemotretan yang hangat,
+          nyaman, dan menyenangkan.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h3 class="about-title">Misi</h3>
+        <ul class="about-list">
+          <li>Menyediakan layanan foto yang ramah dan profesional.</li>
+          <li>Menghadirkan hasil foto yang berkualitas dan memorable.</li>
+          <li>Memberikan proses pemesanan yang mudah dan jelas.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION: KENAPA MEMILIH KAMI -->
+      <section class="about-section">
+        <h3 class="about-title">Kenapa memilih Photoholic?</h3>
+        <div class="about-feature">
+          <span class="about-dot"></span>
+          <p>Tim fotografer berpengalaman dan komunikatif.</p>
+        </div>
+        <div class="about-feature">
+          <span class="about-dot"></span>
+          <p>Pilihan paket studio & photobooth yang fleksibel.</p>
+        </div>
+        <div class="about-feature">
+          <span class="about-dot"></span>
+          <p>Proses booking, pembayaran, dan cek jadwal bisa melalui aplikasi.</p>
+        </div>
+      </section>
+
+      <!-- SECTION: KONTAK SINGKAT -->
+      <section class="about-section contact-section">
+        <h3 class="about-title">Kontak</h3>
+        <p class="about-paragraph">
+          Instagram: @photoholic<br>
+          Email: photoholicstudio@mail.com<br>
+          WhatsApp: 0812-xxxx-xxxx
+        </p>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

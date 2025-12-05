@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faktur</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/pelanggan/bayar-gagal.css') }}">
+</head>
+
+<body>
+  <div class="phone">
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="{{ asset('asset/pelanggan/bayar-gagal/jam.png') }}" class="status-clock" alt="Jam">
+      </div>
+      <div class="status-icons">
+        <img src="{{ asset('asset/pelanggan/bayar-gagal/icons.png') }}" class="status-img" alt="Status Icons">
+      </div>
+    </div>
+
+    <!-- HEADER ATAS -->
+    <header class="app-header">
+      <img src="{{ asset('asset/pelanggan/bayar-gagal/logo-header.png') }}" class="header-logo" alt="Photoholic">
+
+      <nav class="header-nav">
+        <a href="/beranda" class="nav-link">Beranda</a>
+        <a href="/studio" class="nav-link">Studio</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/pemesanan" class="nav-link active">Pemesanan</a>
+      </nav>
+
+      <button class="profile-btn" type="button" onclick="location.href='/profil'">
+        <img src="{{ asset('asset/pelanggan/bayar-gagal/icon-profil.png') }}" class="profile-icon" alt="Profil">
+      </button>
+    </header>
+
+    <!-- ISI LAYAR -->
+    <main class="screen">
+      <!-- BARIS JUDUL -->
+      <div class="page-title-row">
+        <button class="back-btn" type="button" onclick="location.href='/beranda'">
+          <img src="{{ asset('asset/pelanggan/bayar-gagal/back.png') }}" class="back-icon" alt="Kembali">
+        </button>
+      </div>
+
+      <!-- KARTU FAKTUR -->
+        <div class="invoice-card cancelled">
+
+        <!-- BARIS ATAS: JUDUL + TANGGAL & NO FAKTUR -->
+        <div class="invoice-header">
+          <div class="invoice-title">Faktur</div>
+          <div class="invoice-meta">
+            <p>16 Oktober 2024</p>
+            <p>Faktur No: 12345</p>
+          </div>
+        </div>
+
+        <!-- BAGIAN DITAGIHKAN & INFORMASI PEMESANAN -->
+        <div class="invoice-info-row">
+          <div class="invoice-info-block">
+            <h3>Ditagihkan Kepada:</h3>
+            <p>Berlian Ika Isabela</p>
+            <p>081234567890</p>
+            <p>berlianikasabella@gmail.com</p>
+          </div>
+
+          <div class="invoice-info-block right">
+            <h3>Informasi Pemesanan:</h3>
+            <p>14 Februari 2026</p>
+            <p>Classy (5x40)</p>
+            <p>15:00 WIB – 15:05 WIB</p>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- TABEL DESKRIPSI -->
+        <div class="invoice-table">
+          <div class="table-header">
+            <span>Deskripsi</span>
+            <span>Harga</span>
+            <span>Sesi</span>
+            <span>Jumlah</span>
+          </div>
+
+          <div class="table-row">
+            <span>Studio 1 : Classy (5x40)</span>
+            <span>Rp45.000/Sesi</span>
+            <span>1</span>
+            <span>Rp45.000</span>
+          </div>
+        </div>
+
+        <!-- RINCIAN TOTAL -->
+        <div class="invoice-total">
+
+          <div class="total-row">
+            <span>Subtotal</span>
+            <span>Rp45.000</span>
+          </div>
+
+          <div class="total-row">
+            <span>Pajak (0%)</span>
+            <span>Rp0</span>
+          </div>
+
+          <div class="total-row total-final">
+            <span>Total</span>
+            <span>Rp45.000</span>
+          </div>
+        </div>
+
+        <hr class="divider bottom">
+
+        <!-- FOOTER FAKTUR -->
+        <div class="invoice-footer">
+          <div class="footer-text">
+            <p>Photoholic Indonesia</p>
+            <p>Pasar Tukupring 2 no. 84–85</p>
+            <p>0851 2400 0950</p>
+          </div>
+          <div class="footer-logo">
+            <!-- pakai brand/logo kamu sendiri -->
+            <img src="{{ asset('asset/pelanggan/bayar-gagal/logo1.png') }}" alt="Photoholic" class="footer-logo-img">
+          </div>
+        </div>
+      </section>
+
+      </button>
+    </main>
+  </div>
+</body>
+
+</html>
