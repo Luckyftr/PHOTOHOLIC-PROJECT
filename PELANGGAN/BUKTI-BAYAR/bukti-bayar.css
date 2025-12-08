@@ -135,17 +135,18 @@ body {
 /* CARD */
 .booking-card {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   background: #ffffff;
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  align-items: flex-start;
 }
 
 .studio-img {
-  width: 95px;
-  height: 95px;
-  border-radius: 8px;
+  width: 120px;
+  height: 150px;   /* besar, mirip studio di beranda */
+  border-radius: 12px;
   object-fit: cover;
 }
 
@@ -153,58 +154,66 @@ body {
   flex: 1;
 }
 
+/* baris judul + badge */
 .top-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;          /* kalau kepanjangan, badge boleh turun ke bawah */
 }
 
 .studio-title {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-/* BADGE STATUS */
+/* BADGE STATUS – oval menyesuaikan teks */
 .badge {
-  font-size: 10px;
-  padding: 4px 14px;  
-  border-radius: 50px;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
   font-weight: 600;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 110px;
+  transition: background 0.25s ease, color 0.25s ease; /* animasi halus saat warna berubah */
 }
 
-/* Status Lunas */
+/* Lunas */
 .badge.available {
   background: #0f766e;
-  color: white;
+  color: #ffffff;
 }
 
-/* Status Menunggu Pembayaran */
+/* Menunggu Pembayaran */
 .badge.pending {
   background: #f4a400;
-  color: white;
+  color: #ffffff;
 }
 
-/* Status Dibatalkan */
+/* Sedang Diproses (opsional, untuk nanti kalau ada status ini) */
+.badge.process {
+  background: #2563eb;      /* biru */
+  color: #ffffff;
+}
+
+/* Dibatalkan */
 .badge.cancelled {
   background: #d62828;
-  color: white;
+  color: #ffffff;
 }
 
 .studio-info {
-  font-size: 11px;
-  color: #444;
-  margin-bottom: 2px;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .studio-total {
-  font-size: 11px;
-  font-weight: 600;
-  margin: 6px 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 8px 0 6px;
 }
 
 /* BUTTON */

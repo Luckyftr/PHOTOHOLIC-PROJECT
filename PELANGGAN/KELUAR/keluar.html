@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keluar</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="keluar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="keluar.css">
 </head>
 
 <body>
@@ -14,15 +14,14 @@
 
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <img src="assets/jam.png" class="status-clock">
-      <img src="assets/icons.png" class="status-icons">
+      <img src="assets/jam.png" class="status-clock" alt="Jam">
+      <img src="assets/icons.png" class="status-icons" alt="Status Icons">
     </div>
 
-    <!-- HEADER -->
+    <!-- HEADER (hanya logo di area pink) -->
     <header class="topbar">
       <div class="topbar-inner">
-        <img src="assets/logo-header.png" class="logo">
-        <h1 class="page-title">Keluar</h1>
+        <img src="assets/logo-header.png" class="logo" alt="Photoholic">
       </div>
     </header>
 
@@ -31,8 +30,8 @@
 
       <section class="logout-card">
         <div class="logout-icon-circle">
-          <!-- kalau punya icon keluar sendiri, ganti jadi <img> -->
-          <span class="logout-icon">⇦</span>
+          <!-- kalau punya icon keluar sendiri, bisa ganti span ini jadi <img> -->
+          <span class="logout-icon">⎋</span>
         </div>
 
         <h2 class="logout-title">Yakin ingin keluar?</h2>
@@ -41,13 +40,11 @@
           Kamu tetap bisa masuk kembali kapan saja.
         </p>
 
-        <button class="btn-primary">Keluar dari Akun</button>
-        <button class="btn-secondary">Batal</button>
+        <button class="btn-primary" type="button">Keluar dari Akun</button>
+        <button class="btn-secondary" type="button">Batal</button>
       </section>
 
     </div>
   </div>
-
-  <script src="rating-aplikasi.js"></script>
 </body>
 </html>

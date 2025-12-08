@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beranda Photoholic</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="beranda.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="beranda.css">
 </head>
 
 <body>
@@ -37,10 +37,27 @@
     <!-- CONTENT -->
     <div class="screen">
 
-      <!-- HERO BANNER -->
-      <section class="hero-banner">
-        <img src="assets/hero-weekend.png" alt="Happy Weekend" class="hero-image">
-      </section>
+    <!-- HERO BANNER SLIDER -->
+    <section class="hero-banner">
+      <div class="hero-slider">
+        <div class="hero-slide active">
+          <img src="assets/hero-weekend1.png" alt="Happy Weekend 1">
+        </div>
+        <div class="hero-slide">
+          <img src="assets/hero-weekend2.png" alt="Happy Weekend 2">
+        </div>
+        <div class="hero-slide">
+          <img src="assets/hero-weekend3.png" alt="Happy Weekend 3">
+        </div>
+      </div>
+
+      <!-- Titik indikator -->
+      <div class="hero-dots">
+        <span class="hero-dot active" data-slide="0"></span>
+        <span class="hero-dot" data-slide="1"></span>
+        <span class="hero-dot" data-slide="2"></span>
+      </div>
+    </section>
 
       <!-- BOOKING WIDGET -->
       <section class="booking-widget">
@@ -62,7 +79,6 @@
               <option>Sesi</option>
               <option>Sesi 1</option>
               <option>Sesi 2</option>
-              <option>Sesi 3</option>
             </select>
           </div>
 
@@ -77,17 +93,21 @@
           <div class="booking-field">
             <select class="booking-select">
               <option>Waktu</option>
-              <option>10.00</option>
-              <option>11.00</option>
-              <option>12.00</option>
+              <option>10.05</option>
+              <option>10.10</option>
+              <option>10.15</option>
+              <option>10.20</option>
+              <option>10.25</option>
+              <option>10.30</option>
             </select>
           </div>
         </div>
 
-<button class="booking-check-btn">
-  <img src="assets/icon-search.png" style="width:14px">
-  Cek Ketersediaan
-</button>
+        <button class="booking-check-btn">
+          <img src="assets/cari.png" style="width:12px" alt="Cari">
+          Cek Ketersediaan
+        </button>
+      </section> <!-- /booking-widget -->
 
       <!-- PILIH STUDIO -->
       <section class="section">
@@ -109,7 +129,7 @@
             <div class="studio-body">
               <h3>Lavatory</h3>
               <p class="studio-desc">Max 6 Orang<br>Photo Paper 4R</p>
-              <p class="studio-price">Rp 45.000/Sesi</p>
+              <p class="studio-price">Rp 35.000/Sesi</p>
               <button class="studio-btn">Pesan Sekarang</button>
             </div>
           </article>
@@ -118,8 +138,8 @@
             <img src="assets/studio-oven.png" class="studio-img" alt="Oven">
             <div class="studio-body">
               <h3>Oven</h3>
-              <p class="studio-desc">Max 6 Orang<br>Photo Paper 4R</p>
-              <p class="studio-price">Rp 45.000/Sesi</p>
+              <p class="studio-desc">Max 4 Orang<br>Photo Paper 4R</p>
+              <p class="studio-price">Rp 35.000/Sesi</p>
               <button class="studio-btn">Pesan Sekarang</button>
             </div>
           </article>
@@ -128,7 +148,7 @@
             <img src="assets/studio-spotlight.png" class="studio-img" alt="Spotlight">
             <div class="studio-body">
               <h3>Spotlight</h3>
-              <p class="studio-desc">Max 6 Orang<br>Photo Paper 4R</p>
+              <p class="studio-desc">Max 10 Orang<br>Photo Paper 4R</p>
               <p class="studio-price">Rp 45.000/Sesi</p>
               <button class="studio-btn">Pesan Sekarang</button>
             </div>
@@ -169,5 +189,41 @@
     </footer>
 
   </div><!-- /phone -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
+    let current = 0;
+    const interval = 4000; // ganti slide tiap 4 detik
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.toggle("active", i === index);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle("active", i === index);
+      });
+      current = index;
+    }
+
+    function nextSlide() {
+      const next = (current + 1) % slides.length;
+      showSlide(next);
+    }
+
+    // auto slide
+    let timer = setInterval(nextSlide, interval);
+
+    // klik dot untuk pindah manual
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        const index = Number(dot.dataset.slide);
+        showSlide(index);
+        clearInterval(timer);           // reset timer biar nggak langsung lompat
+        timer = setInterval(nextSlide, interval);
+      });
+    });
+  });
+</script>
 </body>
 </html>

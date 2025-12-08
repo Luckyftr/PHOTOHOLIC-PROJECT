@@ -92,60 +92,105 @@ body {
   background: #f5f5f5;
 }
 
-/* HERO BANNER */
+/* HERO BANNER SLIDER */
 .hero-banner {
   margin: 0 -16px 0;
+  position: relative;
 }
 
-.hero-image {
+.hero-slider {
+  position: relative;
   width: 100%;
-  height: 170px;
+  height: 170px;          /* tinggi banner, boleh diubah */
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
+/* TITIK / DOTS */
+.hero-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.hero-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+
+.hero-dot.active {
+  background: #F24957;
+  border-color: #F24957;
+}
+
 /* BOOKING WIDGET */
-/* BOOKING WIDGET FIXED */
 .booking-widget {
   background: #ffe0e4;
-  margin-top: -20px;
+  margin-top: 20px;
   border-radius: 20px;
-  padding: 16px 14px 18px;
+  padding: 18px 16px 20px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
   position: relative;
   z-index: 5;
 }
 
-/* Judul “Pesan Photobooth” */
 .booking-title {
   font-size: 15px;
   font-weight: 700;
   text-align: center;
   color: #F24957;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-/* Grid 4 kolom sesuai Figma */
+/* GRID PILIHAN (Studio/Sesi/Tanggal/Waktu) */
+/* kolom ke-3 (Tanggal) dibuat lebih lebar */
 .booking-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
-  gap: 6px;
-  margin-bottom: 12px;
+  grid-template-columns: 0.9fr 0.9fr 1.2fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
 }
 
-/* Input bulat */
+.booking-field {
+  min-width: 0;
+}
+
 .booking-select {
   width: 100%;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
-  padding: 8px 10px;
-  font-size: 12px;
+  padding: 6px 18px 6px 8px;
+  font-size: 11px;
   background: #ffffff;
   appearance: none;
   background-image: url("assets/icon-chevron-down.png");
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 12px;
+  background-position: right 6px center;
+  background-size: 10px;
 }
 
 /* Tombol cek */
@@ -164,27 +209,27 @@ body {
   gap: 6px;
 }
 
-/* SECTION TITLE */
+/* SECTION (PILIH STUDIO / INFO TERBARU) */
 .section {
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .section-title {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   color: #0f766e;
-  margin-bottom: 10px;
+  margin: 24px 0 16px;   /* tidak mepet atas & bawah */
+  letter-spacing: 0.5px;
 }
 
-/* STUDIO GRID */
+/* STUDIO CARDS */
 .studio-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 .studio-card {
-  width: calc(50% - 6px);
   background: #ffffff;
   border-radius: 14px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
@@ -193,10 +238,12 @@ body {
   flex-direction: column;
 }
 
+/* FOTO STUDIO LEBIH PANJANG */
 .studio-img {
   width: 100%;
-  height: 95px;
+  height: 180px;
   object-fit: cover;
+  display: block;
 }
 
 .studio-body {
@@ -204,9 +251,9 @@ body {
 }
 
 .studio-body h3 {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .studio-desc {
@@ -217,7 +264,7 @@ body {
 }
 
 .studio-price {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   margin-bottom: 6px;
 }
@@ -233,19 +280,19 @@ body {
   color: #ffffff;
 }
 
-/* INFO TERBARU (BLOG) */
+/* INFO TERBARU (BLOG) – dibesarkan sedikit */
 .blog-highlight {
   background: #ffffff;
   border-radius: 16px;
-  padding: 10px;
+  padding: 14px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
 .blog-thumb {
-  width: 80px;
-  height: 110px;
+  width: 92px;
+  height: 125px;
   border-radius: 12px;
   object-fit: cover;
 }
@@ -258,8 +305,8 @@ body {
 }
 
 .blog-text {
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.5;
   color: #374151;
 }
 
@@ -269,7 +316,7 @@ body {
 }
 
 .blog-dots {
-  margin-top: 8px;
+  margin-top: 10px;
   display: flex;
   gap: 4px;
 }
