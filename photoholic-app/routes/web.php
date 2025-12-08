@@ -26,6 +26,42 @@ Route::get('/pembuka2', function () {
 Route::get('/masuk', [AuthController::class, 'showMasuk'])->name('masuk'); // menampilkan form login
 Route::post('/masuk', [AuthController::class, 'masukAksi'])->name('masuk.aksi'); // memvalidasi input user
 
+// admin login
+/*Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/admin-beranda', function () {
+        return view('admin-beranda');
+    })->name('admin.dashboard'); // <- name the route
+});*/
+
+Route::get('/admin-beranda', function () {
+    return view('admin-beranda');
+});
+
+Route::get('/test-session', function () {
+    session(['foo' => 'bar']);
+    dd(session()->all());
+});
+//admin pemesanan
+Route::get('/daftar-pemesanan-admin', function () {
+    return view('daftar-pemesanan-admin');
+});
+
+//admin studio
+Route::get('/studio-admin', function () {
+    return view('studio-admin');
+});
+
+//admin-pembayaran
+Route::get('/pembayaran-admin', function () {
+    return view('pembayaran-admin');
+});
+
+//admin lainnya
+Route::get('/lainya-admin', function () {
+    return view('lainya-admin');
+});
+
+
 // Halaman registrasi
 Route::get('/daftar', [RegisterController::class, 'showDaftar'])->name('daftar'); // form daftar
 Route::post('/daftar', [RegisterController::class, 'daftar'])->name('daftar.aksi'); // simpan data user

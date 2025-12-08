@@ -1,0 +1,295 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY & FRAME HP */
+body {
+  font-family: "Commissioner", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.status-clock {
+  height: 14px;
+}
+
+.status-img {
+  height: 14px;
+}
+
+/* HEADER PINK BRAND */
+.home-header {
+  background: #f2b6bb;
+  padding: 14px 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-logo {
+  height: 42px;
+  width: auto;
+}
+
+/* AREA KONTEN */
+.home-screen {
+  flex: 1;
+  background: #f3f4f6;
+  padding: 12px 12px 8px;
+  overflow-y: auto;
+}
+
+/* KARTU UTAMA PUTIH */
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 24px 24px 16px 16px;
+  padding: 18px 16px 16px;
+  box-shadow: 0 2px 6px rgba(15,23,42,0.06);
+}
+
+/* Judul Halaman */
+.dashboard-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* GRID STATISTIK */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* Kartu kecil */
+.stat-card {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 10px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.stat-card.primary {
+  background: #f05252;
+  color: #ffffff;
+}
+
+.stat-card.primary .stat-label {
+  color: #ffffff;
+}
+
+.stat-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.stat-label {
+  font-weight: 600;
+  color: #111827;
+}
+
+.stat-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* angka utama */
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* nilai teks */
+.stat-text {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* SECTION PEMESANAN */
+.booking-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* kartu chart */
+.chart-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 12px 10px;
+  box-shadow: 0 2px 6px rgba(15,23,42,0.04);
+}
+
+/* header chart */
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.chart-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chart-filter {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: default;
+}
+
+.chart-filter-icon {
+  font-size: 10px;
+}
+
+/* isi chart */
+.chart-body {
+  margin-top: 4px;
+}
+
+.chart-area {
+  position: relative;
+  height: 120px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+  overflow: hidden;
+  border: 1px solid #f3f4f6;
+}
+
+/* garis horizontal tipis */
+.chart-area::before,
+.chart-area::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.chart-area::before {
+  top: 35%;
+}
+
+.chart-area::after {
+  top: 65%;
+}
+
+/* garis “grafik” */
+.chart-line {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 50%;
+  height: 2px;
+  background: #f97373;
+  border-radius: 999px;
+  transform: rotate(-6deg);
+}
+
+/* titik hijau */
+.chart-point {
+  position: absolute;
+  right: 32%;
+  top: 34%;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.25);
+}
+
+/* label bawah */
+.chart-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 0 2px;
+  font-size: 9px;
+  color: #6b7280;
+}
+
+
+/* NAV BAR BAWAH */
+.bottom-nav {
+  height: 64px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom-nav a{
+    text-decoration: none !important;   /* removes underline */
+}
+
+.bottom-nav a span {
+    text-decoration: none !important;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9px;
+  color: #9ca3af;
+}
+
+.nav-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #ef4444;
+}
+
+.nav-item.active .nav-item-icon {
+  filter: none;
+}
