@@ -57,13 +57,14 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-primary">Kirim</button>
+        <button type="submit" class="btn-primary" disabled>Kirim</button>
       </form>
     </div>
   </div>
 
   <!-- JS show/hide password -->
   <script>
+    // show / hide password
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
       const img = btn.querySelector("img");
@@ -76,6 +77,24 @@
         img.src = "assets/eye-closed.png";
       }
     }
+
+    // ambil kedua input password
+    const inputs = document.querySelectorAll('.input-with-icon input');
+    const submitBtn = document.querySelector('.btn-primary');
+
+    function toggleButton() {
+      // semua input harus terisi
+      const allFilled = Array.from(inputs).every(input => input.value.trim() !== "");
+      submitBtn.disabled = !allFilled;
+    }
+
+    // cek setiap kali user ngetik
+    inputs.forEach(input => {
+      input.addEventListener('input', toggleButton);
+    });
+
+    // state awal saat halaman baru dibuka
+    toggleButton();
   </script>
 </body>
 </html>

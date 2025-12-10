@@ -159,7 +159,22 @@ form {
   padding: 12px 0;
   font-size: 15px;
   font-weight: 600;
-  background: #add3cc;
+  cursor: not-allowed;          
+  background: #add3cc;        
+  color: #ffffff;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* kalau SUDAH aktif (tidak disabled) */
+.btn-primary:not(:disabled) {
+  background: #278C7B;       
   color: #ffffff;
   cursor: pointer;
+}
+
+/* pastikan disabled tidak ikut hijau tua */
+.btn-primary:disabled {
+  background: #add3cc;
+  color: #ffffff;
+  cursor: not-allowed;
 }

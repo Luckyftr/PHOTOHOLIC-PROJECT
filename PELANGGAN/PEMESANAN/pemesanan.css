@@ -72,106 +72,196 @@ body {
   font-weight: 700;
 }
 
+.profile-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.profile-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .profile-icon {
   width: 26px;
   height: 26px;
 }
 
-/* SCREEN */
+/* MAIN SCREEN */
 .screen {
   flex: 1;
-  overflow-y: auto;
-  padding: 18px 20px;
-}
-
-/* TITLE ROW */
-.page-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.back-icon {
-  width: 32px;
-}
-
-.page-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: #0f766e;
-}
-
-/* LIST */
-.booking-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-/* CARD */
-.booking-card {
-  display: flex;
-  gap: 12px;
-  background: white;
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+/* HERO STUDIO */
+.studio-hero {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
 }
 
-.studio-img {
-  width: 95px;
-  height: 95px;
-  border-radius: 8px;
+.hero-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.card-body {
-  flex: 1;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 60%);
 }
 
-.studio-title {
-  font-size: 15px;
-  font-weight: 600;
+.hero-info {
+  position: absolute;
+  left: 16px;
+  bottom: 20px;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 18px;
+  font-weight: 700;
   margin-bottom: 4px;
 }
 
-.studio-info {
-  font-size: 11px;
-  color: #444;
-  margin-bottom: 2px;
+.hero-price {
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.btn-detail {
-  width: 100%;
-  margin-top: 6px;
-  padding: 6px 0;
-  background: #F24957;
-  color: white;
+.hero-detail {
+  font-size: 11px;
+}
+
+/* tombol back bulat di kiri atas gambar */
+.hero-back {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
   border: none;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
+  background: rgba(15, 118, 110, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   cursor: pointer;
 }
 
-/* --- FIX BACK & PROFILE ICON BUTTON --- */
-.back-btn,
-.profile-btn {
-  background: transparent !important;
-  border: none !important;
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.hero-back img {
+  width: 18px;
 }
 
-/* hilangkan outline/focus kotak hitam */
-.back-btn:focus,
-.profile-btn:focus,
-.back-btn:active,
-.profile-btn:active {
+/* PANEL FORM BOOKING */
+.booking-panel {
+  margin: 12px 12px 0;
+  padding: 14px 14px 16px;
+  background: #f9fafb;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.field-group + .field-group {
+  margin-top: 12px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* input wrapper */
+.input-wrapper {
+  position: relative;
+}
+
+.input-field {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 10px 12px;
+  font-size: 13px;
+  background: #ffffff;
   outline: none;
-  box-shadow: none;
+}
+
+/* kalender & jam icon di kanan */
+.icon-right .input-field {
+  padding-right: 36px;
+}
+
+.field-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none; /* biar input tetap bisa diklik */
+}
+
+/* select sesi - custom arrow */
+.select-field {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 32px;
+}
+
+/* icon arrow pakai pseudo-element */
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #6b7280;
+  border-bottom: 2px solid #6b7280;
+  pointer-events: none;
+}
+
+/* BOTTOM TOTAL & BUTTON */
+.bottom-bar {
+  margin-top: auto;
+  padding: 10px 12px 16px;
+}
+
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* BUTTON PESAN SEKARANG */
+.btn-pesan {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+  background: #add3cc;   /* hijau muda default */
+  color: #ffffff;
+  cursor: not-allowed;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* ketika aktif (enabled) */
+.btn-pesan.enabled {
+  background: #278C7B;
+  cursor: pointer;
+}
+
+.btn-pesan.enabled:active {
+  transform: scale(0.98);
 }

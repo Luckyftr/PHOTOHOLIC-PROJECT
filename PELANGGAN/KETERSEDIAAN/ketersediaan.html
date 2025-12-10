@@ -167,7 +167,31 @@
 
     </div>
     </div>
-
   </div>
+
+   <script>
+    // Bikin tanggal bisa dipilih
+    const dateBoxes = document.querySelectorAll('.date-box');
+
+    dateBoxes.forEach(box => {
+      box.addEventListener('click', () => {
+        // hapus active dari yang sebelumnya
+        const currentActive = document.querySelector('.date-box.active');
+        if (currentActive) {
+          currentActive.classList.remove('active');
+        }
+
+        // kasih active ke yang diklik
+        box.classList.add('active');
+
+        // di sini nanti kamu bisa tambahin logika
+        // misalnya ganti daftar studio berdasarkan tanggal yang dipilih
+        // contoh ambil teks hari & angka:
+        // const day = box.querySelector('.day').textContent;
+        // const num = box.querySelector('.num').textContent;
+        // console.log('Tanggal terpilih:', day, num);
+      });
+    });
+  </script>
 </body>
 </html>

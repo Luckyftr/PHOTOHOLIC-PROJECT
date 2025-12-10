@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daftar Pemesanan Saya</title>
+  <title>Detail Pemesanan Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="pemesanan.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="detail-pemesanan.css">
 </head>
 
 <body>
@@ -16,101 +15,132 @@
     <!-- STATUS BAR -->
     <div class="status-bar">
       <div class="status-left">
-        <img src="assets/jam.png" class="status-clock">
+        <img src="assets/jam.png" class="status-clock" alt="Jam">
       </div>
       <div class="status-icons">
-        <img src="assets/icons.png" class="status-img">
+        <img src="assets/icons.png" class="status-img" alt="Icons">
       </div>
     </div>
 
     <!-- HEADER -->
     <header class="app-header">
-      <img src="assets/logo-header.png" class="header-logo">
+      <img src="assets/logo-header.png" class="header-logo" alt="Logo">
 
       <nav class="header-nav">
         <a href="#" class="nav-link">Beranda</a>
-        <a href="#" class="nav-link">Studio</a>
+        <a href="#" class="nav-link active">Studio</a>
         <a href="#" class="nav-link">Blog</a>
-        <a href="#" class="nav-link active">Pemesanan</a>
+        <a href="#" class="nav-link">Pemesanan</a>
       </nav>
 
       <button class="profile-btn">
-        <img src="assets/icon-profil.png" class="profile-icon">
+        <img src="assets/icon-profil.png" class="profile-icon" alt="Profil">
       </button>
     </header>
 
     <!-- CONTENT -->
-    <div class="screen">
+    <main class="screen">
 
-      <!-- TITLE BAR -->
-      <div class="page-title-row">
-        <button class="back-btn"><img src="assets/back.png" class="back-icon"></button>
-        <h1 class="page-title">Daftar Pemesanan Saya</h1>
-      </div>
+      <!-- HERO STUDIO -->
+      <section class="studio-hero">
+        <img src="assets/sample1.png" alt="Studio Classy" class="hero-img">
 
-      <!-- LIST CARD -->
-      <div class="booking-list">
+        <button class="hero-back">
+          <img src="assets/back-white.png" alt="Kembali">
+        </button>
 
-        <!-- CARD 1 -->
-        <div class="booking-card">
-          <img src="assets/sample1.png" class="studio-img">
+        <div class="hero-overlay"></div>
 
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
+        <div class="hero-info">
+          <h1 class="hero-title">Studio Classy</h1>
+          <p class="hero-price">Rp 45.000/Sesi</p>
+          <p class="hero-detail">Max 10 Orang · Paper Negatif Film</p>
+        </div>
+      </section>
 
-            <button class="btn-detail">Lihat Rincian</button>
+      <!-- FORM PEMESANAN -->
+      <section class="booking-panel">
+        <div class="field-group">
+          <label for="tanggal">Tanggal</label>
+          <div class="input-wrapper icon-right">
+            <input
+              type="date"
+              id="tanggal"
+              class="input-field"
+            />
+            <img src="assets/icon-calendar.png" alt="" class="field-icon">
           </div>
         </div>
 
-        <!-- CARD 2 -->
-        <div class="booking-card">
-          <img src="assets/sample1.png" class="studio-img">
-
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <button class="btn-detail">Lihat Rincian</button>
+        <div class="field-group">
+          <label for="sesi">Sesi</label>
+          <div class="input-wrapper select-wrapper">
+            <select id="sesi" class="input-field select-field">
+              <option value="">Pilih sesi booking</option>
+              <option value="1">Sesi 1</option>
+              <option value="2">Sesi 2</option>
+              <option value="3">Sesi 3</option>
+            </select>
           </div>
         </div>
 
-        <!-- CARD 3 -->
-        <div class="booking-card">
-          <img src="assets/sample1.png" class="studio-img">
-
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <button class="btn-detail">Lihat Rincian</button>
+        <div class="field-group">
+          <label for="waktu">Waktu</label>
+          <div class="input-wrapper icon-right">
+            <input
+              type="time"
+              id="waktu"
+              class="input-field"
+              step="300"             <!-- 5 menit -->
+            />
+            <img src="assets/icon-time.png" alt="" class="field-icon">
           </div>
         </div>
+      </section>
 
-        <!-- CARD 4 -->
-        <div class="booking-card">
-          <img src="assets/sample1.png" class="studio-img">
-
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <button class="btn-detail">Lihat Rincian</button>
-          </div>
+      <!-- TOTAL & BUTTON -->
+      <section class="bottom-bar">
+        <div class="total-box">
+          <span>Total</span>
+          <span id="totalHarga">Rp. 0</span>
         </div>
 
-      </div>
-    </div>
+        <button id="btnPesan" class="btn-pesan" disabled>
+          Pesan Sekarang
+        </button>
+      </section>
+    </main>
 
   </div>
-</body>
 
+  <script>
+    const tanggalInput = document.getElementById('tanggal');
+    const sesiSelect   = document.getElementById('sesi');
+    const waktuInput   = document.getElementById('waktu');
+    const btnPesan     = document.getElementById('btnPesan');
+    const totalHargaEl = document.getElementById('totalHarga');
+
+    function updateButtonAndTotal() {
+      const tanggalTerisi = tanggalInput.value.trim() !== "";
+      const sesiTerisi    = sesiSelect.value.trim() !== "";
+      const waktuTerisi   = waktuInput.value.trim() !== "";
+
+      const semuaTerisi = tanggalTerisi && sesiTerisi && waktuTerisi;
+
+      btnPesan.disabled = !semuaTerisi;
+
+      if (semuaTerisi) {
+        btnPesan.classList.add('enabled');
+        totalHargaEl.textContent = "Rp. 45.000";
+      } else {
+        btnPesan.classList.remove('enabled');
+        totalHargaEl.textContent = "Rp. 0";
+      }
+    }
+
+    tanggalInput.addEventListener('change', updateButtonAndTotal);
+    sesiSelect.addEventListener('change', updateButtonAndTotal);
+    waktuInput.addEventListener('change', updateButtonAndTotal);
+  </script>
+</body>
 </html>

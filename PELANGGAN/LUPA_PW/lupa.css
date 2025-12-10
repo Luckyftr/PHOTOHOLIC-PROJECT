@@ -141,6 +141,15 @@ form {
   padding: 12px 0;
   font-size: 15px;
   font-weight: 600;
-  background: #add3cc; 
+  cursor: not-allowed;          /* default: belum bisa diklik */
+  background: #add3cc;          /* hijau muda/transparan */
+  color: #ffffff;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* kalau SUDAH aktif (tidak disabled) */
+.btn-primary:not(:disabled) {
+  background: #278C7B;          /* hijau tua */
+  color: #ffffff;
   cursor: pointer;
 }

@@ -140,7 +140,7 @@ form {
   font-weight: 500;
 }
 
-/* Button Masuk */
+/* BUTTON MASUK */
 .btn-primary {
   margin-top: 16px;
   width: 100%;
@@ -149,9 +149,23 @@ form {
   padding: 12px 0;
   font-size: 15px;
   font-weight: 600;
+  background: #add3cc;      
+  cursor: not-allowed;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* aktif (tidak disabled) */
+.btn-primary:not(:disabled) {
+  background: #278C7B;
+  color: #ffffff;    
+  cursor: pointer;
+}
+
+/* memastikan disabled tetap hijau muda */
+.btn-primary:disabled {
   background: #add3cc;
   color: #ffffff;
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 /* Google */

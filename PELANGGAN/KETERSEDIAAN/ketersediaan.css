@@ -127,19 +127,20 @@ body {
 /* DATE SELECTOR */
 .date-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   overflow-x: auto;
   margin-bottom: 18px;
   padding-bottom: 4px;
 }
 
 .date-box {
-  min-width: 60px;
-  padding: 6px;
-  border-radius: 10px;
+  min-width: 52px;
+  padding: 4px 4px 6px;
+  border-radius: 8px;
   background: #f2f2f2;
   text-align: center;
   border: 1px solid #ddd;
+  cursor: pointer;          /* <-- ini biar kelihatan bisa diklik */
 }
 
 .date-box.active {
@@ -149,12 +150,12 @@ body {
 }
 
 .date-box .day {
-  font-size: 11px;
+  font-size: 10px;           /* <– diperkecil */
   display: block;
 }
 
 .date-box .num {
-  font-size: 15px;
+  font-size: 13px;           /* <– diperkecil */
   font-weight: 600;
 }
 
@@ -168,22 +169,24 @@ body {
 /* CARD */
 .booking-card {
   display: flex;
-  gap: 12px;
+  gap: 16px;              /* jarak foto ↔ teks lebih lebar */
   background: white;
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px 14px;     /* padding sedikit diperkecil biar proporsional */
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  align-items: flex-start; /* teks sejajar ke atas seperti di figma */
 }
 
 .studio-img {
-  width: 95px;
-  height: 95px;
+  width: 102px;           /* masih besar, tapi ada ruang ke kanan */
+  height: 102px;
   border-radius: 8px;
   object-fit: cover;
 }
 
 .card-body {
   flex: 1;
+  padding-top: 2px;       /* beri napas kecil dari atas */
 }
 
 .top-row {

@@ -43,107 +43,49 @@ body {
   align-items: center;
 }
 
-.status-time {
-  font-weight: 500;
+.status-clock {
+  height: 14px;
+  width: auto;
 }
 
-.status-right {
+.status-icons {
   display: flex;
   align-items: center;
-  gap: 6px;
 }
 
-/* Signal bars */
-.signal-bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 1px;
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
 }
 
-.signal-bars span {
-  width: 2px;
-  background: #111827;
-  border-radius: 1px;
-}
-
-.signal-bars span:nth-child(1) { height: 4px; opacity: 0.5; }
-.signal-bars span:nth-child(2) { height: 6px; opacity: 0.7; }
-.signal-bars span:nth-child(3) { height: 8px; opacity: 0.9; }
-.signal-bars span:nth-child(4) { height: 10px; }
-
-/* Wifi icon – dibalik supaya menghadap ke atas */
-.wifi-symbol {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  position: relative;
-}
-
-.wifi-symbol::before,
-.wifi-symbol::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid #111827;
-  border-radius: 50%;
-  /* bagian bawah transparan, jadi garisnya menghadap ke atas */
-  border-bottom-color: transparent;
-}
-
-.wifi-symbol::after {
-  inset: 3px;
-  border-bottom-color: transparent;
-}
-
-/* Battery icon */
-.battery {
-  width: 18px;
-  height: 9px;
-  border: 1px solid #111827;
-  border-radius: 2px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 1px;
-}
-
-.battery::after {
-  content: "";
-  position: absolute;
-  right: -3px;
-  top: 2px;
-  width: 2px;
-  height: 5px;
-  border-radius: 1px;
-  background: #111827;
-}
-
-.battery-level {
-  width: 70%;
-  height: 100%;
-  background: #16a34a;
-  border-radius: 1px;
-}
-
-/* SPLASH AREA – logo & text dirapatkan */
+/* SPLASH AREA – putih, isi di tengah */
 .splash-screen {
   flex: 1;
   background: #ffffff;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* WRAPPER UNTUK MERAPATKAN LOGO + TEXT */
+.splash-content {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;   /* semua di tengah layar */
-  gap: 6px;                  /* jarak antar elemen kecil saja */
+  gap: 4px;                 /* jarak logo ↔ tulisan jadi dekat */
+  transform-origin: center;
+  animation: splashZoomIn 1.2s ease-out forwards;
 }
 
 /* logo kamera */
 .logo-camera {
-  width: 120px;
+  width: 180px;
   height: auto;
   margin: 0;
 }
 
-/* tulisan photoholic */
+/* tulisan photoholic (dan tagline jika menyatu di gambar) */
 .brand-logo {
   width: 200px;
   height: auto;
@@ -189,4 +131,19 @@ body {
   height: 12px;
   border-radius: 2px;
   border: 2px solid #4b5563;
+}
+
+/* ANIMASI ZOOM IN */
+@keyframes splashZoomIn {
+  0% {
+    transform: scale(0.7);   /* mulai sedikit kecil */
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);     /* selesai ukuran normal */
+    opacity: 1;
+  }
 }

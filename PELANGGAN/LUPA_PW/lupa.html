@@ -45,9 +45,27 @@
           <input type="email" class="input-field" placeholder="Alamat Email" />
         </div>
 
-        <button type="submit" class="btn-primary">Kirim</button>
+        <button type="submit" class="btn-primary" disabled>Kirim</button>
       </form>
     </div>
   </div>
+  <script>
+    const emailInput = document.querySelector('.input-field');
+    const submitBtn  = document.querySelector('.btn-primary');
+
+    function toggleButton() {
+      if (emailInput.value.trim() !== "") {
+        submitBtn.disabled = false;   // aktif → hijau tua
+      } else {
+        submitBtn.disabled = true;    // nonaktif → hijau muda
+      }
+    }
+
+    // cek setiap kali user ngetik
+    emailInput.addEventListener('input', toggleButton);
+
+    // initial state saat halaman baru kebuka
+    toggleButton();
+  </script>
 </body>
 </html>

@@ -55,7 +55,7 @@
           <a href="#">Lupa Kata Sandi?</a>
         </div>
 
-        <button type="submit" class="btn-primary">Masuk</button>
+        <button type="submit" class="btn-primary" disabled>Masuk</button>
       </form>
 
       <!-- Google login -->
@@ -200,6 +200,32 @@
         img.src = "assets/eye-closed.png";
       }
     }
+
+     // ambil form login (kalau ada class khusus pakai itu,
+  // kalau tidak, otomatis pakai form pertama di halaman)
+  const loginForm = document.querySelector('.login-form') || document.querySelector('form');
+
+  // ambil input email & password di dalam form login
+  const loginInputs = loginForm.querySelectorAll('input[type="email"], input[type="password"]');
+
+  // ambil tombol submit
+  const loginBtn = loginForm.querySelector('.btn-primary');
+
+  // pastikan di awal disabled
+  loginBtn.disabled = true;
+
+  function updateLoginButton() {
+    const allFilled = Array.from(loginInputs).every(input => input.value.trim() !== "");
+    loginBtn.disabled = !allFilled;   // kalau dua2nya terisi -> false (aktif)
+  }
+
+  // cek setiap kali user ngetik
+  loginInputs.forEach(input => {
+    input.addEventListener('input', updateLoginButton);
+  });
+
+  // cek state awal
+  updateLoginButton();
 
     // tombol utama
     const btnGoogleLogin = document.getElementById('btnGoogleLogin');
