@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubah Kata Sandi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ubah1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ubah1.css">
 </head>
 
 <body>
   <div class="phone">
-    <!-- status bar -->
+    <!-- STATUS BAR -->
     <div class="status-bar">
       <div class="status-left">
         <img src="assets/jam.png" alt="Jam" class="status-clock">
@@ -22,6 +22,7 @@
       </div>
     </div>
 
+    <!-- ISI HALAMAN -->
     <div class="screen">
       <!-- tombol back -->
       <div class="top-row">
@@ -35,7 +36,7 @@
         Jaga keamanan akun Anda dengan mengganti kata sandi secara berkala!
       </p>
 
-      <form>
+      <form id="ubahForm">
         <!-- kata sandi lama -->
         <div class="input-group">
           <div class="input-with-icon">
@@ -90,13 +91,17 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-primary">Kirim</button>
+        <!-- tombol -->
+        <button type="submit" id="btnKirim" class="btn-primary" disabled>
+          Kirim
+        </button>
       </form>
     </div>
   </div>
 
-  <!-- JS show/hide password -->
+  <!-- JS -->
   <script>
+    // show / hide password
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
       const img = btn.querySelector("img");
@@ -109,6 +114,43 @@
         img.src = "assets/eye-closed.png";
       }
     }
+
+    // logic enable/disable tombol
+    const passLama = document.getElementById('oldPassword');
+    const passBaru = document.getElementById('newPassword');
+    const passKonf = document.getElementById('confirmNewPassword');
+    const btnKirim = document.getElementById('btnKirim');
+    const form     = document.getElementById('ubahForm');
+
+    function updateButtonState() {
+      const lamaTerisi = passLama.value.trim() !== "";
+      const baruTerisi = passBaru.value.trim() !== "";
+      const konfTerisi = passKonf.value.trim() !== "";
+      const sama       = passBaru.value === passKonf.value;
+
+      const semuaOK = lamaTerisi && baruTerisi && konfTerisi && sama;
+
+      if (semuaOK) {
+        btnKirim.disabled = false;
+        btnKirim.classList.add('enabled');
+      } else {
+        btnKirim.disabled = true;
+        btnKirim.classList.remove('enabled');
+      }
+    }
+
+    // cek setiap user mengetik
+    passLama.addEventListener('input', updateButtonState);
+    passBaru.addEventListener('input', updateButtonState);
+    passKonf.addEventListener('input', updateButtonState);
+
+    // optional: cegah reload (buat demo)
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!btnKirim.disabled) {
+        alert('Kata sandi berhasil dikirim (dummy).');
+      }
+    });
   </script>
 </body>
 </html>

@@ -5,98 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tentang Aplikasi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="tentang.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tentang.css">
 </head>
 
 <body>
   <div class="phone">
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <div class="status-left">
-        <img src="assets/jam.png" alt="Jam" class="status-clock">
-      </div>
-
-      <div class="status-icons">
-        <img src="assets/icons.png" alt="Status icons" class="status-img">
-      </div>
+      <img src="assets/jam.png" alt="Jam" class="status-clock">
+      <img src="assets/icons.png" alt="Status icons" class="status-icons">
     </div>
 
-    <!-- HEADER PINK -->
-    <header class="app-header">
-      <div class="header-left">
-        <img src="assets/logo-header.png" alt="Photoholic" class="header-logo">
-      </div>
-
-      <nav class="header-nav">
-        <a href="#" class="nav-link active">Beranda</a>
-        <a href="#" class="nav-link">Studio</a>
-        <a href="#" class="nav-link">Blog</a>
-        <a href="#" class="nav-link">Pemesanan</a>
-      </nav>
-
-      <button class="profile-btn" type="button">
-        <img src="assets/icon-profil.png" alt="Profil" class="profile-icon">
-      </button>
+    <!-- HEADER PINK: logo saja -->
+    <header class="topbar">
+      <img src="assets/logo-header.png" alt="Photoholic" class="topbar-logo">
     </header>
 
+    <!-- TITLE & SUBTITLE (mirip Tentang Kami) -->
+    <section class="page-head">
+      <h1 class="page-title">Tentang Aplikasi</h1>
+      <p class="page-subtitle">
+        Kenalan dulu dengan Kyuu, sistem booking khusus Photoholic
+        yang bikin pesen photobooth jadi lebih gampang dan rapi.
+      </p>
+    </section>
+
     <!-- ISI HALAMAN -->
-    <main class="screen">
-      <!-- back + judul -->
-      <div class="page-title-row">
-        <button class="back-btn" type="button">
-          <img src="assets/back.png" alt="Kembali" class="back-icon">
-        </button>
-        <h1 class="page-title">Tentang Aplikasi</h1>
-      </div>
-
-      <!-- ilustrasi kamera -->
-      <div class="about-illustration">
-        <img src="assets/logo1.png" alt="Ilustrasi" class="about-image">
-      </div>
-
-      <!-- brand photoholic -->
-      <div class="brand-block">
-        <img src="assets/brand-text.png" alt="Photoholic" class="brand-image">
-      </div>
-
-      <!-- card deskripsi -->
+    <main class="about-wrapper">
       <div class="about-card">
+        <h2 class="about-card-title">Apa itu Kyuu?</h2>
         <p>
-          Kyuu adalah sistem booking jadwal photobooth yang
-          dirancang khusus untuk Photoholic Indonesia. Melalui Kyuu,
-          kamu bisa dengan mudah melihat jadwal tersedia, memilih paket,
-          dan melakukan pemesanan secara online.
+          Kyuu adalah sistem booking jadwal photobooth yang dirancang khusus
+          untuk Photoholic Indonesia. Melalui Kyuu, kamu bisa dengan mudah
+          melihat jadwal yang tersedia, memilih paket, dan melakukan
+          pemesanan secara online.
         </p>
+        <br>
         <p>
-          Tujuannya sederhana yaitu membuat proses booking photobooth
-          jadi lebih cepat, praktis, dan nyaman.
+          Tujuannya sederhana: membuat proses booking photobooth jadi
+          lebih cepat, praktis, dan nyaman, tanpa perlu chat panjang
+          atau bolak-balik konfirmasi jadwal.
         </p>
       </div>
     </main>
-
-    <!-- FOOTER PINK -->
-    <footer class="footer-bar">
-      <div class="footer-item">
-        <img src="assets/icon_wa.png" alt="WhatsApp" class="footer-icon">
-        <span class="footer-text">0851-2400-0950</span>
-      </div>
-
-      <div class="footer-item">
-        <img src="assets/icon_email.png" alt="Email" class="footer-icon">
-        <span class="footer-text">adminphotoholic@gmail.com</span>
-      </div>
-
-      <div class="footer-item">
-        <img src="assets/icon_ig.png" alt="Instagram" class="footer-icon">
-        <span class="footer-text">@photoholic.indonesia</span>
-      </div>
-
-      <div class="footer-item">
-        <img src="assets/icon_tt.png" alt="TikTok" class="footer-icon">
-        <span class="footer-text">@photoholic.indonesia</span>
-      </div>
-    </footer>
   </div>
 </body>
 </html>

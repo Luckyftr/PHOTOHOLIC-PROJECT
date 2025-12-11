@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lupa Kata Sandi</title>
+  <title>Ubah Kata Sandi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ubah.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ubah.css">
 </head>
 
 <body>
@@ -24,11 +24,11 @@
 
     <div class="screen">
       <!-- tombol back -->
-<div class="top-row">
-  <button class="back-btn" type="button">
-    <img src="assets/back.png" alt="Kembali" class="back-icon">
-  </button>
-</div>
+      <div class="top-row">
+        <button class="back-btn" type="button" onclick="history.back()">
+          <img src="assets/back.png" alt="Kembali" class="back-icon">
+        </button>
+      </div>
 
       <!-- ilustrasi -->
       <div class="illustration">
@@ -40,14 +40,50 @@
         Jaga keamanan akun Anda dengan mengganti kata sandi secara berkala!
       </p>
 
-      <form>
+      <form id="ubahForm">
         <div class="input-group">
-          <input type="email" class="input-field" placeholder="Alamat Email" />
+          <input
+            type="email"
+            id="email"
+            class="input-field"
+            placeholder="Alamat Email"
+          />
         </div>
 
-        <button type="submit" class="btn-primary">Kirim</button>
+        <button type="submit" id="btnKirim" class="btn-primary" disabled>
+          Kirim
+        </button>
       </form>
     </div>
   </div>
+
+  <script>
+    const emailInput = document.getElementById('email');
+    const btnKirim   = document.getElementById('btnKirim');
+    const form       = document.getElementById('ubahForm');
+
+    function updateButtonState() {
+      const adaEmail = emailInput.value.trim() !== '';
+
+      if (adaEmail) {
+        btnKirim.disabled = false;
+        btnKirim.classList.add('enabled');
+      } else {
+        btnKirim.disabled = true;
+        btnKirim.classList.remove('enabled');
+      }
+    }
+
+    // cek setiap user ngetik
+    emailInput.addEventListener('input', updateButtonState);
+
+    // demo saja: cegah submit reload halaman
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!btnKirim.disabled) {
+        alert('Link ubah kata sandi dikirim (dummy).');
+      }
+    });
+  </script>
 </body>
 </html>

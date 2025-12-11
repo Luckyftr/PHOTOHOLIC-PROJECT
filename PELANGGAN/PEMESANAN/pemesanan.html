@@ -6,7 +6,7 @@
   <title>Detail Pemesanan Studio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="detail-pemesanan.css">
+  <link rel="stylesheet" href="pemesanan.css">
 </head>
 
 <body>
@@ -43,13 +43,10 @@
 
       <!-- HERO STUDIO -->
       <section class="studio-hero">
-        <img src="assets/sample1.png" alt="Studio Classy" class="hero-img">
+        <img src="assets/sample1.jpeg" alt="Studio Classy" class="hero-img">
 
-        <button class="hero-back">
-          <img src="assets/back-white.png" alt="Kembali">
-        </button>
-
-        <div class="hero-overlay"></div>
+        <!-- tombol back dari gambar -->
+        <img src="assets/back.png" alt="Back" class="hero-back-img" onclick="history.back()">
 
         <div class="hero-info">
           <h1 class="hero-title">Studio Classy</h1>
@@ -60,41 +57,47 @@
 
       <!-- FORM PEMESANAN -->
       <section class="booking-panel">
+        <!-- TANGGAL -->
         <div class="field-group">
           <label for="tanggal">Tanggal</label>
-          <div class="input-wrapper icon-right">
+          <div class="input-wrapper">
             <input
               type="date"
               id="tanggal"
-              class="input-field"
+              class="input-field input-date"
             />
-            <img src="assets/icon-calendar.png" alt="" class="field-icon">
           </div>
         </div>
 
+        <!-- SESI -->
         <div class="field-group">
           <label for="sesi">Sesi</label>
-          <div class="input-wrapper select-wrapper">
+          <div class="input-wrapper">
             <select id="sesi" class="input-field select-field">
               <option value="">Pilih sesi booking</option>
               <option value="1">Sesi 1</option>
               <option value="2">Sesi 2</option>
-              <option value="3">Sesi 3</option>
             </select>
           </div>
         </div>
 
+        <!-- WAKTU -->
         <div class="field-group">
           <label for="waktu">Waktu</label>
-          <div class="input-wrapper icon-right">
+          <div class="input-wrapper">
             <input
               type="time"
               id="waktu"
-              class="input-field"
-              step="300"             <!-- 5 menit -->
+              class="input-field input-time"
+              step="300"
+              min="11:00"
+              max="23:00"
             />
-            <img src="assets/icon-time.png" alt="" class="field-icon">
           </div>
+          <p class="helper-text">Jam operasional 11.00 – 23.00 WIB</p>
+          <p id="waktuError" class="error-text" style="display:none;">
+            Waktu di luar jam operasional.
+          </p>
         </div>
       </section>
 
@@ -114,18 +117,40 @@
   </div>
 
   <script>
+    // --- VARIABEL FORM & BUTTON ---
     const tanggalInput = document.getElementById('tanggal');
     const sesiSelect   = document.getElementById('sesi');
     const waktuInput   = document.getElementById('waktu');
     const btnPesan     = document.getElementById('btnPesan');
     const totalHargaEl = document.getElementById('totalHarga');
+    const waktuErrorEl = document.getElementById('waktuError');
 
+    // --- FUNGSI VALIDASI WAKTU ---
+    function isWaktuValid(value) {
+      if (!value) return false;
+      const [h, m] = value.split(':').map(Number);
+      const total = h * 60 + m;
+      const min = 11 * 60;   // 11:00
+      const max = 23 * 60;   // 23:00
+      return total >= min && total <= max;
+    }
+
+    // --- UPDATE BUTTON & TOTAL ---
     function updateButtonAndTotal() {
       const tanggalTerisi = tanggalInput.value.trim() !== "";
       const sesiTerisi    = sesiSelect.value.trim() !== "";
-      const waktuTerisi   = waktuInput.value.trim() !== "";
 
-      const semuaTerisi = tanggalTerisi && sesiTerisi && waktuTerisi;
+      const waktuVal   = waktuInput.value;
+      const waktuValid = isWaktuValid(waktuVal);
+
+      // tampilkan / sembunyikan error waktu
+      if (waktuVal && !waktuValid) {
+        waktuErrorEl.style.display = "block";
+      } else {
+        waktuErrorEl.style.display = "none";
+      }
+
+      const semuaTerisi = tanggalTerisi && sesiTerisi && waktuValid;
 
       btnPesan.disabled = !semuaTerisi;
 

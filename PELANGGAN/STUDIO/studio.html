@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pilih Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="studio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="studio.css">
 </head>
 
 <body>
@@ -29,8 +29,9 @@
         <a href="#" class="nav-link">Pemesanan</a>
       </nav>
 
+      <!-- KEMBALI PAKAI IKON PROFIL (BUKAN BACK) -->
       <button class="profile-btn">
-        <img src="assets/icon-profil.png" class="profile-icon" alt="profil">
+        <img src="assets/icon-profil.png" alt="Profil" class="profile-icon">
       </button>
     </header>
 
@@ -38,12 +39,13 @@
     <div class="screen">
 
       <!-- BAR JUDUL HIJAU -->
-        <div class="studio-title-row">
-        <button class="back-btn-studio">
-            <img src="assets/back.png" class="back-icon">
+      <div class="studio-title-row">
+        <!-- BACK CUMA DARI IMAGE INI -->
+        <button class="back-btn-studio" onclick="history.back()">
+          <img src="assets/back.png" class="back-icon" alt="Kembali">
         </button>
         <h1 class="studio-title">Pilih Studio Kesukaan Kamu</h1>
-        </div>
+      </div>
 
       <!-- LIST STUDIO -->
       <div class="studio-list">
@@ -139,8 +141,8 @@
       </div>
 
     </div>
-
-    <!-- FOOTER (opsional, mirip figma) -->
+    
+    <!-- FOOTER -->
     <footer class="footer-bar">
       <div class="footer-inner">
         <span>0851-2400-0950</span>

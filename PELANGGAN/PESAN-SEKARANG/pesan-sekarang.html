@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Classy</title>
+  <title>Detail Pemesanan Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="pesan-sekarang.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pesan-sekarang.css">
 </head>
 
 <body>
@@ -14,88 +14,154 @@
 
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <img src="assets/jam.png" class="status-clock" alt="clock">
-      <img src="assets/icons.png" class="status-img" alt="status">
+      <div class="status-left">
+        <img src="assets/jam.png" class="status-clock" alt="Jam">
+      </div>
+      <div class="status-icons">
+        <img src="assets/icons.png" class="status-img" alt="Icons">
+      </div>
     </div>
 
     <!-- HEADER -->
     <header class="app-header">
-      <img src="assets/logo-header.png" class="header-logo" alt="logo">
+      <img src="assets/logo-header.png" class="header-logo" alt="Logo">
 
       <nav class="header-nav">
         <a href="#" class="nav-link">Beranda</a>
         <a href="#" class="nav-link active">Studio</a>
         <a href="#" class="nav-link">Blog</a>
         <a href="#" class="nav-link">Pemesanan</a>
-      </nav>
-
-      <button class="profile-btn">
-        <img src="assets/icon-profil.png" class="profile-icon" alt="profil">
-      </button>
-    </header>
+      </nav>  
+      </header>
 
     <!-- CONTENT -->
-    <div class="screen">
+    <main class="screen">
 
       <!-- HERO STUDIO -->
-      <div class="studio-hero">
-        <img src="assets/studio-classy.png" class="studio-image" alt="Studio Classy">
-        <div class="studio-overlay"></div>
+      <section class="studio-hero">
+        <img src="assets/sample1.jpeg" alt="Studio Classy" class="hero-img">
 
-        <button class="hero-back-btn">
-          <img src="assets/back.png" class="hero-back-icon" alt="kembali">
-        </button>
+        <!-- tombol back dari gambar -->
+        <img src="assets/back.png" alt="Back" class="hero-back-img" onclick="history.back()">
 
-        <div class="studio-info">
-          <h1>Studio Classy</h1>
-          <p class="studio-price">Rp 45.000/Sesi</p>
-          <p class="studio-sub">Max 10 Orang · Paper Negatif Film</p>
+        <div class="hero-info">
+          <h1 class="hero-title">Studio Classy</h1>
+          <p class="hero-price">Rp 45.000/Sesi</p>
+          <p class="hero-detail">Max 10 Orang · Paper Negatif Film</p>
         </div>
-      </div>
+      </section>
 
-      <!-- FORM BOOKING -->
-      <div class="booking-content">
-
+      <!-- FORM PEMESANAN -->
+      <section class="booking-panel">
         <!-- TANGGAL -->
         <div class="field-group">
           <label for="tanggal">Tanggal</label>
-          <button class="input-box">
-            <span>Pilih tanggal booking</span>
-            <img src="assets/icon-calendar.png" class="input-icon" alt="kalender">
-          </button>
+          <div class="input-wrapper">
+            <input
+              type="date"
+              id="tanggal"
+              class="input-field input-date"
+            />
+          </div>
         </div>
 
         <!-- SESI -->
         <div class="field-group">
           <label for="sesi">Sesi</label>
-          <button class="input-box">
-            <span>Pilih sesi booking</span>
-            <img src="assets/icon-chevron-down.png" class="input-icon" alt="dropdown">
-          </button>
+          <div class="input-wrapper">
+            <select id="sesi" class="input-field select-field">
+              <option value="">Pilih sesi booking</option>
+              <option value="1">Sesi 1</option>
+              <option value="2">Sesi 2</option>
+            </select>
+          </div>
         </div>
 
         <!-- WAKTU -->
         <div class="field-group">
           <label for="waktu">Waktu</label>
-          <button class="input-box">
-            <span>Pilih waktu booking</span>
-            <img src="assets/icon-time.png" class="input-icon" alt="waktu">
-          </button>
+          <div class="input-wrapper">
+            <input
+              type="time"
+              id="waktu"
+              class="input-field input-time"
+              step="300"
+              min="11:00"
+              max="23:00"
+            />
+          </div>
+          <p class="helper-text">Jam operasional 11.00 – 23.00 WIB</p>
+          <p id="waktuError" class="error-text" style="display:none;">
+            Waktu di luar jam operasional.
+          </p>
+        </div>
+      </section>
+
+      <!-- TOTAL & BUTTON -->
+      <section class="bottom-bar">
+        <div class="total-box">
+          <span>Total</span>
+          <span id="totalHarga">Rp. 0</span>
         </div>
 
-      </div> >
-
-    </div> 
-
-    <!-- BOTTOM BAR -->
-    <div class="booking-bottom">
-      <div class="total-row">
-        <span>Total</span>
-        <span class="total-amount">Rp. 0</span>
-      </div>
-      <button class="btn-book" disabled>Pesan Sekarang</button>
-    </div>
+        <button id="btnPesan" class="btn-pesan" disabled>
+          Pesan Sekarang
+        </button>
+      </section>
+    </main>
 
   </div>
+
+  <script>
+    // --- VARIABEL FORM & BUTTON ---
+    const tanggalInput = document.getElementById('tanggal');
+    const sesiSelect   = document.getElementById('sesi');
+    const waktuInput   = document.getElementById('waktu');
+    const btnPesan     = document.getElementById('btnPesan');
+    const totalHargaEl = document.getElementById('totalHarga');
+    const waktuErrorEl = document.getElementById('waktuError');
+
+    // --- FUNGSI VALIDASI WAKTU ---
+    function isWaktuValid(value) {
+      if (!value) return false;
+      const [h, m] = value.split(':').map(Number);
+      const total = h * 60 + m;
+      const min = 11 * 60;   // 11:00
+      const max = 23 * 60;   // 23:00
+      return total >= min && total <= max;
+    }
+
+    // --- UPDATE BUTTON & TOTAL ---
+    function updateButtonAndTotal() {
+      const tanggalTerisi = tanggalInput.value.trim() !== "";
+      const sesiTerisi    = sesiSelect.value.trim() !== "";
+
+      const waktuVal   = waktuInput.value;
+      const waktuValid = isWaktuValid(waktuVal);
+
+      // tampilkan / sembunyikan error waktu
+      if (waktuVal && !waktuValid) {
+        waktuErrorEl.style.display = "block";
+      } else {
+        waktuErrorEl.style.display = "none";
+      }
+
+      const semuaTerisi = tanggalTerisi && sesiTerisi && waktuValid;
+
+      btnPesan.disabled = !semuaTerisi;
+
+      if (semuaTerisi) {
+        btnPesan.classList.add('enabled');
+        totalHargaEl.textContent = "Rp. 45.000";
+      } else {
+        btnPesan.classList.remove('enabled');
+        totalHargaEl.textContent = "Rp. 0";
+      }
+    }
+
+    tanggalInput.addEventListener('change', updateButtonAndTotal);
+    sesiSelect.addEventListener('change', updateButtonAndTotal);
+    waktuInput.addEventListener('change', updateButtonAndTotal);
+  </script>
 </body>
 </html>

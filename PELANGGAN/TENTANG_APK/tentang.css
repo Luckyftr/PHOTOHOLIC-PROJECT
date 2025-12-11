@@ -33,193 +33,73 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 11px;
   background: #f9f9f9;
   border-bottom: 1px solid #eeeeee;
 }
 
-.status-left {
-  display: flex;
-  align-items: center;
-}
-
-.status-clock {
-  height: 14px;
-  width: auto;
-}
-
+.status-clock,
 .status-icons {
-  display: flex;
-  align-items: center;
-}
-
-.status-img {
   height: 14px;
-  width: auto;
-  object-fit: contain;
 }
 
-/* HEADER PINK ATAS */
-.app-header {
+/* HEADER PINK ATAS – logo saja */
+.topbar {
   background: #F2B6BB;
   padding: 10px 16px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.header-left {
-  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.header-logo {
-  height: 28px;
+.topbar-logo {
+  height: 50px;
   width: auto;
 }
 
-/* NAVIGATION */
-.header-nav {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex: 1;
-  justify-content: center;
-}
-
-.nav-link {
-  font-size: 13px;
-  font-weight: 500;
-  color: #F24957; 
-  text-decoration: none;
-  opacity: 0.7;
-}
-
-.nav-link.active {
-  opacity: 1;
-  font-weight: 700; 
-}
-
-/* PROFIL ICON DI KANAN */
-.profile-btn {
-  border: none;
-  background: transparent;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.profile-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-/* KONTEN UTAMA */
-.screen {
-  flex: 1;
-  padding: 18px 24px 24px;
-  overflow-y: auto;
-}
-
-/* BARIS JUDUL + TOMBOL BACK */
-.page-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.back-btn {
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.back-icon {
-  width: 32px;
-  height: 32px;
-  object-fit: contain; 
+/* TITLE SECTION PUTIH */
+.page-head {
+  background: #ffffff;
+  padding: 16px 24px 20px;
+  text-align: center;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .page-title {
   font-size: 18px;
-  font-weight: 600;
-  color: #0f766e;
+  font-weight: 700;
+  color: #e84a5f;
+  margin-bottom: 6px;
 }
 
-/* ILUSTRASI + BRAND */
-.about-illustration {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
+.page-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.4;
 }
 
-.about-image {
-  width: 150px;
-  height: auto;
-}
-
-.brand-block {
-  margin-top: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.brand-image {
-  width: 160px;
-  height: auto;
-}
-
-/* CARD DESKRIPSI */
-.about-card {
-  margin: 24px auto;
-  background: #ffffff;
-  border-radius: 16px;
+/* KONTEN */
+.about-wrapper {
+  flex: 1;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+/* CARD PENJELASAN APLIKASI */
+.about-card {
+  padding: 16px 18px;
+  background: #fff5f7;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(248, 113, 136, 0.12);
   font-size: 12px;
   color: #374151;
   line-height: 1.6;
-  width: 88%;
 }
 
-/* FOOTER PINK BAWAH */
-.footer-bar {
-  background: #F2B6BB; 
-  padding: 10px 10px;
-  border-top: 1px solid #f1a6ad;
-
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-
-  font-size: 9px;
-}
-
-.footer-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.footer-icon {
-  width: 14px;
-  height: 14px;
-  object-fit: contain;
-}
-
-.footer-text {
-  white-space: nowrap;
-  color: #F24957; 
+/* Judul kecil di dalam card (opsional) */
+.about-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e84a5f;
+  margin-bottom: 6px;
 }

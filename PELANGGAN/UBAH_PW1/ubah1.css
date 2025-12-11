@@ -159,7 +159,18 @@ form {
   padding: 12px 0;
   font-size: 15px;
   font-weight: 600;
-  background: #add3cc;
+  background: #add3cc;   /* pudar (disabled) */
   color: #ffffff;
+  cursor: not-allowed;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* ketika semua input valid */
+.btn-primary.enabled {
+  background: #278C7B;   /* hijau tua aktif */
   cursor: pointer;
+}
+
+.btn-primary.enabled:active {
+  transform: scale(0.98);
 }

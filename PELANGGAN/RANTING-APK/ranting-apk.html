@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rating Aplikasi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ranting-apk.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ranting-apk.css">
 </head>
 
 <body>
@@ -14,34 +14,37 @@
 
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <img src="assets/jam.png" class="status-clock">
-      <img src="assets/icons.png" class="status-icons">
+      <img src="assets/jam.png" class="status-clock" alt="Jam">
+      <img src="assets/icons.png" class="status-icons" alt="Status Icons">
     </div>
 
-    <!-- HEADER -->
+    <!-- TOP PINK BAR + LOGO -->
     <header class="topbar">
       <div class="topbar-inner">
-        <img src="assets/logo-header.png" class="logo">
-        <h1 class="page-title">Rating Aplikasi</h1>
+        <img src="assets/logo-header.png" alt="Photoholic" class="topbar-logo">
       </div>
     </header>
 
+    <!-- HEADER PUTIH: JUDUL + SUBJUDUL (seperti Ganti Akun) -->
+    <section class="page-header">
+      <h1 class="page-title">Rating Aplikasi</h1>
+      <p class="page-subtitle">
+        Beri penilaianmu untuk membantu kami meningkatkan kualitas layanan Photoholic.
+      </p>
+    </section>
+
     <!-- CONTENT -->
     <div class="rating-wrapper">
+    <!-- HERO CARD -->
+    <section class="rating-hero-card">
+      <div class="rating-hero-text">
+        <h2>Bagaimana pengalamanmu dengan Photoholic?</h2>
+        <p>
+          Ceritakan pengalamanmu agar kami bisa terus berkembang dan memberikan layanan terbaik.
+        </p>
+      </div>
+    </section>
 
-      <!-- INTRO CARD -->
-      <section class="rating-hero-card">
-        <div class="rating-logo-circle">
-          <img src="assets/logo1.png" alt="Photoholic" class="rating-logo">
-        </div>
-        <div class="rating-hero-text">
-          <h2>Bagaimana pengalamanmu<br>dengan Photoholic?</h2>
-          <p>
-            Beri kami penilaian untuk membantu kami
-            meningkatkan kualitas layanan.
-          </p>
-        </div>
-      </section>
 
       <!-- STAR RATING -->
       <section class="rating-section">
@@ -54,12 +57,16 @@
           <span class="star" data-value="5">★</span>
         </div>
         <p class="rating-caption">Tap bintang untuk memilih.</p>
+        <p class="rating-label" id="ratingLabel">Belum ada rating.</p>
       </section>
 
       <!-- FEEDBACK TEXT -->
       <section class="rating-section">
-        <h3 class="rating-title">Kritik & Saran</h3>
-        <textarea class="rating-textarea" placeholder="Tulis hal yang kamu sukai atau yang perlu kami perbaiki..."></textarea>
+        <h3 class="rating-title">Kritik &amp; Saran</h3>
+        <textarea
+          class="rating-textarea"
+          placeholder="Tulis hal yang kamu sukai atau yang perlu kami perbaiki..."
+        ></textarea>
       </section>
 
       <!-- BUTTON -->
@@ -68,6 +75,70 @@
     </div>
   </div>
 
-  <script src="rating-aplikasi.js"></script>
+<script>
+const starsContainer = document.querySelector(".stars");
+const stars = document.querySelectorAll(".star");
+const textarea = document.querySelector(".rating-textarea");
+const btnSubmit = document.querySelector(".rating-submit-btn");
+const ratingLabel = document.getElementById("ratingLabel");
+
+function getRatingText(value) {
+  switch (value) {
+    case 1: return "Sangat buruk";
+    case 2: return "Kurang puas";
+    case 3: return "Biasa saja";
+    case 4: return "Puas";
+    case 5: return "Sangat puas!";
+    default: return "Belum ada rating.";
+  }
+}
+
+stars.forEach(star => {
+  star.addEventListener("click", () => {
+    const value = parseInt(star.dataset.value);
+
+    starsContainer.dataset.selected = value;
+
+    stars.forEach(s => {
+      s.classList.toggle("active", parseInt(s.dataset.value) <= value);
+    });
+
+    ratingLabel.textContent = getRatingText(value);
+    updateButtonState();
+  });
+});
+
+// textarea & button state
+textarea.addEventListener("input", updateButtonState);
+
+function updateButtonState() {
+  const rating = parseInt(starsContainer.dataset.selected || "0");
+  const textFilled = textarea.value.trim().length > 0;
+
+  if (rating > 0 && textFilled) {
+    btnSubmit.classList.add("active");
+    btnSubmit.disabled = false;
+  } else {
+    btnSubmit.classList.remove("active");
+    btnSubmit.disabled = true;
+  }
+}
+
+  // handle ketik di textarea
+  textarea.addEventListener("input", updateButtonState);
+
+  function updateButtonState() {
+    const rating = parseInt(starsContainer.dataset.selected);
+    const textFilled = textarea.value.trim().length > 0;
+
+    if (rating > 0 && textFilled) {
+      btnSubmit.classList.add("active");
+      btnSubmit.disabled = false;
+    } else {
+      btnSubmit.classList.remove("active");
+      btnSubmit.disabled = true;
+    }
+  }
+</script>
 </body>
 </html>

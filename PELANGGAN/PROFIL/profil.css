@@ -1,11 +1,10 @@
 /* RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* BODY & FRAME HP */
 body {
   font-family: "Commissioner", sans-serif;
   background: #d4d4d4;
@@ -18,7 +17,7 @@ body {
 .phone {
   width: 360px;
   height: 800px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 0 0 2px #bdbdbd;
@@ -30,70 +29,42 @@ body {
 .status-bar {
   height: 32px;
   padding: 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
   background: #f9f9f9;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.status-left {
+  border-bottom: 1px solid #eee;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.status-clock {
-  height: 14px;
-  width: auto;
-}
-
-.status-icons {
-  display: flex;
-  align-items: center;
-}
-
+.status-clock,
 .status-img {
   height: 14px;
-  width: auto;
-  object-fit: contain;
 }
 
-/* HEADER PINK ATAS */
+/* HEADER */
 .app-header {
   background: #F2B6BB;
-  padding: 10px 16px;
+  padding: 10px 14px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 10px;
-}
-
-.header-left {
-  display: flex;
   align-items: center;
 }
 
 .header-logo {
-  height: 28px;
-  width: auto;
+  height: 26px;
 }
 
-/* NAVIGATION */
 .header-nav {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  flex: 1;
-  justify-content: center;
+  gap: 12px;
 }
 
 .nav-link {
   font-size: 13px;
-  font-weight: 500;
   color: #F24957;
   text-decoration: none;
   opacity: 0.7;
+  font-weight: 500;
 }
 
 .nav-link.active {
@@ -101,21 +72,20 @@ body {
   font-weight: 700;
 }
 
-/* PROFIL ICON DI KANAN */
 .profile-btn {
-  border: none;
   background: transparent;
+  border: none;
   padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+}
+
+.profile-btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .profile-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
+  width: 26px;
+  height: 26px;
 }
 
 /* KONTEN UTAMA */
