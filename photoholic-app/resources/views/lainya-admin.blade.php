@@ -35,9 +35,9 @@
           </div>
 
           <div class="profile-info">
-            <p class="profile-name">Berlian Admin</p>
-            <p class="profile-email">admin@gmail.com</p>
-            <p class="profile-phone">0812345678919</p>
+            <p class="profile-name">{{ $user->name }}</p>
+            <p class="profile-email">{{ $user->email }}</p>
+            <p class="profile-phone">{{ $user->phone ?? '-' }}</p> <!-- kalau belum ada nomor -->
           </div>
 
           <button class="edit-btn" type="button">

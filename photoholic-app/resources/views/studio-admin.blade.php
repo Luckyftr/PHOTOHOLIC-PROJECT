@@ -121,8 +121,10 @@
     </main>
 
     <!-- FAB TAMBAH -->
-    <button class="fab-add" type="button">+</button>
-
+    <a href="tambah-studio-admin">
+        <button class="fab-add" type="button">+</button>
+    </a>
+    
     <!-- BOTTOM NAV -->
     <nav class="bottom-nav">
         <a href="admin-beranda">

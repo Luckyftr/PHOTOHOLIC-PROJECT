@@ -17,6 +17,7 @@ class ProfileController extends Controller
     public function index() {
         $user = Auth::user();
         return view('profil', compact('user'));
+        
     }
 
     /**
@@ -67,6 +68,7 @@ class ProfileController extends Controller
         $user->phone = $request->phone;
 
         $user->save();
+        
 
         return redirect('/profil')->with('success', 'Profil berhasil diperbarui!');
     }

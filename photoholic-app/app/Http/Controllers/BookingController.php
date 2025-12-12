@@ -4,31 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Studio;
 
 class BookingController extends Controller
 {
     // Halaman form booking
-    public function create($studio)
+    public function create($code)
     {
-        $studioCode = $studio;
+        // Ambil studio dari database berdasarkan kode
+    $studio = Studio::where('code', $code)->firstOrFail();
 
-        $studioName = match($studioCode) {
-            'A' => 'Classy',
-            'B' => 'Lavatory',
-            'C' => 'Oven',
-            'D' => 'Spotlight',
-            default => 'Classy',
-        };
+    return view('pesan-sekarang', [
+        'studioCode' => $studio->code,
+        'studioName' => $studio->nama,
+        'studioImage' => $studio->gambar,
+    ]);
 
-        $studioImage = match($studioCode) {
-            'A' => 'studio-classy.png',
-            'B' => 'studio-lavatory.png',
-            'C' => 'studio-oven.png',
-            'D' => 'studio-spotlight.png',
-            default => 'studio-classy.png',
-        };
-
-        return view('pesan-sekarang', compact('studioCode', 'studioName', 'studioImage'));
     }
 
     // Store booking
@@ -38,16 +29,13 @@ class BookingController extends Controller
             'tanggal' => 'required|date',
             'sesi'    => 'required|integer|min:1',
             'waktu'   => 'required',
-            'studio'  => 'required|in:A,B,C,D',
+            'studio' => 'required|exists:studios,code',
         ]);
 
         $studioCode = $request->studio;
-        $studioName = match($studioCode) {
-            'A' => 'Classy',
-            'B' => 'Lavatory',
-            'C' => 'Oven',
-            'D' => 'Spotlight',
-        };
+        $studio = Studio::where('code', $request->studio)->firstOrFail();
+        $studioName = $studio->nama;
+
 
         $jumlah_sesi = $request->sesi;
         $harga_per_sesi = 45000;
@@ -100,20 +88,16 @@ class BookingController extends Controller
     public function checkAvailability(Request $request)
     {
         $request->validate([
-            'studio' => 'required|in:A,B,C,D',
+            'studio' => 'required|exists:studios,code',
             'sesi' => 'required|integer|min:1',
             'tanggal' => 'required|date',
             'waktu' => 'required',
         ]);
 
-        $studioMap = [
-            'A' => 'Classy',
-            'B' => 'Lavatory',
-            'C' => 'Oven',
-            'D' => 'Spotlight',
-        ];
+        $studio = Studio::where('code', $request->studio)->firstOrFail();
 
-        $studioName = $studioMap[$request->studio];
+
+        $studioName = $studio->nama;
         $jamMulai = $request->waktu;
         $durasi = $request->sesi * 5; // 5 menit per sesi
         $jamSelesai = date('H:i', strtotime("+{$durasi} minutes", strtotime($jamMulai)));
@@ -195,4 +179,15 @@ class BookingController extends Controller
 
         return redirect()->route('pembayaran.bukti', ['id' => $booking->id]);
     }
+
+    public function myBookings()
+    {
+        $bookings = Booking::where('user_id', auth()->id())
+                        ->where('status', 'lunas')
+                        ->orderBy('tanggal', 'desc')
+                        ->get();
+
+        return view('pemesanan', compact('bookings'));
+    }
+
 }

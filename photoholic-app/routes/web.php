@@ -7,6 +7,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,15 +53,18 @@ Route::get('/studio-admin', function () {
     return view('studio-admin');
 });
 
+Route::get('/tambah-studio-admin', function () {
+    return view('tambah-studio-admin');
+});
+
 //admin-pembayaran
 Route::get('/pembayaran-admin', function () {
     return view('pembayaran-admin');
 });
 
-//admin lainnya
-Route::get('/lainya-admin', function () {
-    return view('lainya-admin');
-});
+//admin profil
+Route::get('/lainya-admin', [AdminController::class, 'index_admin']); // tampil profil
+
 
 
 // Halaman registrasi
@@ -116,9 +121,11 @@ Route::get('/studio', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
-Route::get('/pemesanan', function () {
+Route::get('/pemesanan', [BookingController::class, 'myBookings']); // form booking
+
+/*Route::get('/pemesanan', function () {
     return view('pemesanan');
-});
+});*/
 
 Route::get('/ketersediaan', function () {
     return view('ketersediaan');

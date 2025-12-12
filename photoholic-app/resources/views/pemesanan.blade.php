@@ -53,60 +53,28 @@
       <div class="booking-list">
 
         <!-- CARD 1 -->
+        @forelse ($bookings as $b)
         <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
 
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
+            <!-- PICK IMAGE BASED ON STUDIO -->
+            <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
 
-            <button class="btn-detail">Lihat Rincian</button>
-          </div>
+            <div class="card-body">
+                <h3 class="studio-title">Studio {{ $b->studio }}</h3>
+                <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
+                <p class="studio-info">
+                    {{ \Carbon\Carbon::parse($b->tanggal)->translatedFormat('l, d F Y') }}
+                </p>
+                <p class="studio-info">{{ $b->waktu }} WIB</p>
+
+                <button class="btn-detail" onclick="location.href='/booking/detail/{{ $b->id }}'">
+                    Lihat Rincian
+                </button>
+            </div>
         </div>
-
-        <!-- CARD 2 -->
-        <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
-
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <button class="btn-detail">Lihat Rincian</button>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
-
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <button class="btn-detail">Lihat Rincian</button>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
-
-          <div class="card-body">
-            <h3 class="studio-title">Studio Classy</h3>
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <button class="btn-detail">Lihat Rincian</button>
-          </div>
-        </div>
+    @empty
+        <p style="text-align:center; color:#555; margin-top:20px;">Belum ada pemesanan.</p>
+    @endforelse
 
       </div>
     </div>
