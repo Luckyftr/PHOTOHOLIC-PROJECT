@@ -37,7 +37,7 @@
     <!-- CONTENT -->
     <div class="screen">
 
-      <!-- HERO BANNER SLIDER (UI Baru) -->
+      <!-- HERO BANNER SLIDER -->
       <section class="hero-banner">
         <div class="hero-slider">
 
@@ -66,49 +66,49 @@
       <section class="booking-widget">
         <h1 class="booking-title">Pesan Photobooth</h1>
 
-        <div class="booking-row">
-          <div class="booking-field">
-            <select class="booking-select" name="studio" required>
-              <option value="A">Classy</option>
-              <option value="B">Lavatory</option>
-              <option value="C">Oven</option>
-              <option value="D">Spotlight</option>
-          </select>
-          
+        <!-- 🔥 FORM DIBUAT FIX DI SINI -->
+        <form action="/ketersediaan" method="GET">
+
+          <div class="booking-row">
+
+            <div class="booking-field">
+              <select class="booking-select" name="studio" required>
+                <option value="A">Classy</option>
+                <option value="B">Lavatory</option>
+                <option value="C">Oven</option>
+                <option value="D">Spotlight</option>
+              </select>
+            </div>
+
+            <div class="booking-field">
+              <select class="booking-select" name="sesi" required>
+                <option value="1">Sesi 1</option>
+                <option value="2">Sesi 2</option>
+              </select>
+            </div>
+
+            <div class="booking-field">
+              <input type="date" class="booking-select" name="tanggal" required>
+            </div>
+
+            <div class="booking-field">
+              <select class="booking-select" name="waktu" required>
+                <option value="10:00">10.00</option>
+                <option value="11:00">11.00</option>
+                <option value="12:00">12.00</option>
+                <option value="13:00">13.00</option>
+              </select>
+            </div>
+
           </div>
 
-          <div class="booking-field">
-            <select class="booking-select">
-              <option>Sesi</option>
-              <option>Sesi 1</option>
-              <option>Sesi 2</option>
-              <option>Sesi 3</option>
-            </select>
-          </div>
+          <button type="submit" class="booking-check-btn">
+            <img src="{{ asset('asset/pelanggan/beranda/icon-search.png') }}" style="width:14px">
+            Cek Ketersediaan
+          </button>
 
-          <div class="booking-field">
-            <select class="booking-select">
-              <option>Tanggal</option>
-              <option>Hari ini</option>
-              <option>Besok</option>
-            </select>
-          </div>
-
-          <div class="booking-field">
-            <select class="booking-select">
-              <option>Waktu</option>
-              <option>10.00</option>
-              <option>11.00</option>
-              <option>12.00</option>
-              <option>13.00</option>
-            </select>
-          </div>
-        </div>
-
-        <button class="booking-check-btn" onclick="location.href='/ketersediaan'">
-          <img src="{{ asset('asset/pelanggan/beranda/icon-search.png') }}" style="width:14px">
-          Cek Ketersediaan
-        </button>
+        </form>
+        <!-- END FORM -->
       </section>
 
       <!-- PILIH STUDIO -->
@@ -122,7 +122,7 @@
               <h3>Classy</h3>
               <p class="studio-desc">Max 10 Orang<br>Paper Negatif Film</p>
               <p class="studio-price">Rp 45.000/Sesi</p>
-              <button class="studio-btn" onclick="location.href='/pesan-sekarang'">Pesan Sekarang</button>
+              <a href="{{ route('booking.create', ['studio' => 'A']) }}" class="studio-btn">Pesan Sekarang</a>
             </div>
           </article>
 
@@ -132,7 +132,7 @@
               <h3>Lavatory</h3>
               <p class="studio-desc">Max 6 Orang<br>Photo Paper 4R</p>
               <p class="studio-price">Rp 45.000/Sesi</p>
-              <button class="studio-btn">Pesan Sekarang</button>
+              <a href="{{ route('booking.create', ['studio' => 'B']) }}" class="studio-btn">Pesan Sekarang</a>
             </div>
           </article>
 
@@ -142,7 +142,7 @@
               <h3>Oven</h3>
               <p class="studio-desc">Max 6 Orang<br>Photo Paper 4R</p>
               <p class="studio-price">Rp 45.000/Sesi</p>
-              <button class="studio-btn">Pesan Sekarang</button>
+              <a href="{{ route('booking.create', ['studio' => 'C']) }}" class="studio-btn">Pesan Sekarang</a>
             </div>
           </article>
 
@@ -152,7 +152,7 @@
               <h3>Spotlight</h3>
               <p class="studio-desc">Max 6 Orang<br>Photo Paper 4R</p>
               <p class="studio-price">Rp 45.000/Sesi</p>
-              <button class="studio-btn">Pesan Sekarang</button>
+              <a href="{{ route('booking.create', ['studio' => 'D']) }}" class="studio-btn">Pesan Sekarang</a>
             </div>
           </article>
         </div>

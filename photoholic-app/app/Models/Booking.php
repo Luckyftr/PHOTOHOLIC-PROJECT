@@ -19,6 +19,7 @@ class Booking extends Model
         'waktu',
         'harga_sesi',
         'subtotal',
+        'queue_number',
         'metode_pembayaran',
         'status',
         'id_transaksi',

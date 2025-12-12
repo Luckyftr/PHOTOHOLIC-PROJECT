@@ -66,7 +66,7 @@
           <div class="invoice-info-block right">
             <h4>Informasi Pemesanan:</h4>
             <p>{{ \Carbon\Carbon::parse($booking->tanggal)->translatedFormat('d F Y') }}</p>
-            <p>{{ $booking->studio }} ({{ $booking->jumlah_sesi }}x5 menit})</p>
+            <p>Nomor Antrian: {{ $booking->queue_number }}</p>
             <p>{{ $booking->waktu }} WIB</p>
           </div>
           <hr class="divider">

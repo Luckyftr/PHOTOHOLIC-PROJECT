@@ -52,136 +52,67 @@
 
       <!-- DATE SELECTOR -->
       <div class="date-row">
-        <div class="date-box active">
-          <span class="day">Jumat</span>
-          <span class="num">17</span>
+        @foreach($dates as $date)
+        <div class="date-box {{ $date['full'] == $tanggal ? 'active' : '' }}" data-date="{{ $date['full'] }}">
+            <span class="day">{{ $date['day'] }}</span>
+            <span class="num">{{ $date['num'] }}</span>
         </div>
-
-        <div class="date-box">
-          <span class="day">Sabtu</span>
-          <span class="num">18</span>
-        </div>
-
-        <div class="date-box">
-          <span class="day">Minggu</span>
-          <span class="num">19</span>
-        </div>
-
-        <div class="date-box">
-          <span class="day">Senin</span>
-          <span class="num">20</span>
-        </div>
-
-        <div class="date-box">
-          <span class="day">Selasa</span>
-          <span class="num">21</span>
-        </div>
-
-        <div class="date-box">
-          <span class="day">Rabu</span>
-          <span class="num">22</span>
-        </div>
+        @endforeach
       </div>
 
-      <!-- LIST CARD -->
-      <div class="booking-list">
-
-        <!-- CARD 1 -->
-        <div class="booking-card">
+<!-- LIST CARD -->
+    <div class="booking-list">
+      <div class="booking-card">
           <img src="{{ asset('asset/pelanggan/ketersediaan/sample1.png') }}" class="studio-img">
 
           <div class="card-body">
-            <div class="top-row">
-              <h3 class="studio-title">Classy</h3>
-              <span class="badge available">Tersedia</span>
-            </div>
+              <div class="top-row">
+                  <h3 class="studio-title">{{ $studioName }}</h3>
+                  @if($isAvailable)
+                      <span class="badge available">Tersedia</span>
+                  @else
+                      <span class="badge not-available">Tidak Tersedia</span>
+                  @endif
+              </div>
 
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
+              <p class="studio-info">{{ \Carbon\Carbon::parse($tanggal)->locale('id')->isoFormat('dddd, D MMMM YYYY') }}</p>
+              <p class="studio-info">{{ $jamMulai }} WIB – {{ $jamSelesai }} WIB</p>
 
-            <p class="studio-price">Harga: Rp 45.000/Sesi</p>
+              <p class="studio-price">Harga: Rp 45.000/Sesi</p>
 
-            <button class="btn-order">Pesan Sekarang</button>
+              @if($isAvailable)
+                  <a href="{{ route('booking.create', ['studio' => $studioCode]) }}" class="btn-order">
+                      Pesan Sekarang
+                  </a>
+              @else
+                  <button class="btn-order disabled">Tidak Tersedia</button>
+              @endif
           </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/ketersediaan/sample2.png') }}" class="studio-img">
-
-          <div class="card-body">
-            <div class="top-row">
-              <h3 class="studio-title">Spotlight</h3>
-              <span class="badge not-available">Tidak Tersedia</span>
-            </div>
-
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <p class="studio-price">Harga: Rp 35.000/Sesi</p>
-
-            <button class="btn-order disabled">Pesan Sekarang</button>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/ketersediaan/sample1.png') }}" class="studio-img">
-
-          <div class="card-body">
-            <div class="top-row">
-              <h3 class="studio-title">Classy</h3>
-              <span class="badge available">Tersedia</span>
-            </div>
-
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <p class="studio-price">Harga: Rp 45.000/Sesi</p>
-
-            <button class="btn-order">Pesan Sekarang</button>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/ketersediaan/sample1.png') }}" class="studio-img">
-
-          <div class="card-body">
-            <div class="top-row">
-              <h3 class="studio-title">Classy</h3>
-              <span class="badge available">Tersedia</span>
-            </div>
-
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
-            <p class="studio-info">Jumat, 17 Oktober 2025</p>
-            <p class="studio-info">15:00 WIB – 15:05 WIB</p>
-
-            <p class="studio-price">Harga: Rp 45.000/Sesi</p>
-
-            <button class="btn-order">Pesan Sekarang</button>
-          </div>
-        </div>
-
       </div>
+    </div>
+
+      
     </div>
 
   </div>
 
   <script>
+    <script>
     const dateBoxes = document.querySelectorAll('.date-box');
 
     dateBoxes.forEach(box => {
-      box.addEventListener('click', () => {
-        const currentActive = document.querySelector('.date-box.active');
-        if (currentActive) currentActive.classList.remove('active');
+        box.addEventListener('click', () => {
+            const date = box.dataset.date;
+            const studio = "{{ $studioCode }}";
+            const sesi = "{{ $sesi }}";
+            const jam = "{{ $jamMulai }}";
 
-        box.classList.add('active');
-      });
+            // redirect dengan query param
+            window.location.href = `/ketersediaan?studio=${studio}&tanggal=${date}&sesi=${sesi}&waktu=${jam}`;
+        });
     });
+</script>
+
   </script>
 
 </body>

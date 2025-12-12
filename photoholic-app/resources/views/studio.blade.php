@@ -55,7 +55,7 @@
             <h2>Classy</h2>
             <p class="studio-desc">Max 10 Orang<br>Paper Negatif Film</p>
             <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
+            <a href="{{ route('booking.create', ['studio' => 'A']) }}" class="studio-btn">Pesan Sekarang</a>
           </div>
         </div>
 
@@ -66,7 +66,7 @@
             <h2>Lavatory</h2>
             <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
             <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
+            <a href="{{ route('booking.create', ['studio' => 'B']) }}" class="studio-btn">Pesan Sekarang</a>
           </div>
         </div>
 
@@ -77,7 +77,7 @@
             <h2>Oven</h2>
             <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
             <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
+            <a href="{{ route('booking.create', ['studio' => 'C']) }}" class="studio-btn">Pesan Sekarang</a>
           </div>
         </div>
 
@@ -88,51 +88,7 @@
             <h2>Spotlight</h2>
             <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
             <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
-          </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-classy.png') }}" class="studio-img" alt="Classy">
-          <div class="studio-body">
-            <h2>Classy</h2>
-            <p class="studio-desc">Max 10 Orang<br>Paper Negatif Film</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
-          </div>
-        </div>
-
-        <!-- CARD 6 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-lavatory.png') }}" class="studio-img" alt="Lavatory">
-          <div class="studio-body">
-            <h2>Lavatory</h2>
-            <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
-          </div>
-        </div>
-
-        <!-- CARD 7 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-oven.png') }}" class="studio-img" alt="Oven">
-          <div class="studio-body">
-            <h2>Oven</h2>
-            <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
-          </div>
-        </div>
-
-        <!-- CARD 8 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-spotlight.png') }}" class="studio-img" alt="Spotlight">
-          <div class="studio-body">
-            <h2>Spotlight</h2>
-            <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <button class="studio-btn">Pesan Sekarang</button>
+            <a href="{{ route('booking.create', ['studio' => 'D']) }}" class="studio-btn">Pesan Sekarang</a>
           </div>
         </div>
 

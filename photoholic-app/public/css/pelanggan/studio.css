@@ -153,15 +153,32 @@ body {
 
 .studio-btn {
   width: 100%;
-  border-radius: 999px;
+  border-radius: 999px;       
   border: none;
-  padding: 6px 0;
-  font-size: 11px;
+  padding: 8px 0;             
+  font-size: 12px;            
   font-weight: 600;
-  background: #F24957;
+  background: #F24957;     
   color: #ffffff;
   margin-top: auto;   
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;  
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1); 
 }
+
+.studio-btn:hover {
+  background: #d63c4e;       
+  transform: translateY(-2px); 
+  box-shadow: 0 5px 8px rgba(0,0,0,0.15);
+}
+
+.studio-btn:active {
+  transform: translateY(0);   
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
 
 /* FOTO FULL (TIDAK KEpotong) */
 .studio-img {

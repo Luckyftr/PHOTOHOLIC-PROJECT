@@ -119,9 +119,12 @@ Route::get('/blog', function () {
 Route::get('/pemesanan', function () {
     return view('pemesanan');
 });
+
 Route::get('/ketersediaan', function () {
     return view('ketersediaan');
 });
+Route::get('/ketersediaan', [BookingController::class, 'checkAvailability'])->name('ketersediaan');
+
 Route::get('/pesan-sekarang', function () {
     return view('pesan-sekarang');
 });
@@ -176,7 +179,7 @@ Route::middleware('auth')->group(function () {
         ->name('ubah.password.update');
 
     // Booking studio
-    Route::get('/studio/classy', [BookingController::class, 'create'])->name('booking.form'); // form booking
+    Route::get('/booking/create/{studio}', [BookingController::class, 'create'])->name('booking.create'); // form booking
     Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store'); // simpan booking
     Route::get('/booking/{id}/invoice', [BookingController::class, 'invoice'])->name('booking.invoice'); // faktur
     Route::get('/payment/qris/{id}', [BookingController::class, 'qris'])->name('payment.qris'); // QRIS

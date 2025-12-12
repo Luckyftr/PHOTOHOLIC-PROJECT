@@ -8,9 +8,27 @@ use App\Models\Booking;
 class BookingController extends Controller
 {
     // Halaman form booking
-    public function create()
+    public function create($studio)
     {
-        return view('pesan-sekarang');
+        $studioCode = $studio;
+
+        $studioName = match($studioCode) {
+            'A' => 'Classy',
+            'B' => 'Lavatory',
+            'C' => 'Oven',
+            'D' => 'Spotlight',
+            default => 'Classy',
+        };
+
+        $studioImage = match($studioCode) {
+            'A' => 'studio-classy.png',
+            'B' => 'studio-lavatory.png',
+            'C' => 'studio-oven.png',
+            'D' => 'studio-spotlight.png',
+            default => 'studio-classy.png',
+        };
+
+        return view('pesan-sekarang', compact('studioCode', 'studioName', 'studioImage'));
     }
 
     // Store booking
@@ -78,6 +96,66 @@ class BookingController extends Controller
 
         return redirect()->route('booking.invoice', $booking->id);
     }
+
+    public function checkAvailability(Request $request)
+    {
+        $request->validate([
+            'studio' => 'required|in:A,B,C,D',
+            'sesi' => 'required|integer|min:1',
+            'tanggal' => 'required|date',
+            'waktu' => 'required',
+        ]);
+
+        $studioMap = [
+            'A' => 'Classy',
+            'B' => 'Lavatory',
+            'C' => 'Oven',
+            'D' => 'Spotlight',
+        ];
+
+        $studioName = $studioMap[$request->studio];
+        $jamMulai = $request->waktu;
+        $durasi = $request->sesi * 5; // 5 menit per sesi
+        $jamSelesai = date('H:i', strtotime("+{$durasi} minutes", strtotime($jamMulai)));
+
+        // Ambil semua booking studio pada tanggal yang dipilih
+        $existing = Booking::where('studio', $studioName)
+                        ->where('tanggal', $request->tanggal)
+                        ->get();
+
+        $isAvailable = true;
+        foreach ($existing as $b) {
+            [$mulai, $selesai] = explode(' - ', $b->waktu);
+            if (!($jamSelesai <= $mulai || $jamMulai >= $selesai)) {
+                $isAvailable = false;
+                break;
+            }
+        }
+
+        // Buat array tanggal untuk slider (hari ini + 6 hari ke depan)
+        $dates = [];
+        for ($i = 0; $i < 7; $i++) {
+            $date = now()->addDays($i);
+            $dates[] = [
+                'day' => $date->locale('id')->isoFormat('dddd'),
+                'num' => $date->format('d'),
+                'full' => $date->format('Y-m-d'),
+            ];
+        }
+
+        return view('ketersediaan', [
+            'studioName' => $studioName,
+            'tanggal' => $request->tanggal,
+            'jamMulai' => $jamMulai,
+            'jamSelesai' => $jamSelesai,
+            'isAvailable' => $isAvailable,
+            'dates' => $dates,
+            'studioCode' => $request->studio,
+            'sesi' => $request->sesi,
+        ]);
+    }
+
+
 
     // Faktur sementara
     public function invoice($id)

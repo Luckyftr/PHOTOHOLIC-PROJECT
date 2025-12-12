@@ -39,14 +39,20 @@
 
       <!-- HERO STUDIO -->
       <section class="studio-hero">
-        <img src="{{ asset('asset/pelanggan/pesan-sekarang/studio-classy.png') }}" alt="Studio Classy" class="hero-img">
+        <img src="{{ asset('asset/pelanggan/pesan-sekarang/' . $studioImage) }}" 
+            alt="Studio {{ $studioName }}" 
+            class="hero-img">
 
         <img src="{{ asset('asset/pelanggan/pesan-sekarang/back.png') }}" alt="Back" class="hero-back-img" onclick="history.back()">
 
         <div class="hero-info">
-          <h1 class="hero-title">Studio Classy</h1>
+          <h1 class="hero-title">Studio {{ $studioName }}</h1>
           <p class="hero-price">Rp 45.000/Sesi</p>
-          <p class="hero-detail">Max 10 Orang · Paper Negatif Film</p>
+          <p class="hero-detail">
+            @if($studioCode == 'A') Max 10 Orang · Paper Negatif Film
+            @else Max 6 Orang · Photo Paper A6
+            @endif
+          </p>
         </div>
       </section>
 
@@ -55,17 +61,14 @@
         <form id="bookingForm" action="{{ route('booking.store') }}" method="POST">
           @csrf
 
+          <!-- hidden input studio -->
+          <input type="hidden" name="studio" value="{{ $studioCode }}">
+
           <!-- TANGGAL -->
           <div class="field-group">
             <label for="tanggal">Tanggal</label>
             <div class="input-wrapper">
-              <input
-                type="date"
-                id="tanggal"
-                name="tanggal"
-                class="input-field input-date"
-                required
-              />
+              <input type="date" id="tanggal" name="tanggal" class="input-field input-date" required />
             </div>
           </div>
 
@@ -85,16 +88,8 @@
           <div class="field-group">
             <label for="waktu">Waktu</label>
             <div class="input-wrapper">
-              <input
-                type="time"
-                id="waktu"
-                name="waktu"
-                class="input-field input-time"
-                step="300"
-                min="11:00"
-                max="23:00"
-                required
-              />
+              <input type="time" id="waktu" name="waktu" class="input-field input-time"
+                    step="300" min="11:00" max="23:00" required />
             </div>
             <p class="helper-text">Jam operasional 11.00 – 23.00 WIB</p>
             <p id="waktuError" class="error-text" style="display:none;">
