@@ -1,147 +1,155 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    background: #d4d4d4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  /* Frame HP */
-  .phone {
-    width: 360px;
-    height: 800px;
-    background: #ffffff;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 0 0 2px #bdbdbd;
-  }
-  
-  /* Status Bar */
-  .status-bar {
-    height: 32px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    background: #f9f9f9;
-    border-bottom: 1px solid #eeeeee;
-  }
-  
-  /* kiri: jam */
-  .status-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .status-clock {
-    height: 14px;
-    width: auto;
-  }
-  
-  /* kanan: icon sinyal/wifi/baterai */
-  .status-icons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .status-img {
-    height: 14px;
-    width: auto;
-    object-fit: contain;
-  }
-  
-  /* Container isi */
-  .screen {
-    padding: 16px 32px 32px;
-  }
-  
-  .top-row {
-    margin-bottom: 12px;
-  }
-  
-  /* kalau back.png sudah termasuk lingkaran hijau */
-  .back-btn {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* atur ukuran icon back di sini */
-  .back-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
-  
-  /* Ilustrasi */
-  .illustration {
-    display: flex;
-    justify-content: center;
-    margin: 12px 0 16px;
-  }
-  
-  .illustration-img {
-    width: 140px;
-  }
-  
-  /* Title & Subtitle */
-  .title {
-    text-align: center;
-    margin-bottom: 6px;
-    font-size: 22px;
-    font-weight: 700;
-  }
-  
-  .subtitle {
-    text-align: center;
-    font-size: 12px;
-    color: #4b5563;
-    margin-bottom: 24px;
-    line-height: 1.5;
-  }
-  
-  /* Form */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .input-group {
-    width: 100%;
-  }
-  
-  .input-field {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    padding: 12px 14px;
-    font-size: 13px;
-    background: #ffffff;
-  }
-  
-  /* Button Kirim */
-  .btn-primary {
-    margin-top: 16px;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 0;
-    font-size: 15px;
-    font-weight: 600;
-    background: #add3cc; 
-    cursor: pointer;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Commissioner", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Frame HP */
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+}
+
+/* Status Bar */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* kiri: jam */
+.status-left {
+  display: flex;
+  align-items: center;
+}
+
+.status-clock {
+  height: 14px;
+  width: auto;
+}
+
+/* kanan: icon sinyal/wifi/baterai */
+.status-icons {
+  display: flex;
+  align-items: center;
+}
+
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Container isi */
+.screen {
+  padding: 16px 32px 32px;
+}
+
+.top-row {
+  margin-bottom: 12px;
+}
+
+/* kalau back.png sudah termasuk lingkaran hijau */
+.back-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* atur ukuran icon back di sini */
+.back-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Ilustrasi */
+.illustration {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 16px;
+}
+
+.illustration-img {
+  width: 140px;
+}
+
+/* Title & Subtitle */
+.title {
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #4b5563;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 12px 14px;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+/* Button Kirim */
+.btn-primary {
+  margin-top: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: not-allowed;          /* default: belum bisa diklik */
+  background: #add3cc;          /* hijau muda/transparan */
+  color: #ffffff;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* kalau SUDAH aktif (tidak disabled) */
+.btn-primary:not(:disabled) {
+  background: #278C7B;          /* hijau tua */
+  color: #ffffff;
+  cursor: pointer;
+}

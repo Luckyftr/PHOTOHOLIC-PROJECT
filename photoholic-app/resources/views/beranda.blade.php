@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beranda Photoholic</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/pelanggan/beranda.css') }}">
 </head>
 
@@ -37,9 +37,29 @@
     <!-- CONTENT -->
     <div class="screen">
 
-      <!-- HERO BANNER -->
+      <!-- HERO BANNER SLIDER (UI Baru) -->
       <section class="hero-banner">
-        <img src="{{ asset('asset/pelanggan/beranda/hero-weekend.png') }}" alt="Happy Weekend" class="hero-image">
+        <div class="hero-slider">
+
+          <div class="hero-slide active">
+            <img src="{{ asset('asset/pelanggan/beranda/hero-weekend1.png') }}" alt="Slide 1">
+          </div>
+
+          <div class="hero-slide">
+            <img src="{{ asset('asset/pelanggan/beranda/hero-weekend2.png') }}" alt="Slide 2">
+          </div>
+
+          <div class="hero-slide">
+            <img src="{{ asset('asset/pelanggan/beranda/hero-weekend3.png') }}" alt="Slide 3">
+          </div>
+
+        </div>
+
+        <div class="hero-dots">
+          <span class="hero-dot active" data-slide="0"></span>
+          <span class="hero-dot" data-slide="1"></span>
+          <span class="hero-dot" data-slide="2"></span>
+        </div>
       </section>
 
       <!-- BOOKING WIDGET -->
@@ -48,13 +68,13 @@
 
         <div class="booking-row">
           <div class="booking-field">
-            <select class="booking-select">
-              <option>Studio</option>
-              <option>Classy</option>
-              <option>Lavatory</option>
-              <option>Oven</option>
-              <option>Spotlight</option>
-            </select>
+            <select class="booking-select" name="studio" required>
+              <option value="A">Classy</option>
+              <option value="B">Lavatory</option>
+              <option value="C">Oven</option>
+              <option value="D">Spotlight</option>
+          </select>
+          
           </div>
 
           <div class="booking-field">
@@ -80,14 +100,16 @@
               <option>10.00</option>
               <option>11.00</option>
               <option>12.00</option>
+              <option>13.00</option>
             </select>
           </div>
         </div>
 
-<button class="booking-check-btn" onclick="location.href='/ketersediaan'">
-  <img src="{{ asset('asset/pelanggan/beranda/icon-search.png') }}" style="width:14px">
-  Cek Ketersediaan
-</button>
+        <button class="booking-check-btn" onclick="location.href='/ketersediaan'">
+          <img src="{{ asset('asset/pelanggan/beranda/icon-search.png') }}" style="width:14px">
+          Cek Ketersediaan
+        </button>
+      </section>
 
       <!-- PILIH STUDIO -->
       <section class="section">
@@ -142,12 +164,14 @@
 
         <div class="blog-highlight">
           <img src="{{ asset('asset/pelanggan/beranda/blog1.png') }}" class="blog-thumb" alt="Info Terbaru">
+
           <div class="blog-content">
             <p class="blog-text">
               Photoholic selalu siap jadi tempat kabur sebentar dari rutinitas ✨.
-              Mau sendirian, bareng bestie, atau sama pasangan, booth kita selalu ready buat negasin momen kamu.
+              Mau sendirian, bareng bestie, atau sama pasangan, booth kita ready buat negasin momen kamu.
               <a href="/blog" class="blog-more">Selengkapnya..</a>
             </p>
+
             <div class="blog-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -169,5 +193,36 @@
     </footer>
 
   </div><!-- /phone -->
+
+<!-- SLIDER JS -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
+    let current = 0;
+    const interval = 4000;
+
+    function showSlide(index) {
+      slides.forEach((s, i) => s.classList.toggle("active", i === index));
+      dots.forEach((d, i) => d.classList.toggle("active", i === index));
+      current = index;
+    }
+
+    function nextSlide() {
+      showSlide((current + 1) % slides.length);
+    }
+
+    let timer = setInterval(nextSlide, interval);
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        showSlide(Number(dot.dataset.slide));
+        clearInterval(timer);
+        timer = setInterval(nextSlide, interval);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

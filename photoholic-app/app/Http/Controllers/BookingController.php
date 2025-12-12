@@ -13,17 +13,26 @@ class BookingController extends Controller
         return view('pesan-sekarang');
     }
 
-    // Store booking sementara
+    // Store booking
     public function store(Request $request)
     {
         $request->validate([
-            'tanggal' => 'required',
+            'tanggal' => 'required|date',
             'sesi'    => 'required|integer|min:1',
             'waktu'   => 'required',
+            'studio'  => 'required|in:A,B,C,D',
         ]);
 
-        $harga_per_sesi = 45000;
+        $studioCode = $request->studio;
+        $studioName = match($studioCode) {
+            'A' => 'Classy',
+            'B' => 'Lavatory',
+            'C' => 'Oven',
+            'D' => 'Spotlight',
+        };
+
         $jumlah_sesi = $request->sesi;
+        $harga_per_sesi = 45000;
         $subtotal = $harga_per_sesi * $jumlah_sesi;
 
         // Hitung jam selesai
@@ -31,12 +40,13 @@ class BookingController extends Controller
         $durasi = $jumlah_sesi * 5; // 5 menit per sesi
         $jam_selesai = date('H:i', strtotime("+{$durasi} minutes", strtotime($jam_mulai)));
 
-        // Cek bentrok booking lain
-        $existing = Booking::where('tanggal', $request->tanggal)->get();
+        // Cek bentrok slot 5 menit
+        $existing = Booking::where('tanggal', $request->tanggal)
+                           ->where('studio', $studioName)
+                           ->get();
 
         foreach ($existing as $b) {
             [$mulai, $selesai] = explode(' - ', $b->waktu);
-
             if (!($jam_selesai <= $mulai || $jam_mulai >= $selesai)) {
                 return back()->withErrors([
                     'waktu' => "Slot {$jam_mulai} - {$jam_selesai} sudah dibooking.",
@@ -44,18 +54,26 @@ class BookingController extends Controller
             }
         }
 
+        // Hitung nomor antrian otomatis
+        $count = Booking::where('tanggal', $request->tanggal)
+                        ->where('studio', $studioName)
+                        ->count();
+
+        $queueNumber = $studioCode . str_pad($count + 1, 3, '0', STR_PAD_LEFT);
+
         // Simpan booking PENDING
         $booking = Booking::create([
-            'user_id'   => auth()->id(),
-            'studio'    => 'Classy',
-            'tanggal'   => $request->tanggal,
-            'sesi'      => $jumlah_sesi,
-            'jumlah_sesi' => $jumlah_sesi,
-            'waktu'     => $jam_mulai . ' - ' . $jam_selesai,
-            'harga_sesi' => $harga_per_sesi,
-            'subtotal'  => $subtotal,
+            'user_id'        => auth()->id(),
+            'studio'         => $studioName,
+            'tanggal'        => $request->tanggal,
+            'sesi'           => $jumlah_sesi,
+            'jumlah_sesi'    => $jumlah_sesi,
+            'waktu'          => $jam_mulai . ' - ' . $jam_selesai,
+            'harga_sesi'     => $harga_per_sesi,
+            'subtotal'       => $subtotal,
+            'queue_number'   => $queueNumber,
             'metode_pembayaran' => 'QRIS',
-            'status'    => 'pending',
+            'status'         => 'pending',
         ]);
 
         return redirect()->route('booking.invoice', $booking->id);
@@ -79,7 +97,6 @@ class BookingController extends Controller
     {
         $booking = Booking::with('user')->findOrFail($id);
 
-        // Simulasi payment array (jika belum punya tabel payments)
         $payment = [
             'method' => $booking->metode_pembayaran ?? 'QRIS',
             'transaction_id' => $booking->id_transaksi ?? '-',
@@ -89,8 +106,7 @@ class BookingController extends Controller
         return view('bayar-berhasil', compact('booking', 'payment'));
     }
 
-
-    // Konfirmasi admin (sementara auto redirect ke bukti)
+    // Konfirmasi admin
     public function confirmPayment($id)
     {
         $booking = Booking::findOrFail($id);

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rating Aplikasi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/pelanggan/rating-apk.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/pelanggan/rating-apk.css') }}">
 </head>
 
 <body>
@@ -14,31 +14,34 @@
 
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <img src="{{ asset('asset/pelanggan/rating-apk/jam.png') }}" class="status-clock">
-      <img src="{{ asset('asset/pelanggan/rating-apk/icons.png') }}" class="status-icons">
+      <img src="{{ asset('asset/pelanggan/rating-apk/jam.png') }}" class="status-clock" alt="Jam">
+      <img src="{{ asset('asset/pelanggan/rating-apk/icons.png') }}" class="status-icons" alt="Status Icons">
     </div>
 
-    <!-- HEADER -->
+    <!-- TOP PINK BAR + LOGO -->
     <header class="topbar">
       <div class="topbar-inner">
-        <img src="{{ asset('asset/pelanggan/rating-apk/logo-header.png') }}" class="logo">
-        <h1 class="page-title">Rating Aplikasi</h1>
+        <img src="{{ asset('asset/pelanggan/rating-apk/logo-header.png') }}" alt="Photoholic" class="topbar-logo">
       </div>
     </header>
+
+    <!-- HEADER PUTIH: JUDUL + SUBJUDUL -->
+    <section class="page-header">
+      <h1 class="page-title">Rating Aplikasi</h1>
+      <p class="page-subtitle">
+        Beri penilaianmu untuk membantu kami meningkatkan kualitas layanan Photoholic.
+      </p>
+    </section>
 
     <!-- CONTENT -->
     <div class="rating-wrapper">
 
-      <!-- INTRO CARD -->
+      <!-- HERO CARD -->
       <section class="rating-hero-card">
-        <div class="rating-logo-circle">
-          <img src="{{ asset('asset/pelanggan/rating-apk/logo1.png') }}" alt="Photoholic" class="rating-logo">
-        </div>
         <div class="rating-hero-text">
-          <h2>Bagaimana pengalamanmu<br>dengan Photoholic?</h2>
+          <h2>Bagaimana pengalamanmu dengan Photoholic?</h2>
           <p>
-            Beri kami penilaian untuk membantu kami
-            meningkatkan kualitas layanan.
+            Ceritakan pengalamanmu agar kami bisa terus berkembang dan memberikan layanan terbaik.
           </p>
         </div>
       </section>
@@ -54,16 +57,21 @@
           <span class="star" data-value="5">★</span>
         </div>
         <p class="rating-caption">Tap bintang untuk memilih.</p>
+        <p class="rating-label" id="ratingLabel">Belum ada rating.</p>
       </section>
 
       <!-- FEEDBACK TEXT -->
       <section class="rating-section">
-        <h3 class="rating-title">Kritik & Saran</h3>
-        <textarea class="rating-textarea" placeholder="Tulis hal yang kamu sukai atau yang perlu kami perbaiki..."></textarea>
+        <h3 class="rating-title">Kritik &amp; Saran</h3>
+        <textarea
+          name="feedback"
+          class="rating-textarea"
+          placeholder="Tulis hal yang kamu sukai atau yang perlu kami perbaiki..."
+        ></textarea>
       </section>
 
       <!-- BUTTON -->
-      <button class="rating-submit-btn">Kirim Rating</button>
+      <button class="rating-submit-btn" type="button" disabled>Kirim Rating</button>
 
     </div>
   </div>
@@ -71,26 +79,57 @@
   <script>
     const starsContainer = document.querySelector(".stars");
     const stars = document.querySelectorAll(".star");
+    const textarea = document.querySelector(".rating-textarea");
+    const btnSubmit = document.querySelector(".rating-submit-btn");
+    const ratingLabel = document.getElementById("ratingLabel");
+
+    function getRatingText(value) {
+      switch (value) {
+        case 1: return "Sangat buruk";
+        case 2: return "Kurang puas";
+        case 3: return "Biasa saja";
+        case 4: return "Puas";
+        case 5: return "Sangat puas!";
+        default: return "Belum ada rating.";
+      }
+    }
 
     stars.forEach(star => {
-    star.addEventListener("click", () => {
-        const value = parseInt(star.getAttribute("data-value"), 10);
+      star.addEventListener("click", () => {
+        const value = parseInt(star.dataset.value);
 
-        // simpan nilai ke attribute container (kalau nanti mau dikirim ke backend)
-        starsContainer.setAttribute("data-selected", value);
+        starsContainer.dataset.selected = value;
 
-        // update tampilan bintang
         stars.forEach(s => {
-        const sValue = parseInt(s.getAttribute("data-value"), 10);
-        if (sValue <= value) {
-            s.classList.add("active");
-        } else {
-            s.classList.remove("active");
-        }
+          s.classList.toggle("active", parseInt(s.dataset.value) <= value);
         });
-    });
+
+        ratingLabel.textContent = getRatingText(value);
+        updateButtonState();
+      });
     });
 
+    // Update button state
+    textarea.addEventListener("input", updateButtonState);
+
+    function updateButtonState() {
+      const rating = parseInt(starsContainer.dataset.selected || "0");
+      const textFilled = textarea.value.trim().length > 0;
+
+      if (rating > 0 && textFilled) {
+        btnSubmit.classList.add("active");
+        btnSubmit.disabled = false;
+      } else {
+        btnSubmit.classList.remove("active");
+        btnSubmit.disabled = true;
+      }
+    }
+
+    // Optional: Kirim ke backend Laravel nanti
+    btnSubmit.addEventListener("click", () => {
+      // bisa pakai AJAX / form submission Laravel
+      alert("Rating dikirim: " + starsContainer.dataset.selected + "\nFeedback: " + textarea.value);
+    });
   </script>
 </body>
 </html>

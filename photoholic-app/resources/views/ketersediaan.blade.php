@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cek Ketersediaan</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/pelanggan/ketersediaan.css') }}">
 </head>
 
@@ -30,8 +30,8 @@
       <nav class="header-nav">
         <a href="/beranda" class="nav-link">Beranda</a>
         <a href="/studio" class="nav-link">Studio</a>
-        <a href="blog" class="nav-link">Blog</a>
-        <a href="/pemesanan" class="nav-link">Pemesanan</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/pemesanan" class="nav-link active">Pemesanan</a>
       </nav>
 
       <button class="profile-btn">
@@ -45,7 +45,8 @@
       <!-- TITLE BAR -->
       <div class="page-title-row">
         <button class="back-btn" onclick="location.href='/beranda'">
-            <img src="{{ asset('asset/pelanggan/ketersediaan/back.png') }}" class="back-icon"></button>
+          <img src="{{ asset('asset/pelanggan/ketersediaan/back.png') }}" class="back-icon">
+        </button>
         <h1 class="page-title">Cek Ketersediaan</h1>
       </div>
 
@@ -169,5 +170,19 @@
     </div>
 
   </div>
+
+  <script>
+    const dateBoxes = document.querySelectorAll('.date-box');
+
+    dateBoxes.forEach(box => {
+      box.addEventListener('click', () => {
+        const currentActive = document.querySelector('.date-box.active');
+        if (currentActive) currentActive.classList.remove('active');
+
+        box.classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>

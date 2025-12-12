@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Layar Pembuka</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/pelanggan/pembuka2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/pelanggan/pembuka2.css') }}">
 </head>
 
 <body>
@@ -24,22 +24,27 @@
 
     <!-- ISI SPLASH -->
     <main class="splash-screen">
-      <!-- logo kamera -->
-      <img src="{{ asset('asset/pelanggan/pembuka2/logo1.png') }}" alt="Logo kamera" class="logo-camera">
-
-      <!-- tulisan photoholic -->
-      <img src="{{ asset('asset/pelanggan/pembuka2/brand-text.png') }}" alt="Photoholic" class="brand-logo">
+      <div class="splash-content">
+        <!-- logo kamera -->
+        <img src="{{ asset('asset/pelanggan/pembuka2/logo1.png') }}" alt="Logo kamera" class="logo-camera">
+        <!-- tulisan photoholic (+ tagline jika sudah satu gambar) -->
+        <img src="{{ asset('asset/pelanggan/pembuka2/brand-text.png') }}" alt="Photoholic" class="brand-logo">
+      </div>
     </main>
 
+    <!-- NAV BAR BAWAH -->
+    <footer class="nav-bar">
+      <div class="nav-btn nav-back"></div>
+      <div class="nav-btn nav-home"></div>
+      <div class="nav-btn nav-recent"></div>
+    </footer>
   </div>
 
   <script>
+    // redirect otomatis ke halaman login setelah 1.4 detik
     setTimeout(() => {
-      document.body.classList.add("fade-out");
-      setTimeout(() => {
-        window.location.href = "/masuk"; // route login
-      }, 900);
-    }, 2000);
-  </script>  
+      window.location.href = "{{ url('/masuk') }}";
+    }, 1400);
+  </script>
 </body>
 </html>

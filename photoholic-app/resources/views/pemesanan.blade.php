@@ -54,7 +54,7 @@
 
         <!-- CARD 1 -->
         <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.png') }}" class="studio-img">
+          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
 
           <div class="card-body">
             <h3 class="studio-title">Studio Classy</h3>
@@ -68,7 +68,7 @@
 
         <!-- CARD 2 -->
         <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.png') }}" class="studio-img">
+          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
 
           <div class="card-body">
             <h3 class="studio-title">Studio Classy</h3>
@@ -82,7 +82,7 @@
 
         <!-- CARD 3 -->
         <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.png') }}" class="studio-img">
+          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
 
           <div class="card-body">
             <h3 class="studio-title">Studio Classy</h3>
@@ -96,7 +96,7 @@
 
         <!-- CARD 4 -->
         <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.png') }}" class="studio-img">
+          <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
 
           <div class="card-body">
             <h3 class="studio-title">Studio Classy</h3>

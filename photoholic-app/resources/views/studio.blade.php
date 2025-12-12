@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pilih Studio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/pelanggan/studio.css') }}">
 </head>
 
@@ -30,7 +30,7 @@
       </nav>
 
       <button class="profile-btn" onclick="location.href='/profil'">
-        <img src="{{ asset('asset/pelanggan/studio/icon-profil.png') }}" class="profile-icon" alt="profil">
+        <img src="{{ asset('asset/pelanggan/studio/icon-profil.png') }}" alt="Profil" class="profile-icon">
       </button>
     </header>
 
@@ -39,8 +39,8 @@
 
       <!-- BAR JUDUL HIJAU -->
       <div class="studio-title-row">
-        <button class="back-btn-studio" onclick="location.href='/beranda'">
-            <img src="{{ asset('asset/pelanggan/studio/back.png') }}">
+        <button class="back-btn-studio" onclick="history.back()">
+          <img src="{{ asset('asset/pelanggan/studio/back.png') }}" class="back-icon" alt="Kembali">
         </button>
         <h1 class="studio-title">Pilih Studio Kesukaan Kamu</h1>
       </div>
@@ -139,8 +139,8 @@
       </div>
 
     </div>
-
-    <!-- FOOTER (opsional, mirip figma) -->
+    
+    <!-- FOOTER -->
     <footer class="footer-bar">
       <div class="footer-inner">
         <span>0851-2400-0950</span>

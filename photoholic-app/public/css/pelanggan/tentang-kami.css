@@ -1,170 +1,166 @@
 /* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* BODY & PHONE FRAME */
-  body {
-    font-family: "Poppins", sans-serif;
-    background: #d4d4d4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .phone {
-    width: 360px;
-    height: 800px;
-    background: #fff;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 0 0 2px #bdbdbd;
-    position: relative;
-  }
-  
-  /* STATUS BAR */
-  .status-bar {
-    height: 32px;
-    padding: 0 12px;
-    background: #f9f9f9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .status-clock,
-  .status-icons {
-    height: 16px;
-  }
-  
-  /* HEADER */
-  .topbar {
-    background: #F2B6BB;
-    padding: 12px 16px;
-  }
-  
-  .topbar-inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-  }
-  
-  .logo {
-    height: 32px;
-  }
-  
-  .page-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #e84a5f;
-  }
-  
-  /* CONTENT WRAPPER */
-  .about-wrapper {
-    padding: 16px;
-    background: #ffffff;
-    overflow-y: auto;
-    height: calc(800px - 32px - 56px); /* tinggi phone - status - header kira2 */
-  }
-  
-  /* HERO CARD */
-  .about-hero-card {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    padding: 16px;
-    background: #fff5f7;
-    border-radius: 16px;
-    margin-bottom: 18px;
-  }
-  
-  .about-logo-circle {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #ffe0e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .about-logo {
-    width: 38px;
-    height: auto;
-  }
-  
-  .about-hero-text h2 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #e84a5f;
-    margin-bottom: 4px;
-  }
-  
-  .about-hero-text p {
-    font-size: 12px;
-    color: #444;
-    line-height: 1.4;
-  }
-  
-  /* SECTIONS */
-  .about-section {
-    margin-bottom: 16px;
-  }
-  
-  .about-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #e84a5f;
-    margin-bottom: 6px;
-  }
-  
-  .about-paragraph {
-    font-size: 12px;
-    color: #444;
-    line-height: 1.5;
-  }
-  
-  /* LIST */
-  .about-list {
-    list-style: disc;
-    padding-left: 18px;
-  }
-  
-  .about-list li {
-    font-size: 12px;
-    color: #444;
-    margin-bottom: 4px;
-  }
-  
-  /* FEATURE BULLETS */
-  .about-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-    margin-bottom: 6px;
-  }
-  
-  .about-dot {
-    margin-top: 4px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #e84a5f;
-  }
-  
-  .about-feature p {
-    font-size: 12px;
-    color: #444;
-  }
-  
-  /* CONTACT */
-  .contact-section {
-    padding: 10px 12px;
-    background: #fff5f7;
-    border-radius: 14px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY & PHONE FRAME */
+body {
+  font-family: "Commissioner", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-clock,
+.status-icons {
+  height: 16px;
+}
+
+/* HEADER PINK DENGAN LOGO */
+.topbar {
+  background: #F2B6BB;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topbar-logo {
+  height: 50px;
+  width: auto;
+}
+
+/* TITLE + SUBTITLE PUTIH (mirip rating apk) */
+.page-head {
+  background: #ffffff;
+  padding: 16px 24px 20px;
+  text-align: center;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e84a5f;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* CONTENT WRAPPER */
+.about-wrapper {
+  flex: 1;
+  padding: 16px;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+/* HERO CARD – pengantar tentang Photoholic */
+.about-hero-card {
+  padding: 14px 16px;
+  background: #fff5f7;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 6px rgba(248, 113, 136, 0.12);
+}
+
+.about-hero-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e84a5f;
+  margin-bottom: 6px;
+}
+
+.about-hero-text {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* SECTION UMUM */
+.about-section {
+  margin-bottom: 16px;
+}
+
+.about-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e84a5f;
+  margin-bottom: 6px;
+}
+
+.about-paragraph {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* LIST */
+.about-list {
+  list-style: disc;
+  padding-left: 18px;
+}
+
+.about-list li {
+  font-size: 12px;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+/* BULLET CUSTOM (Kenapa memilih) */
+.about-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.about-dot {
+  margin-top: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e84a5f;
+}
+
+.about-feature p {
+  font-size: 12px;
+  color: #444;
+}
+
+/* CONTACT BOX */
+.contact-section {
+  padding: 10px 12px;
+  background: #fff5f7;
+  border-radius: 14px;
+  box-shadow: 0 1px 4px rgba(248, 113, 136, 0.12);
+}

@@ -1,199 +1,149 @@
 /* RESET */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* BODY & FRAME HP */
-  body {
-    font-family: "Poppins", sans-serif;
-    background: #d4d4d4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .phone {
-    width: 360px;
-    height: 800px;
-    background: #ffffff;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 0 0 2px #bdbdbd;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* STATUS BAR */
-  .status-bar {
-    height: 32px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    background: #f9f9f9;
-    border-bottom: 1px solid #eeeeee;
-  }
-  
-  .status-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .status-time {
-    font-weight: 500;
-  }
-  
-  .status-right {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  
-  /* Signal bars */
-  .signal-bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 1px;
-  }
-  
-  .signal-bars span {
-    width: 2px;
-    background: #111827;
-    border-radius: 1px;
-  }
-  
-  .signal-bars span:nth-child(1) { height: 4px; opacity: 0.5; }
-  .signal-bars span:nth-child(2) { height: 6px; opacity: 0.7; }
-  .signal-bars span:nth-child(3) { height: 8px; opacity: 0.9; }
-  .signal-bars span:nth-child(4) { height: 10px; }
-  
-  /* Wifi icon – dibalik supaya menghadap ke atas */
-  .wifi-symbol {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    position: relative;
-  }
-  
-  .wifi-symbol::before,
-  .wifi-symbol::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 1px solid #111827;
-    border-radius: 50%;
-    /* bagian bawah transparan, jadi garisnya menghadap ke atas */
-    border-bottom-color: transparent;
-  }
-  
-  .wifi-symbol::after {
-    inset: 3px;
-    border-bottom-color: transparent;
-  }
-  
-  /* Battery icon */
-  .battery {
-    width: 18px;
-    height: 9px;
-    border: 1px solid #111827;
-    border-radius: 2px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 1px;
-  }
-  
-  .battery::after {
-    content: "";
-    position: absolute;
-    right: -3px;
-    top: 2px;
-    width: 2px;
-    height: 5px;
-    border-radius: 1px;
-    background: #111827;
-  }
-  
-  .battery-level {
-    width: 70%;
-    height: 100%;
-    background: #16a34a;
-    border-radius: 1px;
-  }
-  
-  /* SPLASH AREA – logo & text dirapatkan */
-  .splash-screen {
-    flex: 1;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;   /* semua di tengah layar */
-    gap: 6px;                  /* jarak antar elemen kecil saja */
-  }
-  
-  /* logo kamera */
-  .logo-camera {
-    width: 120px;
-    height: auto;
-    margin: 0;
-  }
-  
-  /* tulisan photoholic */
-  .brand-logo {
-    width: 200px;
-    height: auto;
-    margin: 0;
-  }
-  
-  /* NAV BAR BAWAH */
-  .nav-bar {
-    height: 48px;
-    background: #f5f5f5;
-    border-top: 1px solid #e5e5e5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 48px;
-  }
-  
-  /* Tombol sistem */
-  .nav-btn {
-    position: relative;
-  }
-  
-  /* Back */
-  .nav-back {
-    width: 14px;
-    height: 14px;
-    border-left: 2px solid #4b5563;
-    border-bottom: 2px solid #4b5563;
-    transform: rotate(45deg);
-  }
-  
-  /* Home */
-  .nav-home {
-    width: 12px;
-    height: 12px;
-    border-radius: 999px;
-    border: 2px solid #4b5563;
-  }
-  
-  /* Recent */
-  .nav-recent {
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
-    border: 2px solid #4b5563;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  .fade-out {
+/* BODY & FRAME HP */
+body {
+  font-family: "Commissioner", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.status-left {
+  display: flex;
+  align-items: center;
+}
+
+.status-clock {
+  height: 14px;
+  width: auto;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+}
+
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* SPLASH AREA – putih, isi di tengah */
+.splash-screen {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* WRAPPER UNTUK MERAPATKAN LOGO + TEXT */
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;                 /* jarak logo ↔ tulisan jadi dekat */
+  transform-origin: center;
+  animation: splashZoomIn 1.2s ease-out forwards;
+}
+
+/* logo kamera */
+.logo-camera {
+  width: 180px;
+  height: auto;
+  margin: 0;
+}
+
+/* tulisan photoholic (dan tagline jika menyatu di gambar) */
+.brand-logo {
+  width: 200px;
+  height: auto;
+  margin: 0;
+}
+
+/* NAV BAR BAWAH */
+.nav-bar {
+  height: 48px;
+  background: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+/* Tombol sistem */
+.nav-btn {
+  position: relative;
+}
+
+/* Back */
+.nav-back {
+  width: 14px;
+  height: 14px;
+  border-left: 2px solid #4b5563;
+  border-bottom: 2px solid #4b5563;
+  transform: rotate(45deg);
+}
+
+/* Home */
+.nav-home {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 2px solid #4b5563;
+}
+
+/* Recent */
+.nav-recent {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 2px solid #4b5563;
+}
+
+/* ANIMASI ZOOM IN */
+@keyframes splashZoomIn {
+  0% {
+    transform: scale(0.7);   /* mulai sedikit kecil */
     opacity: 0;
-    transition: opacity 0.9s ease;
   }
-  
-  
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);     /* selesai ukuran normal */
+    opacity: 1;
+  }
+}

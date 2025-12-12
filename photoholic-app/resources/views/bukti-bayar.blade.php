@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bukti Pembayaran</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/pelanggan/bukti-bayar.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/pelanggan/bukti-bayar.css') }}">
 </head>
 
 <body>
@@ -75,21 +75,21 @@
           </div>
         </div>
 
-        <!-- CARD 2 - MENUNGGU -->
+        <!-- CARD 2 - MENUNGGU PEMBAYARAN -->
         <div class="booking-card">
-          <img src="{{ asset('asset/pelanggan/bukti-bayar/sample1.png') }}" class="studio-img" alt="Studio Classy">
+          <img src="{{ asset('asset/pelanggan/bukti-bayar/sample1.png') }}" class="studio-img" alt="Studio Spotlight">
 
           <div class="card-body">
             <div class="top-row">
-              <h3 class="studio-title">Classy</h3>
+              <h3 class="studio-title">Spotlight</h3>
               <span class="badge pending">Menunggu Pembayaran</span>
             </div>
 
-            <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
+            <p class="studio-info">Max 10 Orang • Photo Paper 4R</p>
             <p class="studio-info">Jumat, 17 Oktober 2025</p>
             <p class="studio-info">15:00 WIB – 15:05 WIB</p>
 
-            <p class="studio-total">Total : Rp 35.000</p>
+            <p class="studio-total">Total : Rp 45.000</p>
 
             <button class="btn-payment disabled" type="button">
               Menunggu Pembayaran
@@ -104,14 +104,14 @@
           <div class="card-body">
             <div class="top-row">
               <h3 class="studio-title">Classy</h3>
-             <span class="badge cancelled">Dibatalkan</span>
+              <span class="badge cancelled">Dibatalkan</span>
             </div>
 
             <p class="studio-info">Max 10 Orang • Paper Negatif Film</p>
             <p class="studio-info">Jumat, 17 Oktober 2025</p>
             <p class="studio-info">15:00 WIB – 15:05 WIB</p>
 
-            <p class="studio-total">Total : Rp 35.000</p>
+            <p class="studio-total">Total : Rp 45.000</p>
 
             <button class="btn-payment" type="button">
               Pesan Sekarang
@@ -120,8 +120,8 @@
         </div>
 
       </div>
-    </div>  
+    </div>
 
-  </div>  
+  </div>
 </body>
 </html>

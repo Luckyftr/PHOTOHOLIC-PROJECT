@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubah Kata Sandi</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/pelanggan/ubahPW2.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/pelanggan/ubahPW2-new.css') }}">
 </head>
 
 <body>
   <div class="phone">
-    <!-- status bar -->
+    <!-- STATUS BAR -->
     <div class="status-bar">
       <div class="status-left">
         <img src="{{ asset('asset/pelanggan/ubahPW2/jam.png') }}" alt="Jam" class="status-clock">
@@ -22,10 +22,11 @@
       </div>
     </div>
 
+    <!-- ISI HALAMAN -->
     <div class="screen">
       <!-- tombol back -->
       <div class="top-row">
-        <button class="back-btn" type="button" onclick="location.href='/lupaPW'">
+        <button class="back-btn" type="button" onclick="history.back()">
           <img src="{{ asset('asset/pelanggan/ubahPW2/back.png') }}" alt="Kembali" class="back-icon">
         </button>
       </div>
@@ -35,83 +36,74 @@
         Jaga keamanan akun Anda dengan mengganti kata sandi secara berkala!
       </p>
 
-      <form action="{{ route('ubah.password.update') }}" method="POST">
+      <form action="{{ route('ubah.password.update') }}" method="POST" id="ubahForm">
         @csrf
         <input type="hidden" name="email" value="{{ $email }}">
-    
+
         <!-- Kata sandi lama -->
         <div class="input-group">
-            <div class="input-with-icon">
-                <input
-                    type="password"
-                    id="oldPassword"
-                    name="old_password"
-                    placeholder="Masukkan kata sandi lama Anda"
-                    required
-                />
-                <button
-                    type="button"
-                    class="eye-icon"
-                    onclick="togglePassword('oldPassword', this)"
-                >
-                    <img src="{{ asset('asset/pelanggan/ubahPW2/eye-closed.png') }}" alt="">
-                </button>
-            </div>
-        </div>
-        @error('old_password')
+          <div class="input-with-icon">
+            <input
+              type="password"
+              id="oldPassword"
+              name="old_password"
+              placeholder="Masukkan kata sandi lama Anda"
+              required
+            />
+            <button type="button" class="eye-icon" onclick="togglePassword('oldPassword', this)">
+              <img src="{{ asset('asset/pelanggan/ubahPW2/eye-closed.png') }}" alt="">
+            </button>
+          </div>
+          @error('old_password')
             <p style="color:red">{{ $message }}</p>
-        @enderror
-    
+          @enderror
+        </div>
+
         <!-- Kata sandi baru -->
         <div class="input-group">
-            <div class="input-with-icon">
-                <input
-                    type="password"
-                    id="newPassword"
-                    name="password"
-                    placeholder="Masukkan kata sandi baru Anda"
-                    required
-                />
-                <button
-                    type="button"
-                    class="eye-icon"
-                    onclick="togglePassword('newPassword', this)"
-                >
-                    <img src="{{ asset('asset/pelanggan/ubahPW2/eye-closed.png') }}" alt="">
-                </button>
-            </div>
+          <div class="input-with-icon">
+            <input
+              type="password"
+              id="newPassword"
+              name="password"
+              placeholder="Masukkan kata sandi baru Anda"
+              required
+            />
+            <button type="button" class="eye-icon" onclick="togglePassword('newPassword', this)">
+              <img src="{{ asset('asset/pelanggan/ubahPW2/eye-closed.png') }}" alt="">
+            </button>
+          </div>
+          @error('password')
+            <p style="color:red">{{ $message }}</p>
+          @enderror
         </div>
-    
+
         <!-- Konfirmasi kata sandi baru -->
         <div class="input-group">
-            <div class="input-with-icon">
-                <input
-                    type="password"
-                    id="confirmNewPassword"
-                    name="password_confirmation"
-                    placeholder="Masukkan kembali kata sandi baru Anda"
-                    required
-                />
-                <button
-                    type="button"
-                    class="eye-icon"
-                    onclick="togglePassword('confirmNewPassword', this)"
-                >
-                    <img src="{{ asset('asset/pelanggan/ubahPW2/eye-closed.png') }}" alt="">
-                </button>
-            </div>
+          <div class="input-with-icon">
+            <input
+              type="password"
+              id="confirmNewPassword"
+              name="password_confirmation"
+              placeholder="Masukkan kembali kata sandi baru Anda"
+              required
+            />
+            <button type="button" class="eye-icon" onclick="togglePassword('confirmNewPassword', this)">
+              <img src="{{ asset('asset/pelanggan/ubahPW2/eye-closed.png') }}" alt="">
+            </button>
+          </div>
         </div>
-        @error('password')
-            <p style="color:red">{{ $message }}</p>
-        @enderror
-    
-        <button type="submit" class="btn-primary">Kirim</button>
-    </form>
+
+        <button type="submit" id="btnKirim" class="btn-primary" disabled>
+          Kirim
+        </button>
+      </form>
     </div>
   </div>
 
-  <!-- JS show/hide password -->
+  <!-- JS -->
   <script>
+    // show / hide password
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
       const img = btn.querySelector("img");
@@ -124,6 +116,32 @@
         img.src = "{{ asset('asset/pelanggan/ubahPW2/eye-closed.png') }}";
       }
     }
+
+    // enable/disable tombol submit
+    const passLama = document.getElementById('oldPassword');
+    const passBaru = document.getElementById('newPassword');
+    const passKonf = document.getElementById('confirmNewPassword');
+    const btnKirim = document.getElementById('btnKirim');
+    const form     = document.getElementById('ubahForm');
+
+    function updateButtonState() {
+      const lamaTerisi = passLama.value.trim() !== "";
+      const baruTerisi = passBaru.value.trim() !== "";
+      const konfTerisi = passKonf.value.trim() !== "";
+      const sama       = passBaru.value === passKonf.value;
+
+      btnKirim.disabled = !(lamaTerisi && baruTerisi && konfTerisi && sama);
+      btnKirim.classList.toggle('enabled', lamaTerisi && baruTerisi && konfTerisi && sama);
+    }
+
+    passLama.addEventListener('input', updateButtonState);
+    passBaru.addEventListener('input', updateButtonState);
+    passKonf.addEventListener('input', updateButtonState);
+
+    // optional: demo prevent reload
+    form.addEventListener('submit', function(e) {
+      // biarkan submit Laravel tetap jalan
+    });
   </script>
 </body>
 </html>

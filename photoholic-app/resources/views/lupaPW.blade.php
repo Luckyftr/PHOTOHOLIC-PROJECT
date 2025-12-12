@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lupa Kata Sandi</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Laravel -->
   <link rel="stylesheet" href="{{ asset('css/pelanggan/lupaPW.css') }}">
 </head>
 
 <body>
   <div class="phone">
-    <!-- status bar -->
+
+    <!-- STATUS BAR -->
     <div class="status-bar">
       <div class="status-left">
         <img src="{{ asset('asset/pelanggan/lupaPW/jam.png') }}" alt="Jam" class="status-clock">
@@ -22,15 +25,17 @@
       </div>
     </div>
 
+
     <div class="screen">
-      <!-- tombol back -->
+
+      <!-- TOMBOL BACK -->
       <div class="top-row">
-        <button class="back-btn" type="button" onclick="location.href='/masuk'">
+        <button class="back-btn" type="button" onclick="location.href='{{ url('/masuk') }}'">
           <img src="{{ asset('asset/pelanggan/lupaPW/back.png') }}" alt="Kembali" class="back-icon">
         </button>
       </div>
 
-      <!-- ilustrasi -->
+      <!-- ILUSTRASI -->
       <div class="illustration">
         <img src="{{ asset('asset/pelanggan/lupaPW/logo1.png') }}" alt="Ilustrasi" class="illustration-img">
       </div>
@@ -40,20 +45,46 @@
         Jangan khawatir! Hal itu bisa terjadi. Silakan masukkan alamat email Anda untuk verifikasi.
       </p>
 
-      <!-- Form kirim email -->
+      <!-- FORM VERIFIKASI EMAIL -->
       <form action="{{ route('lupa.password.verify') }}" method="POST">
         @csrf
+
         <div class="input-group">
-          <input type="email" name="email" class="input-field" placeholder="Alamat Email" required />
+          <input 
+            type="email" 
+            name="email" 
+            class="input-field" 
+            placeholder="Alamat Email" 
+            required 
+            oninput="toggleButton()"
+          />
         </div>
 
         @error('email')
-            <p style="color:red">{{ $message }}</p>
+          <p style="color:red; margin-top:-10px; margin-bottom:10px;">{{ $message }}</p>
         @enderror
 
-        <button type="submit" class="btn-primary">Kirim</button>
+        <button type="submit" class="btn-primary" disabled>Kirim</button>
       </form>
     </div>
+
   </div>
+
+  <script>
+    const emailInput = document.querySelector('.input-field');
+    const submitBtn  = document.querySelector('.btn-primary');
+
+    function toggleButton() {
+      if (emailInput.value.trim() !== "") {
+        submitBtn.disabled = false; // aktif
+      } else {
+        submitBtn.disabled = true; // nonaktif
+      }
+    }
+
+    // Initial state
+    toggleButton();
+  </script>
+
 </body>
 </html>

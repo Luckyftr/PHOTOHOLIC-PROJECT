@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Keluar</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/pelanggan/keluar.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="keluar.css">
 </head>
 
 <body>
@@ -14,15 +14,14 @@
 
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <img src="{{ asset('asset/pelanggan/keluar/jam.png') }}" class="status-clock">
-      <img src="{{ asset('asset/pelanggan/keluar/icons.png') }}" class="status-icons">
+      <img src="assets/jam.png" class="status-clock" alt="Jam">
+      <img src="assets/icons.png" class="status-icons" alt="Status Icons">
     </div>
 
-    <!-- HEADER -->
+    <!-- HEADER (hanya logo di area pink) -->
     <header class="topbar">
       <div class="topbar-inner">
-        <img src="{{ asset('asset/pelanggan/keluar/logo-header.png') }}" class="logo">
-        <h1 class="page-title">Keluar</h1>
+        <img src="assets/logo-header.png" class="logo" alt="Photoholic">
       </div>
     </header>
 
@@ -31,8 +30,7 @@
 
       <section class="logout-card">
         <div class="logout-icon-circle">
-          <!-- kalau punya icon keluar sendiri, ganti jadi <img> -->
-          <span class="logout-icon">⇦</span>
+          <span class="logout-icon">⎋</span>
         </div>
 
         <h2 class="logout-title">Yakin ingin keluar?</h2>
@@ -41,23 +39,26 @@
           Kamu tetap bisa masuk kembali kapan saja.
         </p>
 
-        <button class="btn-primary">Keluar dari Akun</button>
-        <button class="btn-secondary">Batal</button>
+        <button class="btn-primary" type="button">Keluar dari Akun</button>
+        <button class="btn-secondary" type="button">Batal</button>
       </section>
 
     </div>
   </div>
 
   <script>
-    //super simple (kalau mau pakai)
-        document.querySelector(".btn-secondary").onclick = () => {
-        window.history.back(); // balik ke halaman sebelumnya
-        };
-
-        document.querySelector(".btn-primary").onclick = () => {
-        // redirect ke halaman login / landing
-        window.location.href = "/masuk"; // ganti sesuai file kamu
-        };
+    document.querySelector(".btn-primary").onclick = () => {
+    fetch("/keluar", {
+        method: "POST",
+        headers: {
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+            "Accept": "application/json",
+        }
+    }).then(response => {
+        window.location.href = "/masuk"; 
+    });
+  };
   </script>
+
 </body>
 </html>

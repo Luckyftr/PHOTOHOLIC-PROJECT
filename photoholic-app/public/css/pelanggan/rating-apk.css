@@ -1,178 +1,219 @@
 /* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* BODY & PHONE FRAME */
-  body {
-    font-family: "Commissioner", sans-serif;
-    background: #d4d4d4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .phone {
-    width: 360px;
-    height: 800px;
-    background: #fff;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 0 0 2px #bdbdbd;
-    position: relative;
-  }
-  
-  /* STATUS BAR */
-  .status-bar {
-    height: 32px;
-    padding: 0 12px;
-    background: #f9f9f9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .status-clock,
-  .status-icons {
-    height: 16px;
-  }
-  
-  /* HEADER */
-  .topbar {
-    background: #F2B6BB;
-    padding: 12px 16px;
-  }
-  
-  .topbar-inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-  }
-  
-  .logo {
-    height: 32px;
-  }
-  
-  .page-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #e84a5f;
-  }
-  
-  /* CONTENT WRAPPER */
-  .rating-wrapper {
-    padding: 16px;
-    background: #ffffff;
-    overflow-y: auto;
-    height: calc(800px - 32px - 56px);
-  }
-  
-  /* HERO CARD */
-  .rating-hero-card {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    padding: 16px;
-    background: #fff5f7;
-    border-radius: 16px;
-    margin-bottom: 18px;
-  }
-  
-  .rating-logo-circle {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #ffe0e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .rating-logo {
-    width: 38px;
-    height: auto;
-  }
-  
-  .rating-hero-text h2 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #e84a5f;
-    margin-bottom: 4px;
-  }
-  
-  .rating-hero-text p {
-    font-size: 12px;
-    color: #444;
-    line-height: 1.4;
-  }
-  
-  /* SECTION TITLE */
-  .rating-section {
-    margin-bottom: 18px;
-  }
-  
-  .rating-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #e84a5f;
-    margin-bottom: 8px;
-  }
-  
-  /* STARS */
-  .stars {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 4px;
-  }
-  
-  .star {
-    font-size: 26px;
-    cursor: pointer;
-    color: #f0c5cb;         /* warna bintang default (pink muda) */
-    transition: transform 0.1s ease;
-  }
-  
-  .star.active {
-    color: #e84a5f;         /* bintang yang dipilih */
-  }
-  
-  .star:hover {
-    transform: scale(1.1);
-  }
-  
-  .rating-caption {
-    font-size: 11px;
-    color: #777;
-  }
-  
-  /* TEXTAREA */
-  .rating-textarea {
-    width: 100%;
-    min-height: 90px;
-    resize: none;
-    padding: 10px;
-    border-radius: 12px;
-    border: 1px solid #f3b7c4;
-    font-size: 12px;
-    font-family: "Poppins", sans-serif;
-    color: #444;
-  }
-  
-  /* BUTTON */
-  .rating-submit-btn {
-    width: 100%;
-    background: #e84a5f;
-    color: #fff;
-    border: none;
-    border-radius: 14px;
-    padding: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 6px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY & PHONE FRAME */
+body {
+  font-family: "Commissioner", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  padding: 0 12px;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-clock,
+.status-icons {
+  height: 16px;
+}
+
+/* TOP PINK BAR (logo di tengah) */
+.topbar {
+  background: #F2B6BB;
+  padding: 10px 16px;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar-logo {
+  height: 50px;
+  width: auto;
+}
+
+/* PAGE HEADER PUTIH: judul + subjudul */
+.page-header {
+  background: #ffffff;
+  padding: 18px 16px 12px;
+  text-align: center;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e84a5f;
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* CONTENT WRAPPER */
+.rating-wrapper {
+  flex: 1;
+  padding: 16px;
+  background: #ffffff; 
+  overflow-y: auto;
+}
+
+/* bungkus semua isi dalam satu kartu putih */
+.rating-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px 16px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+/* teks di dalam kartu */
+.rating-hero-text h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e84a5f;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.rating-hero-text p {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* SECTION TITLE */
+.rating-section {
+  margin-bottom: 20px;
+}
+
+.rating-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e84a5f;
+  margin-bottom: 10px;
+}
+
+.rating-hero-card {
+  padding: 14px 14px;
+  background: #fff5f7;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
+.rating-section {
+  margin-bottom: 18px;
+}
+
+.rating-textarea {
+  min-height: 110px;
+}
+
+
+/* STARS */
+.stars {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.star {
+  font-size: 26px;
+  cursor: pointer;
+  color: #f0c5cb;        
+  transition: transform 0.1s ease, color 0.15s ease;
+}
+
+.star.active {
+  color: #e84a5f;     
+}
+
+.star:hover {
+  transform: scale(1.12);
+}
+
+.rating-caption {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.rating-label {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e84a5f;
+}
+
+/* TEXTAREA */
+.rating-textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #f3b7c4;
+  font-size: 12px;
+  font-family: "Commissioner", sans-serif;
+  color: #444;
+  outline: none;
+}
+
+.rating-textarea::placeholder {
+  color: #b7a6ab;
+}
+
+/* BUTTON – default disabled */
+.rating-submit-btn {
+  width: 100%;
+  background: #f7b8c2;   /* pink pudar */
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transition: 0.15s ease;
+}
+
+/* BUTTON aktif */
+.rating-submit-btn.active {
+  background: #e84a5f;   /* pink cerah */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0 4px 8px rgba(232, 74, 95, 0.25);
+}
+
+.rating-submit-btn.active:active {
+  transform: scale(0.97);
+}

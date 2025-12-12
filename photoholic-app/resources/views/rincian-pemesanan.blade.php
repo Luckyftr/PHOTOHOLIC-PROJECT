@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rincian Pemesanan</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/pelanggan/rincian-pemesanan.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/pelanggan/rincian-pemesanan-new.css') }}">
 </head>
 
 <body>
@@ -64,11 +64,11 @@
         </div>
         <div class="info-row">
           <span class="label">Waktu</span>
-          <span class="value">15:00 - 15:25 WIB</span>
+          <span class="value">15:00 - 15:10 WIB</span>
         </div>
         <div class="info-row">
           <span class="label">Durasi Sesi</span>
-          <span class="value">25 Menit</span>
+          <span class="value">10 Menit</span>
         </div>
       </section>
 
@@ -78,16 +78,16 @@
 
         <div class="info-row">
           <span class="label">Harga Sesi</span>
-          <span class="value">Rp 45.000</span>
+          <span class="value">Rp 85.000</span>
         </div>
         <div class="info-row">
           <span class="label">Jumlah Sesi</span>
-          <span class="value">5</span>
+          <span class="value">2</span>
         </div>
 
         <div class="info-row subtotal-row">
           <span class="label">Subtotal</span>
-          <span class="value subtotal">Rp 225.000</span>
+          <span class="value subtotal">Rp 85.000</span>
         </div>
       </section>
 
