@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User; // jangan lupa import User
+use App\Models\Studio;
 
 class Booking extends Model
 {
@@ -29,6 +30,11 @@ class Booking extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function studioRel()
+    {
+        return $this->belongsTo(Studio::class, 'studio', 'nama');
     }
 }
 

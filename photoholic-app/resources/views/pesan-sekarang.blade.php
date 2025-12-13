@@ -39,7 +39,7 @@
 
       <!-- HERO STUDIO -->
       <section class="studio-hero">
-        <img src="{{ asset('asset/pelanggan/pesan-sekarang/' . $studioImage) }}" 
+        <img src="{{ asset('asset/Studio-foto/' . $studioImage) }}" 
             alt="Studio {{ $studioName }}" 
             class="hero-img">
 
@@ -47,11 +47,9 @@
 
         <div class="hero-info">
           <h1 class="hero-title">Studio {{ $studioName }}</h1>
-          <p class="hero-price">Rp 45.000/Sesi</p>
+          <p class="hero-price">Rp {{ $studioPrice }}/Sesi</p>
           <p class="hero-detail">
-            @if($studioCode == 'A') Max 10 Orang · Paper Negatif Film
-            @else Max 6 Orang · Photo Paper A6
-            @endif
+            {{ $studioDescription }}
           </p>
         </div>
       </section>
@@ -120,7 +118,7 @@
     const btnPesan     = document.getElementById('btnPesan');
     const totalHargaEl = document.getElementById('totalHarga');
     const waktuErrorEl = document.getElementById('waktuError');
-    const hargaPerSesi = 45000;
+    const hargaPerSesi = {{ $studioPrice }};
 
     function isWaktuValid(value) {
       if (!value) return false;

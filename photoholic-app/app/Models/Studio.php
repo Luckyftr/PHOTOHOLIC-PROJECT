@@ -10,6 +10,9 @@ class Studio extends Model
     protected $fillable = [
         'code',
         'nama',
-        'gambar',
+        'deskripsi',
+        'harga',
+        'gambar'
+,
     ];
 }

@@ -48,49 +48,46 @@
       <!-- LIST STUDIO -->
       <div class="studio-list">
 
-        <!-- CARD 1 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-classy.png') }}" class="studio-img" alt="Classy">
-          <div class="studio-body">
-            <h2>Classy</h2>
-            <p class="studio-desc">Max 10 Orang<br>Paper Negatif Film</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'A']) }}" class="studio-btn">Pesan Sekarang</a>
-          </div>
-        </div>
+        @forelse ($studios as $studio)
+          <div class="studio-card">
 
-        <!-- CARD 2 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-lavatory.png') }}" class="studio-img" alt="Lavatory">
-          <div class="studio-body">
-            <h2>Lavatory</h2>
-            <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'B']) }}" class="studio-btn">Pesan Sekarang</a>
-          </div>
-        </div>
+            {{-- Studio Image --}}
+            <img 
+              src="{{ asset('asset/Studio-foto/' . $studio->gambar) }}" 
+              class="studio-img" 
+              alt="{{ $studio->nama }}"
+            >
 
-        <!-- CARD 3 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-oven.png') }}" class="studio-img" alt="Oven">
-          <div class="studio-body">
-            <h2>Oven</h2>
-            <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'C']) }}" class="studio-btn">Pesan Sekarang</a>
-          </div>
-        </div>
+            <div class="studio-body">
 
-        <!-- CARD 4 -->
-        <div class="studio-card">
-          <img src="{{ asset('asset/pelanggan/studio/studio-spotlight.png') }}" class="studio-img" alt="Spotlight">
-          <div class="studio-body">
-            <h2>Spotlight</h2>
-            <p class="studio-desc">Max 6 Orang<br>Photo Paper A6</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'D']) }}" class="studio-btn">Pesan Sekarang</a>
+              {{-- Studio Name --}}
+              <h2>{{ $studio->nama }}</h2>
+
+              {{-- Studio Description (multi-line) --}}
+              <p class="studio-desc">
+                {!! nl2br(e($studio->deskripsi)) !!}
+              </p>
+
+              {{-- Price --}}
+              <p class="studio-price">
+                Rp {{ number_format($studio->harga, 0, ',', '.') }}/Sesi
+              </p>
+
+              {{-- Booking Button --}}
+              <a 
+                href="{{ route('booking.create', ['studio' => $studio->code]) }}" 
+                class="studio-btn"
+              >
+                Pesan Sekarang
+              </a>
+
+            </div>
           </div>
-        </div>
+        @empty
+          <p style="text-align:center; color:#666; margin-top:20px;">
+            Studio belum tersedia.
+          </p>
+        @endforelse
 
       </div>
 

@@ -8,6 +8,8 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudioController;
+
 
 
 /*
@@ -53,9 +55,8 @@ Route::get('/studio-admin', function () {
     return view('studio-admin');
 });
 
-Route::get('/tambah-studio-admin', function () {
-    return view('tambah-studio-admin');
-});
+Route::get('/admin/studio/tambah', [StudioController::class, 'create'])->name('admin.studio.create');
+Route::post('/admin/studio/tambah', [StudioController::class, 'store'])->name('admin.studio.store');
 
 //admin-pembayaran
 Route::get('/pembayaran-admin', function () {
@@ -115,9 +116,15 @@ Route::get('/ubahPW-berhasil', function () {
 Route::get('/beranda', function () {
     return view('beranda');
 });
-Route::get('/studio', function () {
+
+
+/*Route::get('/studio', function () {
     return view('studio');
-});
+});*/
+//customer studio
+Route::get('/studio', [StudioController::class, 'AvailableStudio'])
+    ->name('studio.index');
+
 Route::get('/blog', function () {
     return view('blog');
 });

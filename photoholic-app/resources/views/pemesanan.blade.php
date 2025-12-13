@@ -54,10 +54,15 @@
 
         <!-- CARD 1 -->
         @forelse ($bookings as $b)
+        
         <div class="booking-card">
 
             <!-- PICK IMAGE BASED ON STUDIO -->
-            <img src="{{ asset('asset/pelanggan/pemesanan/sample1.jpeg') }}" class="studio-img">
+            <img
+              src="{{ asset('asset/Studio-foto/' . $b->studioRel->gambar) }}"
+              class="studio-img"
+              alt="{{ $b->studioRel->nama }}"
+            >
 
             <div class="card-body">
                 <h3 class="studio-title">Studio {{ $b->studio }}</h3>

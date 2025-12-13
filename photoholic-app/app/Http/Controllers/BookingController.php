@@ -18,6 +18,8 @@ class BookingController extends Controller
         'studioCode' => $studio->code,
         'studioName' => $studio->nama,
         'studioImage' => $studio->gambar,
+        'studioDescription' => $studio->deskripsi,
+        'studioPrice' => $studio->harga,
     ]);
 
     }
@@ -182,10 +184,11 @@ class BookingController extends Controller
 
     public function myBookings()
     {
-        $bookings = Booking::where('user_id', auth()->id())
-                        ->where('status', 'lunas')
-                        ->orderBy('tanggal', 'desc')
-                        ->get();
+        $bookings = Booking::with('studioRel')
+            ->where('user_id', auth()->id())
+            ->where('status', 'lunas')
+            ->orderBy('tanggal', 'desc')
+            ->get();
 
         return view('pemesanan', compact('bookings'));
     }

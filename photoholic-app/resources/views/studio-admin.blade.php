@@ -121,7 +121,7 @@
     </main>
 
     <!-- FAB TAMBAH -->
-    <a href="tambah-studio-admin">
+    <a href="{{ route('admin.studio.create') }}">
         <button class="fab-add" type="button">+</button>
     </a>
     
