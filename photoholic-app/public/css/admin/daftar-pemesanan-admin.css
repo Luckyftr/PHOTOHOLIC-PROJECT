@@ -217,6 +217,14 @@ body {
   box-shadow: 0 3px 6px rgba(15, 118, 110, 0.35);
 }
 
+.btn-detail-link {
+  display: block;          /* makes it stretch full width */
+  width: 100%;
+  text-align: center;
+  text-decoration: none;   /* remove underline */
+}
+
+
 /* FAB – tombol tambah (+) */
 .fab-add {
   position: absolute;
@@ -272,3 +280,5 @@ body {
 .nav-item.active {
   color: #ef4444;
 }
+
+

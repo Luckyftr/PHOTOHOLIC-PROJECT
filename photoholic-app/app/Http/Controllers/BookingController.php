@@ -193,4 +193,31 @@ class BookingController extends Controller
         return view('pemesanan', compact('bookings'));
     }
 
+    public function adminIndex()
+    {
+        $bookings = Booking::with(['user'])
+            ->where('status', 'lunas')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('daftar-pemesanan-admin', compact('bookings'));
+    }
+
+    public function adminShow($id)
+    {
+        $booking = Booking::with(['studioRel', 'user'])->findOrFail($id);
+
+        return view('admin-rincian-pemesanan', compact('booking'));
+    }
+
+    public function adminPaymentIndex()
+    {
+        $bookings = Booking::with('user')
+            ->orderByDesc('created_at')
+            ->get();
+
+        return view('pembayaran-admin', compact('bookings'));
+    }
+
+
 }

@@ -189,6 +189,10 @@ body {
   object-fit: contain;
 }
 
+.menu-link {
+  text-decoration: none;
+}
+
 /* BOTTOM NAV */
 .bottom-nav {
   height: 64px;

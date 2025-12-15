@@ -28,95 +28,54 @@
       <h1 class="page-title-main">Studio</h1>
 
       <div class="studio-list">
+          @foreach ($studios as $s)
+            <article class="studio-card">
+              <div class="studio-card-body">
+                <div class="studio-thumb">
+                  <img src="{{ asset('asset/Studio-foto/' . $s->gambar) }}"
+                      alt="{{ $s->nama }}">
+                </div>
 
-        <!-- CARD 1 -->
-        <article class="studio-card">
-          <div class="studio-card-body">
-            <div class="studio-thumb">
-              <img src="{{ asset('asset/admin/studio-admin/studio-classy.png') }}" alt="Classy">
-            </div>
-            <div class="studio-info">
-              <div class="studio-info-header">
-                <h2 class="studio-name">Classy</h2>
-                <span class="status-pill active">AKTIF</span>
+                <div class="studio-info">
+                  <div class="studio-info-header">
+                    <h2 class="studio-name">{{ $s->nama }}</h2>
+
+                    <span class="status-pill {{ $s->status ? 'active' : 'inactive' }}">
+                        {{ $s->status ? 'AKTIF' : 'NONAKTIF' }}
+                    </span>
+                  </div>
+
+                  <p class="studio-detail">
+                    {{ $s->deskripsi }}
+                  </p>
+
+                  <p class="studio-price">
+                    Harga :
+                    <span>
+                      Rp {{ number_format($s->harga, 0, ',', '.') }}/Sesi
+                    </span>
+                  </p>
+                </div>
               </div>
-              <p class="studio-detail">Max 10 Orang · Paper Negatif Film</p>
-              <p class="studio-price">Harga : <span>Rp 45.000/Sesi</span></p>
-            </div>
-          </div>
 
-          <div class="studio-card-actions">
-            <button class="btn-card btn-card-danger" type="button">Nonaktifkan</button>
-            <button class="btn-card btn-card-edit" type="button">Edit</button>
-          </div>
-        </article>
+              <div class="studio-card-actions">
+                <form action="{{ route('admin.studio.toggle', $s->id) }}" method="POST" class="action-form">
+                    @csrf
+                    @method('PATCH')
 
-        <!-- CARD 2 -->
-        <article class="studio-card">
-          <div class="studio-card-body">
-            <div class="studio-thumb">
-              <img src="{{ asset('asset/admin/studio-admin/studio-oven.png') }}" alt="Oven">
-            </div>
-            <div class="studio-info">
-              <div class="studio-info-header">
-                <h2 class="studio-name">Oven</h2>
-                <span class="status-pill active">AKTIF</span>
+                    <button class="btn-card {{ $s->status ? 'btn-card-danger' : 'btn-card-success' }}"
+                            type="submit">
+                        {{ $s->status ? 'Nonaktifkan' : 'Aktifkan' }}
+                    </button>
+                </form>
+
+                <a href="{{ route('admin.studio.edit', $s->id) }}"
+                  class="btn-card btn-card-edit">
+                  Edit
+                </a>
               </div>
-              <p class="studio-detail">Max 4 Orang · Photo Paper 4R</p>
-              <p class="studio-price">Harga : <span>Rp 45.000/Sesi</span></p>
-            </div>
-          </div>
-
-          <div class="studio-card-actions">
-            <button class="btn-card btn-card-danger" type="button">Nonaktifkan</button>
-            <button class="btn-card btn-card-edit" type="button">Edit</button>
-          </div>
-        </article>
-
-        <!-- CARD 3 -->
-        <article class="studio-card">
-          <div class="studio-card-body">
-            <div class="studio-thumb">
-              <img src="{{ asset('asset/admin/studio-admin/studio-lavatory.png') }}" alt="Lavatory">
-            </div>
-            <div class="studio-info">
-              <div class="studio-info-header">
-                <h2 class="studio-name">Lavatory</h2>
-                <span class="status-pill active">AKTIF</span>
-              </div>
-              <p class="studio-detail">Max 6 Orang · Photo Paper 4R</p>
-              <p class="studio-price">Harga : <span>Rp 45.000/Sesi</span></p>
-            </div>
-          </div>
-
-          <div class="studio-card-actions">
-            <button class="btn-card btn-card-danger" type="button">Nonaktifkan</button>
-            <button class="btn-card btn-card-edit" type="button">Edit</button>
-          </div>
-        </article>
-
-        <!-- CARD 4 -->
-        <article class="studio-card">
-          <div class="studio-card-body">
-            <div class="studio-thumb">
-              <img src="{{ asset('asset/admin/studio-admin/studio-spotlight.png') }}" alt="Spot Light">
-            </div>
-            <div class="studio-info">
-              <div class="studio-info-header">
-                <h2 class="studio-name">Spot Light</h2>
-                <span class="status-pill active">AKTIF</span>
-              </div>
-              <p class="studio-detail">Max 8 Orang · Photo Paper 4R</p>
-              <p class="studio-price">Harga : <span>Rp 45.000/Sesi</span></p>
-            </div>
-          </div>
-
-          <div class="studio-card-actions">
-            <button class="btn-card btn-card-danger" type="button">Nonaktifkan</button>
-            <button class="btn-card btn-card-edit" type="button">Edit</button>
-          </div>
-        </article>
-
+            </article>
+          @endforeach
       </div>
     </main>
 

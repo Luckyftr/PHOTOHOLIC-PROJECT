@@ -37,6 +37,8 @@ Route::post('/masuk', [AuthController::class, 'masukAksi'])->name('masuk.aksi');
     })->name('admin.dashboard'); // <- name the route
 });*/
 
+
+
 Route::get('/admin-beranda', function () {
     return view('admin-beranda');
 });
@@ -46,26 +48,44 @@ Route::get('/test-session', function () {
     dd(session()->all());
 });
 //admin pemesanan
-Route::get('/daftar-pemesanan-admin', function () {
-    return view('daftar-pemesanan-admin');
-});
+
+Route::get('/daftar-pemesanan-admin', [BookingController::class, 'adminIndex'])->name('admin.bookings');
+
+Route::get('/admin/pemesanan/{id}', [BookingController::class, 'adminShow'])
+    ->name('admin.booking.show');
+
 
 //admin studio
-Route::get('/studio-admin', function () {
-    return view('studio-admin');
-});
+Route::get('/studio-admin', [StudioController::class, 'adminAvailableStudio'])->name('admin.studio');
+
+Route::get(
+    '/admin/studio/{id}/edit',
+    [StudioController::class, 'edit']
+)->name('admin.studio.edit');
+
+Route::patch('/admin/studio/{id}/toggle', 
+    [StudioController::class, 'toggleStatus']
+)->name('admin.studio.toggle');
+
+Route::get('/studio-admin/{id}/edit', [StudioController::class, 'edit'])
+    ->name('admin.studio.edit');
+
+Route::put('/studio-admin/{id}', [StudioController::class, 'update'])
+    ->name('admin.studio.update');
 
 Route::get('/admin/studio/tambah', [StudioController::class, 'create'])->name('admin.studio.create');
 Route::post('/admin/studio/tambah', [StudioController::class, 'store'])->name('admin.studio.store');
 
 //admin-pembayaran
-Route::get('/pembayaran-admin', function () {
-    return view('pembayaran-admin');
-});
+Route::get('/pembayaran-admin', [BookingController::class, 'adminPaymentIndex']);
+
 
 //admin profil
 Route::get('/lainya-admin', [AdminController::class, 'index_admin']); // tampil profil
 
+//admin kelola pengguna
+Route::get('/admin/kelola-pengguna', [AdminController::class, 'adminKelolaPengguna'])
+    ->name('admin.users.index');
 
 
 // Halaman registrasi

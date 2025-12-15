@@ -1,0 +1,248 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HP FRAME */
+body {
+  font-family: "Commissioner", sans-serif;
+  background: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 800px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #bdbdbd;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 32px;
+  background: #f9f9f9;
+  padding: 0 12px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+
+.status-left,
+.status-icons {
+  display: flex;
+  align-items: center;
+}
+
+.status-clock,
+.status-img {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* KONTEN UTAMA */
+.detail-screen {
+  flex: 1;
+  background: #f3f4f6;
+  padding: 12px 12px 80px;
+  overflow-y: auto;
+}
+
+/* HEADER ATAS (BACK + JUDUL) */
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.back-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+  cursor: pointer;
+}
+
+.back-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.page-title-detail {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* SECTION & CARD */
+.section-block {
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+/* INFORMASI PEMESAN */
+.buyer-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.avatar-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.buyer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.buyer-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.buyer-contact {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* INFORMASI PEMESANAN & RINCIAN BIAYA */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  color: #6b7280;
+}
+
+.info-value {
+  color: #111827;
+  font-weight: 500;
+  text-align: right;
+}
+
+.price-strong {
+  font-weight: 600;
+}
+
+/* STATUS PEMBAYARAN */
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #e5f6f1;
+  color: #047857;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* BUTTON LIHAT BUKTI */
+.btn-bukti {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #0f766e;
+  color: #ffffff;
+  box-shadow: 0 3px 6px rgba(15, 118, 110, 0.35);
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  height: 64px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom-nav a{
+    text-decoration: none !important;   /* removes underline */
+}
+
+.bottom-nav a span {
+    text-decoration: none !important;
+}
+
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 9px;
+  color: #9ca3af;
+}
+
+.nav-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #ef4444;
+}

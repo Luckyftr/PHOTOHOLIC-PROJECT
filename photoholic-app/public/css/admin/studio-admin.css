@@ -179,7 +179,29 @@ body {
   background: #ffffff;
   color: #f05252;
   border: 1px solid #f05252;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* remove underline */
+
 }
+
+.studio-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* make form behave like the old button */
+.action-form {
+  flex: 1.2;
+  display: flex;
+}
+
+/* button fills the form */
+.action-form .btn-card {
+  width: 100%;
+}
+
 
 /* FAB – tombol tambah studio */
 .fab-add {

@@ -12,7 +12,8 @@ class Studio extends Model
         'nama',
         'deskripsi',
         'harga',
-        'gambar'
+        'gambar',
+        'status'
 ,
     ];
 }

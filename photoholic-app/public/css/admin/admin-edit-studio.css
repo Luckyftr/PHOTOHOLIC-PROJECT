@@ -35,14 +35,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 11px;
+}
+
+.status-left,
+.status-icons {
+  display: flex;
+  align-items: center;
 }
 
 .status-clock,
 .status-img {
   height: 14px;
+  width: auto;
+  object-fit: contain;
 }
 
-/* HEADER */
+/* HEADER (back + title) */
 .studio-header {
   display: flex;
   align-items: center;
@@ -63,7 +72,7 @@ body {
 }
 
 .page-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -71,39 +80,44 @@ body {
 .studio-screen {
   flex: 1;
   overflow-y: auto;
-  padding: 16px 20px;
+  background: #f3f4f6;
 }
 
-/* UPLOAD FOTO */
+/* FOTO ATAS */
 .upload-box {
-  background: #f5f5f5;
-  border-radius: 12px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  background: #ffffff;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
-.upload-placeholder {
-  width: 180px;
-  opacity: 0.8;
+.upload-image {
+  width: 100%;
+  display: block;
 }
 
+/* tombol Ubah Foto DIJAMIN TENGAH */
 .upload-btn {
   background: #0f766e;
   color: #ffffff;
-  padding: 6px 16px;
-  border-radius: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
   border: none;
   font-size: 12px;
   cursor: pointer;
+
+  display: block;
+  margin: 10px auto 14px;
+}
+
+/* WRAPPER FORM */
+.form-wrapper {
+  padding: 12px 20px 80px; 
 }
 
 /* FORM */
 .form-label {
   font-size: 13px;
-  margin-top: 16px;
+  margin-top: 12px;
   margin-bottom: 6px;
   font-weight: 500;
 }
@@ -114,6 +128,11 @@ body {
   border: 1px solid #d1d5db;
   border-radius: 10px;
   font-size: 13px;
+  background: #ffffff;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
 }
 
 .form-textarea {
@@ -121,7 +140,7 @@ body {
   resize: none;
 }
 
-/* BUTTONS */
+/* BUTTONS BAWAH */
 .btn-primary {
   width: 100%;
   background: #0f766e;
@@ -131,6 +150,8 @@ body {
   color: white;
   border: none;
   margin-top: 24px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .btn-secondary {
@@ -142,6 +163,15 @@ body {
   color: #0f766e;
   border: 2px solid #0f766e;
   margin-top: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  text-decoration: none;
+
 }
 
 /* BOTTOM NAV */
@@ -161,6 +191,7 @@ body {
 .bottom-nav a span {
     text-decoration: none !important;
 }
+
 
 .nav-item {
   display: flex;

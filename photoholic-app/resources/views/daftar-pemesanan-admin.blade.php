@@ -48,116 +48,56 @@
       <!-- LIST PEMESANAN -->
       <section class="booking-list">
 
-        <!-- ITEM 1 -->
+      @forelse ($bookings as $b)
         <article class="booking-item">
           <div class="booking-card">
             <div class="booking-main">
               <div class="booking-left">
+
                 <div class="avatar-circle">
-                 <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-orang.png') }}" alt="" class="avatar-img">
+                  <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-orang.png') }}"
+                      class="avatar-img">
                 </div>
 
                 <div class="booking-text">
-                  <p class="booking-name">Berlian Ika</p>
-                  <p class="booking-studio">Studio Classy</p>
+                  <p class="booking-name">
+                    {{ $b->user->name ?? 'Guest' }}
+                  </p>
+
+                  <p class="booking-studio">
+                    Studio {{ $b->studio }}
+                  </p>
+
                   <p class="booking-time">
                     <span class="time-dot"></span>
-                    17 Okt 2025, 15:00 - 15:25
+                    {{ \Carbon\Carbon::parse($b->tanggal)->translatedFormat('d M Y') }},
+                    {{ $b->waktu }}
                   </p>
                 </div>
+
               </div>
 
               <button class="edit-btn" type="button">
-                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-edit.png') }}" alt="Edit" class="edit-icon">
+                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-edit.png') }}"
+                    class="edit-icon">
               </button>
             </div>
           </div>
 
-          <button class="btn-detail" type="button">Lihat Rincian</button>
+          <a href="{{ route('admin.booking.show', $b->id) }}"
+            class="btn-detail btn-detail-link">
+            Lihat Rincian
+          </a>
+
+
         </article>
 
-        <!-- ITEM 2 -->
-        <article class="booking-item">
-          <div class="booking-card">
-            <div class="booking-main">
-              <div class="booking-left">
-                <div class="avatar-circle">
-                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-orang.png') }}" alt="" class="avatar-img">
-                </div>
-                <div class="booking-text">
-                  <p class="booking-name">Berlian Ika</p>
-                  <p class="booking-studio">Studio Classy</p>
-                  <p class="booking-time">
-                    <span class="time-dot"></span>
-                    17 Okt 2025, 15:00 - 15:25
-                  </p>
-                </div>
-              </div>
-
-              <button class="edit-btn" type="button">
-                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-edit.png') }}" alt="Edit" class="edit-icon">
-              </button>
-            </div>
-          </div>
-
-          <button class="btn-detail" type="button">Lihat Rincian</button>
-        </article>
-
-        <!-- ITEM 3 -->
-        <article class="booking-item">
-          <div class="booking-card">
-            <div class="booking-main">
-              <div class="booking-left">
-                <div class="avatar-circle">
-                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-orang.png') }}" alt="" class="avatar-img">
-                </div>
-                <div class="booking-text">
-                  <p class="booking-name">Berlian Ika</p>
-                  <p class="booking-studio">Studio Classy</p>
-                  <p class="booking-time">
-                    <span class="time-dot"></span>
-                    17 Okt 2025, 15:00 - 15:25
-                  </p>
-                </div>
-              </div>
-
-              <button class="edit-btn" type="button">
-                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-edit.png') }}" alt="Edit" class="edit-icon">
-              </button>
-            </div>
-          </div>
-
-          <button class="btn-detail" type="button">Lihat Rincian</button>
-        </article>
-
-        <!-- ITEM 4 -->
-        <article class="booking-item">
-          <div class="booking-card">
-            <div class="booking-main">
-              <div class="booking-left">
-                <div class="avatar-circle">
-                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-orang.png') }}" alt="" class="avatar-img">
-                </div>
-                <div class="booking-text">
-                  <p class="booking-name">Berlian Ika</p>
-                  <p class="booking-studio">Studio Classy</p>
-                  <p class="booking-time">
-                    <span class="time-dot"></span>
-                    17 Okt 2025, 15:00 - 15:25
-                  </p>
-                </div>
-              </div>
-
-              <button class="edit-btn" type="button">
-                <img src="{{ asset('asset/admin/daftar-pemesanan-admin/icon-edit.png') }}" alt="Edit" class="edit-icon">
-              </button>
-            </div>
-          </div>
-
-          <button class="btn-detail" type="button">Lihat Rincian</button>
-        </article>
+      @empty
+        <p class="empty-text">Belum ada pemesanan lunas.</p>
+      @endforelse
 
       </section>
+
     </main>
 
     <!-- FAB TAMBAH -->

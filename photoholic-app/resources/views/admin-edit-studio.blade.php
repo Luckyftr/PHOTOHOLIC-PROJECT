@@ -6,7 +6,7 @@
   <title>Halaman Utama</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/admin/tambah-studio-admin.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/admin-edit-studio.css') }}">
 </head>
 
 <body>
@@ -26,79 +26,84 @@
  <!-- HEADER -->
     <header class="studio-header">
       <button class="back-btn" onclick="history.back()">
-        <img src="{{ asset('asset/admin/tambah-studio-admin/back.png') }}" class="back-icon">
+        <img src="{{ asset('asset/admin/admin-edit-studio/back.png') }}" class="back-icon">
       </button>
       <h1 class="page-title">Tambah Studio</h1>
     </header>
 
     <!-- KONTEN -->
-  
-
     <main class="studio-screen">
-
-      
-      <form action="{{ route('admin.studio.store') }}"
-      method="POST"
-      enctype="multipart/form-data">
-      @csrf
 
       <!-- UPLOAD FOTO -->
       <div class="upload-box">
-        <img
-          src="{{ asset('asset/admin/tambah-studio-admin/no-image.png') }}"
-          class="upload-placeholder"
-          id="previewImage"
+       <img
+            src="{{ asset('asset/Studio-foto/' . $studio->gambar) }}"
+            class="upload-placeholder"
+            id="previewImage"
         >
 
         <!-- HIDDEN FILE INPUT -->
         <input
-          type="file"
-          name="gambar"
-          id="gambarInput"
-          accept="image/*"
-          hidden
+            type="file"
+            name="gambar"
+            id="gambarInput"
+            accept="image/*"
+            hidden
         >
 
+        <!-- BUTTON THAT OPENS FILE PICKER -->
         <button
-          type="button"
-          class="upload-btn"
-          onclick="document.getElementById('gambarInput').click()"
+            type="button"
+            class="upload-btn"
+            onclick="document.getElementById('gambarInput').click()"
         >
-          Tambahkan Foto
+            Ubah Foto
         </button>
       </div>
 
       <!-- FORM -->
-      <label class="form-label">Nama Studio</label>
-      <input type="text"
-            class="form-input"
-            name="nama"
-            required>
+      <form action="{{ route('admin.studio.update', $studio->id) }}"
+                method="POST"
+                enctype="multipart/form-data"
+                class="form-wrapper">
 
-      <label class="form-label">Deskripsi</label>
-      <textarea class="form-input form-textarea"
-                name="deskripsi"
-                required></textarea>
+            @csrf
+            @method('PUT')
 
-      <label class="form-label">Harga Per Sesi</label>
-      <input type="number"
-            class="form-input"
-            name="harga"
-            required>
+            <label class="form-label">Nama Studio</label>
+            <input type="text"
+                    name="nama"
+                    class="form-input"
+                    value="{{ old('nama', $studio->nama) }}"
+                    required>
+
+            <label class="form-label">Deskripsi</label>
+            <textarea name="deskripsi"
+                        class="form-input form-textarea"
+                        required>{{ old('deskripsi', $studio->deskripsi) }}</textarea>
+
+            <label class="form-label">Harga Per Sesi</label>
+            <input type="number"
+                    name="harga"
+                    class="form-input"
+                    value="{{ old('harga', $studio->harga) }}"
+                    required>
 
 
-      <!-- BUTTONS -->
-      <button type="submit" class="btn-primary">
-        Tambah Studio
-      </button>
-      <button class="btn-secondary">Batalkan</button>
+            <button class="btn-primary" type="submit">
+                Simpan Perubahan
+            </button>
 
-      </form>
+            <a href="/studio-admin" class="btn-secondary">
+                Batalkan
+            </a>
+        </form>
+
     </main>
 
     <!-- NAV BAR -->
     <nav class="bottom-nav">
-      <a href="/admin-beranda">
+        <a href="/admin-beranda">
             <div class="nav-item">
                 <img src="{{ asset('asset/admin/studio-admin/nav-home.png') }}" alt="Halaman Utama" class="nav-item-icon">
                 <span class="nav-link">Halaman Utama</span>
@@ -135,15 +140,15 @@
     </nav>
 
   </div>
-  <script>
+
+    <script>
     document.getElementById('gambarInput').addEventListener('change', function (e) {
-        const file = e.target.files[0];
+        const file = e.target.files[0]
         if (file) {
-            document.getElementById('previewImage').src =
-                URL.createObjectURL(file);
+        document.getElementById('previewImage').src = URL.createObjectURL(file)
         }
-    });
-  </script>
+    })
+    </script>
 
 </body>
 </html>

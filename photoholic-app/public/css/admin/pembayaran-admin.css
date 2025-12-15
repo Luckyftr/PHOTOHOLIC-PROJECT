@@ -215,6 +215,14 @@ body {
   box-shadow: 0 3px 6px rgba(15, 118, 110, 0.35);
 }
 
+.btn-detail-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+
 /* badge pending di atas tombol */
 .btn-badge-pending {
   position: absolute;

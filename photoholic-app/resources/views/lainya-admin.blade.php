@@ -50,13 +50,15 @@
       <section class="menu-section">
         <h2 class="menu-title">Manajemen Data</h2>
 
-        <button class="menu-row" type="button">
-          <div class="menu-left">
-            <img src="{{ asset('asset/admin/lainya-admin/icon-kelola-pengguna.png') }}" alt="" class="menu-icon">
-            <span class="menu-text">Kelola Pengguna</span>
-          </div>
-          <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
-        </button>
+        <a href="{{ route('admin.users.index') }}" class="menu-link">
+          <button class="menu-row" type="button">
+            <div class="menu-left">
+              <img src="{{ asset('asset/admin/lainya-admin/icon-kelola-pengguna.png') }}" alt="" class="menu-icon">
+              <span class="menu-text">Kelola Pengguna</span>
+            </div>
+            <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
+          </button>
+        </a>
 
         <button class="menu-row" type="button">
           <div class="menu-left">

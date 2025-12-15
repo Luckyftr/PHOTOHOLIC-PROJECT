@@ -48,85 +48,46 @@
       <!-- LIST PEMBAYARAN -->
       <section class="payment-list">
 
-        <!-- ITEM 1 - LUNAS -->
-        <article class="payment-item">
-          <div class="payment-card">
-            <div class="payment-row">
-              <div class="payment-left">
-                <p class="payment-id">9876543210QR</p>
-                <p class="payment-name">Berlian Ika</p>
-                <p class="payment-method">Metode Pembayaran : QRIS</p>
-                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
+        @foreach ($bookings as $booking)
+          <article class="payment-item">
+            <div class="payment-card">
+              <div class="payment-row">
+                <div class="payment-left">
+                  <p class="payment-id">
+                    {{ $booking->id_transaksi ?? '-' }}
+                  </p>
+
+                  <p class="payment-name">
+                    {{ $booking->user->name }}
+                  </p>
+
+                  <p class="payment-method">
+                    Metode Pembayaran : {{ $booking->metode_pembayaran ?? '-' }}
+                  </p>
+
+                  <p class="payment-total">
+                    Total :
+                    <span>Rp {{ number_format($booking->subtotal, 0, ',', '.') }}</span>
+                  </p>
+                </div>
+
+                {{-- STATUS --}}
+                @if ($booking->status === 'lunas')
+                  <span class="status-pill status-lunas">LUNAS</span>
+                @else
+                  <span class="status-pill status-pending">Menunggu Pembayaran</span>
+                @endif
               </div>
-
-              <span class="status-pill status-lunas">LUNAS</span>
             </div>
-          </div>
 
-          <div class="btn-detail-wrapper">
-            <button class="btn-detail" type="button">Lihat Rincian</button>
-          </div>
-        </article>
-
-        <!-- ITEM 2 - MENUNGGU PEMBAYARAN -->
-        <article class="payment-item">
-          <div class="payment-card">
-            <div class="payment-row">
-              <div class="payment-left">
-                <p class="payment-id">9876543210QR</p>
-                <p class="payment-name">Berlian Ika</p>
-                <p class="payment-method">Metode Pembayaran : QRIS</p>
-                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
-              </div>
-
-              <span class="status-pill status-pending">Menunggu Pembayaran</span>
+            <div class="btn-detail-wrapper">
+              <a href="{{ route('booking.invoice', $booking->id) }}"
+                class="btn-detail btn-detail-link">
+                Lihat Rincian
+              </a>
             </div>
-          </div>
-
-          <div class="btn-detail-wrapper">
-            <button class="btn-detail" type="button">Lihat Rincian</button>
-          </div>
-        </article>
-
-        <!-- ITEM 3 - LUNAS -->
-        <article class="payment-item">
-          <div class="payment-card">
-            <div class="payment-row">
-              <div class="payment-left">
-                <p class="payment-id">9876543210QR</p>
-                <p class="payment-name">Berlian Ika</p>
-                <p class="payment-method">Metode Pembayaran : QRIS</p>
-                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
-              </div>
-
-              <span class="status-pill status-lunas">LUNAS</span>
-            </div>
-          </div>
-
-          <div class="btn-detail-wrapper">
-            <button class="btn-detail" type="button">Lihat Rincian</button>
-          </div>
-        </article>
-
-        <!-- ITEM 4 - LUNAS -->
-        <article class="payment-item">
-          <div class="payment-card">
-            <div class="payment-row">
-              <div class="payment-left">
-                <p class="payment-id">9876543210QR</p>
-                <p class="payment-name">Berlian Ika</p>
-                <p class="payment-method">Metode Pembayaran : QRIS</p>
-                <p class="payment-total">Total : <span>Rp. 220.000</span></p>
-              </div>
-
-              <span class="status-pill status-lunas">LUNAS</span>
-            </div>
-          </div>
-
-          <div class="btn-detail-wrapper">
-            <button class="btn-detail" type="button">Lihat Rincian</button>
-          </div>
-        </article>
+          </article>
+        @endforeach
 
       </section>
     </main>
