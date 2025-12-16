@@ -281,4 +281,13 @@ body {
   color: #ef4444;
 }
 
+.back-btn {
+  background: none;
+  border: none;
+  margin-right: 10px;
+}
 
+.back-icon {
+  width: 28px;
+  height: 28px;
+}

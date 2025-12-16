@@ -10,6 +10,8 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\AboutPageController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminStudioController;
 
 
 
@@ -87,6 +89,11 @@ Route::get('/lainya-admin', [AdminController::class, 'index_admin']); // tampil 
 //admin kelola pengguna
 Route::get('/admin/kelola-pengguna', [AdminController::class, 'adminKelolaPengguna'])
     ->name('admin.users.index');
+Route::post('/admin/users/update', [AdminController::class, 'updateUser'])
+    ->name('admin.users.update');
+Route::delete('/admin/users/{user}', [AdminController::class, 'destroyUser'])
+    ->name('admin.users.destroy');
+
 
 
 // Halaman registrasi
@@ -146,9 +153,30 @@ Route::get('/beranda', function () {
 Route::get('/studio', [StudioController::class, 'AvailableStudio'])
     ->name('studio.index');
 
-Route::get('/blog', function () {
-    return view('blog');
+//admin pesan studio
+Route::get('/admin-pesan-studio', [AdminStudioController::class, 'AdminAvailableStudio'])
+    ->name('admin.studio.index');
+Route::get('/admin/booking/create/{studio}', [AdminStudioController::class, 'Admincreate'])
+    ->name('admin.booking.create');
+Route::post('/admin/booking/store', [AdminStudioController::class, 'adminstore'])
+    ->name('admin.booking.store');
+Route::get('/admin/booking/{id}/invoice', [AdminStudioController::class, 'admininvoice'])
+    ->name('admin.booking.invoice');
+
+
+
+// blog user 
+Route::get('/blog', [BlogController::class, 'userIndex']);
+
+//blog admin
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/blog', [BlogController::class, 'adminIndex']);
+    Route::post('/admin/blog', [BlogController::class, 'store']);
+    Route::put('/admin/blog/{id}', [BlogController::class, 'update']);
+    Route::delete('/admin/blog/{id}', [BlogController::class, 'destroy']);
 });
+
+
 Route::get('/pemesanan', [BookingController::class, 'myBookings']); // form booking
 
 /*Route::get('/pemesanan', function () {

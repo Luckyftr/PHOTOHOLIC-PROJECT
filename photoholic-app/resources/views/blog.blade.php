@@ -38,70 +38,35 @@
     <div class="screen">
 
       <!-- TITLE + BACK -->
-      <div class="blog-title-row">
-        <button class="back-btn-blog" onclick="location.href='/beranda'">
-          <img src="{{ asset('asset/pelanggan/blog/back.png') }}" class="back-icon-blog" alt="kembali">
-        </button>
-        <h1 class="blog-title">Blog</h1>
-      </div>
-
-      <!-- LIST BLOG -->
       <div class="blog-list">
+          @foreach ($blogs as $blog)
+            @if ($blog->status === 'published')
+              <article class="blog-item">
 
-        <!-- ITEM 1 -->
-        <article class="blog-item">
-          <img src="{{ asset('asset/pelanggan/blog/blog1.png') }}" class="blog-thumb" alt="Opening Hours">
-          <div class="blog-text-wrap">
-            <p class="blog-text">
-              Photoholic selalu siap jadi tempat kabur sebentar dari rutinitas ✨.
-              Mau sendirian, bareng bestie, atau sama pasangan, booth kita selalu ready buat negasin momen kamu.
-              <a href="#" class="blog-more">Selengkapnya..</a>
-            </p>
-            <button class="blog-btn">Baca Sekarang</button>
-          </div>
-        </article>
+                <img 
+                  src="{{ asset('storage/blogs/' . $blog->image) }}" 
+                  class="blog-thumb"
+                  alt="{{ $blog->title }}"
+                >
 
-        <!-- ITEM 2 -->
-        <article class="blog-item">
-          <img src="{{ asset('asset/pelanggan/blog/blog2.png') }}" class="blog-thumb" alt="Cafe">
-          <div class="blog-text-wrap">
-            <p class="blog-text">
-              Double vibes unlocked: ngopi ☕ + foto 📸.
-              Photoholic x @haxa_idn open 11.00–23.00 ✨
-              📍Jalan Jimerto blok II No 14
-              <a href="#" class="blog-more">Selengkapnya..</a>
-            </p>
-            <button class="blog-btn">Baca Sekarang</button>
-          </div>
-        </article>
+                <div class="blog-text-wrap">
+                  <p class="blog-text">
+                    {{ Str::limit($blog->excerpt, 120) }}
+                  </p>
 
-        <!-- ITEM 3 (ulang pola) -->
-        <article class="blog-item">
-          <img src="{{ asset('asset/pelanggan/blog/blog1.png') }}" class="blog-thumb" alt="Opening Hours">
-          <div class="blog-text-wrap">
-            <p class="blog-text">
-              Photoholic selalu siap jadi tempat kabur sebentar dari rutinitas ✨.
-              Mau sendirian, bareng bestie, atau sama pasangan, booth kita selalu ready buat negasin momen kamu.
-              <a href="#" class="blog-more">Selengkapnya..</a>
-            </p>
-            <button class="blog-btn">Baca Sekarang</button>
-          </div>
-        </article>
+                  <a href="#" class="blog-more">Selengkapnya..</a>
 
-        <article class="blog-item">
-          <img src="{{ asset('asset/pelanggan/blog/blog2.png') }}" class="blog-thumb" alt="Cafe">
-          <div class="blog-text-wrap">
-            <p class="blog-text">
-              Double vibes unlocked: ngopi ☕ + foto 📸.
-              Photoholic x @haxa_idn open 11.00–23.00 ✨
-              📍Jalan Jimerto blok II No 14
-              <a href="#" class="blog-more">Selengkapnya..</a>
-            </p>
-            <button class="blog-btn">Baca Sekarang</button>
-          </div>
-        </article>
+                  <button class="blog-btn"
+                    onclick="window.open('{{ $blog->instagram_url }}', '_blank')">
+                    Baca Sekarang
+                  </button>
+                </div>
 
-      </div><!-- /blog-list -->
+              </article>
+            @endif
+          @endforeach
+        </div>
+
 
     </div><!-- /screen -->
 

@@ -60,14 +60,15 @@
           </button>
         </a>
 
-    
-          <button class="menu-row" type="button">
-            <div class="menu-left">
-              <img src="{{ asset('asset/admin/lainya-admin/icon-kelola-blog.png') }}" alt="" class="menu-icon">
-              <span class="menu-text">Kelola Blog</span>
-            </div>
-            <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
-          </button>
+          <a href="admin/blog" class="menu-link">
+            <button class="menu-row" type="button">
+              <div class="menu-left">
+                <img src="{{ asset('asset/admin/lainya-admin/icon-kelola-blog.png') }}" alt="" class="menu-icon">
+                <span class="menu-text">Kelola Blog</span>
+              </div>
+              <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
+            </button>
+          </a>
       
 
         <a href="admin/tentang-kami" class="menu-link">
