@@ -193,6 +193,13 @@ class BookingController extends Controller
         return view('pemesanan', compact('bookings'));
     }
 
+    public function rincian($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        return view('rincian-pemesanan', compact('booking'));
+    }
+
     public function adminIndex()
     {
         $bookings = Booking::with(['user'])

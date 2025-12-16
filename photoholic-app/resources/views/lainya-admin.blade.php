@@ -40,8 +40,8 @@
             <p class="profile-phone">{{ $user->phone ?? '-' }}</p> <!-- kalau belum ada nomor -->
           </div>
 
-          <button class="edit-btn" type="button">
-            <img src="{{ asset('asset/admin/lainya-admin/icon-edit.png') }}" alt="Edit" class="edit-icon">
+          <button class="edit-btn" type="button" onclick="location.href='/edit-profile'">
+            <img src="{{ asset('asset/pelanggan/profil/icon-edit.png') }}" alt="Edit" class="edit-icon">
           </button>
         </div>
       </section>
@@ -60,33 +60,37 @@
           </button>
         </a>
 
-        <button class="menu-row" type="button">
-          <div class="menu-left">
-            <img src="{{ asset('asset/admin/lainya-admin/icon-kelola-blog.png') }}" alt="" class="menu-icon">
-            <span class="menu-text">Kelola Blog</span>
-          </div>
-          <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
-        </button>
+    
+          <button class="menu-row" type="button">
+            <div class="menu-left">
+              <img src="{{ asset('asset/admin/lainya-admin/icon-kelola-blog.png') }}" alt="" class="menu-icon">
+              <span class="menu-text">Kelola Blog</span>
+            </div>
+            <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
+          </button>
+      
 
-        <button class="menu-row" type="button">
-          <div class="menu-left">
-            <img src="{{ asset('asset/admin/lainya-admin/icon-tentang-kami.png') }}" alt="" class="menu-icon">
-            <span class="menu-text">Kelola Tentang Kami</span>
-          </div>
-          <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
-        </button>
-      </section>
+        <a href="admin/tentang-kami" class="menu-link">
+            <button class="menu-row" type="button">
+              <div class="menu-left">
+                <img src="{{ asset('asset/admin/lainya-admin/icon-tentang-kami.png') }}" alt="" class="menu-icon">
+                <span class="menu-text">Kelola Tentang Kami</span>
+              </div>
+              <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
+            </button>
+          </section>
+        </a>
 
       <!-- MENU: PENGATURAN -->
       <section class="menu-section">
         <h2 class="menu-title">Pengaturan</h2>
 
-        <button class="menu-row" type="button">
+        <button class="menu-row" type="button" onclick="location.href='/ubahPW'">
           <div class="menu-left">
-            <img src="{{ asset('asset/admin/lainya-admin/icon-ganti-password.png') }}" alt="" class="menu-icon">
+            <img src="{{ asset('asset/pelanggan/profil/icon-ganti-password.png') }}" alt="" class="menu-icon">
             <span class="menu-text">Ganti Kata Sandi</span>
           </div>
-          <img src="assets/icon-chevron-right.png" alt="" class="menu-chevron">
+          <img src="{{ asset('asset/pelanggan/profil/icon-chevron-right.png') }}" alt="" class="menu-chevron">
         </button>
       </section>
     </main>

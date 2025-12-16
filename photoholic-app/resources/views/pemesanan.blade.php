@@ -72,7 +72,7 @@
                 </p>
                 <p class="studio-info">{{ $b->waktu }} WIB</p>
 
-                <button class="btn-detail" onclick="location.href='/booking/detail/{{ $b->id }}'">
+                <button class="btn-detail" onclick="location.href='/rincian-pemesanan/{{ $b->id }}'">
                     Lihat Rincian
                 </button>
             </div>

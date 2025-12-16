@@ -69,7 +69,7 @@
             <span class="order-text">Jadwal<br>Saya</span>
           </button>
 
-          <button class="order-item" type="button" onclick="location.href='/bukti-bayar'">
+          <button class="order-item" type="button" onclick="location.href='/pemesanan'">
             <img src="{{ asset('asset/pelanggan/profil/icon-riwayat.png') }}" alt="" class="order-icon">
             <span class="order-text">Riwayat<br>Pembayaran</span>
           </button>

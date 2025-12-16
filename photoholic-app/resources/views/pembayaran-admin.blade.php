@@ -81,7 +81,7 @@
             </div>
 
             <div class="btn-detail-wrapper">
-              <a href="{{ route('booking.invoice', $booking->id) }}"
+              <a href="{{ route('pembayaran.bukti', $booking->id) }}"
                 class="btn-detail btn-detail-link">
                 Lihat Rincian
               </a>

@@ -9,6 +9,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudioController;
+use App\Http\Controllers\AboutPageController;
 
 
 
@@ -171,18 +172,26 @@ Route::get('/bayar-gagal', function () {
 Route::get('/bukti-bayar', function () {
     return view('bukti-bayar');
 });
-Route::get('/rincian-pemesanan', function () {
-    return view('rincian-pemesanan');
-});
+Route::get('/rincian-pemesanan/{id}', [BookingController::class, 'rincian'])
+    ->name('booking.rincian');
+
+    
 Route::get('/ganti-akun', function () {
     return view('ganti-akun');
 });
 Route::get('/faq', function () {
     return view('faq');
 });
-Route::get('/tentang-kami', function () {
-    return view('tentang-kami');
-});
+// Tentang Kami
+Route::get('/tentang-kami', [AboutPageController::class, 'show']);
+
+// tentang kami admin
+Route::get('/admin/tentang-kami', [AboutPageController::class, 'edit']);
+Route::post('/admin/tentang-kami/update', [AboutPageController::class, 'update'])
+    ->name('admin.about.update');
+
+
+// Rating aplikasi
 Route::get('/rating-apk', function () {
     return view('rating-apk');
 });

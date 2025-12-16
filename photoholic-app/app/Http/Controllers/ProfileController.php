@@ -39,37 +39,40 @@ class ProfileController extends Controller
      * - Simpan ke database dan redirect ke halaman profil dengan pesan sukses
      * Route: POST /edit-profile
      */
-    public function update(Request $request) {
-        $user = Auth::user();
+    public function update(Request $request)
+    {
+        $user = auth()->user();
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:users,name,'.$user->id,
-            'email' => 'required|email|max:255|unique:users,email,'.$user->id,
-            'phone' => 'nullable|string|max:15',
-            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'username' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone' => 'nullable|string',
+            'foto_profil' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Update foto jika ada upload baru
+        // ✅ HANDLE PHOTO UPLOAD
         if ($request->hasFile('foto_profil')) {
-            // Hapus foto lama jika bukan default
-            if ($user->foto_profil && $user->foto_profil != 'default.png') {
-                Storage::delete('public/profil/' . $user->foto_profil);
+
+            // delete old photo (except default)
+            if ($user->foto_profil && $user->foto_profil !== 'default.png') {
+                Storage::disk('public')->delete('profil/' . $user->foto_profil);
             }
 
-            $fileName = time().'_'.$request->file('foto_profil')->getClientOriginalName();
-            $request->file('foto_profil')->storeAs('public/profil', $fileName);
-            $user->foto_profil = $fileName;
+            // save new photo
+            $filename = time() . '.' . $request->foto_profil->extension();
+            $request->foto_profil->storeAs('profil', $filename, 'public');
+
+            $user->foto_profil = $filename;
         }
 
-        // Update data user lainnya
+        // update other fields
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
 
         $user->save();
-        
 
-        return redirect('/profil')->with('success', 'Profil berhasil diperbarui!');
+        return back()->with('success', 'Profil berhasil diperbarui');
     }
 }

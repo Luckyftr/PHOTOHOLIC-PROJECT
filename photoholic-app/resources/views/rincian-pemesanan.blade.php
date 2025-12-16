@@ -7,7 +7,7 @@
   <title>Rincian Pemesanan</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/pelanggan/rincian-pemesanan-new.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/pelanggan/rincian-pemesanan.css') }}">
 </head>
 
 <body>
@@ -56,19 +56,25 @@
 
         <div class="info-row">
           <span class="label">Studio</span>
-          <span class="value">Classy</span>
+          <span class="value">{{ $booking->studio }}</span>
         </div>
         <div class="info-row">
           <span class="label">Tanggal</span>
-          <span class="value">17 Oktober 2025</span>
+          <span class="value">
+            {{ \Carbon\Carbon::parse($booking->tanggal)->translatedFormat('d F Y') }}
+          </span>
         </div>
         <div class="info-row">
           <span class="label">Waktu</span>
-          <span class="value">15:00 - 15:10 WIB</span>
+          <span class="value">
+             {{ $booking->waktu }} WIB
+          </span>
         </div>
         <div class="info-row">
           <span class="label">Durasi Sesi</span>
-          <span class="value">10 Menit</span>
+          <span class="value">
+                {{ $booking->jumlah_sesi * 5 }} Menit
+          </span>
         </div>
       </section>
 
@@ -78,16 +84,19 @@
 
         <div class="info-row">
           <span class="label">Harga Sesi</span>
-          <span class="value">Rp 85.000</span>
+          <span class="value">Rp {{ number_format($booking->harga_sesi, 0, ',', '.') }}</span>
+
         </div>
         <div class="info-row">
           <span class="label">Jumlah Sesi</span>
-          <span class="value">2</span>
+          <span class="value">{{ $booking->jumlah_sesi }}</span>
         </div>
 
         <div class="info-row subtotal-row">
           <span class="label">Subtotal</span>
-          <span class="value subtotal">Rp 85.000</span>
+          <span class="value price-strong">
+             Rp {{ number_format($booking->subtotal, 0, ',', '.') }}
+          </span>
         </div>
       </section>
 
@@ -95,20 +104,30 @@
       <section class="info-card">
         <div class="card-title-row">
           <h2 class="card-title">Status Pembayaran</h2>
-          <span class="status-badge">Lunas</span>
+           <span class="status-badge">
+                {{ strtoupper($booking->status) }}
+          </span>
         </div>
 
         <div class="info-row">
           <span class="label">Metode Pembayaran</span>
-          <span class="value">QRIS</span>
+          <span class="value">
+                {{ $booking->metode_pembayaran ?? '-' }}
+          </span>
         </div>
         <div class="info-row">
           <span class="label">ID Transaksi</span>
-          <span class="value">98765432100QR</span>
+          <span class="value">
+                {{ $booking->id_transaksi ?? '-' }}
+          </span>
         </div>
         <div class="info-row">
           <span class="label">Tanggal Bayar</span>
-          <span class="value">15 Oktober 2025</span>
+          <span class="value">
+            {{ $booking->tanggal_bayar
+                ? \Carbon\Carbon::parse($booking->tanggal_bayar)->translatedFormat('d F Y')
+                : '-' }}
+          </span>
         </div>
 
         <button class="btn-bukti">Lihat Bukti Pembayaran</button>

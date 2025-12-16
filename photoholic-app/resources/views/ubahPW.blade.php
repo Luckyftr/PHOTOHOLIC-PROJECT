@@ -6,7 +6,7 @@
   <title>Ubah Kata Sandi</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/pelanggan/ubahPW-new.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/pelanggan/ubahPW.css') }}">
 </head>
 
 <body>

@@ -19,28 +19,13 @@
       <img src="{{ asset('asset/pelanggan/bayar-berhasil/icons.png') }}" class="status-img" alt="status">
     </div>
 
-    <!-- HEADER -->
-    <header class="app-header">
-      <img src="{{ asset('asset/pelanggan/bayar-berhasil/logo-header.png') }}" class="header-logo" alt="logo">
-
-      <nav class="header-nav">
-        <a href="/beranda" class="nav-link">Beranda</a>
-        <a href="/studio" class="nav-link">Studio</a>
-        <a href="/blog" class="nav-link">Blog</a>
-        <a href="/pemesanan" class="nav-link active">Pemesanan</a>
-      </nav>
-
-      <button class="profile-btn" onclick="location.href='/profil'">
-        <img src="{{ asset('asset/pelanggan/bayar-berhasil/icon-profil.png') }}" class="profile-icon" alt="profil">
-      </button>
-    </header>
 
     <!-- CONTENT -->
     <main class="screen">
         <div class="page-title-row">
-            <button class="back-btn" onclick="location.href='/beranda'">
-            <img src="{{ asset('asset/pelanggan/bayar-berhasil/back.png') }}" class="back-icon">
-            </button>
+           <a href="{{ auth()->user()->role === 'admin' ? url('/admin-beranda') : url('/beranda') }}" class="back-btn">
+                <img src="{{ asset('asset/pelanggan/bayar-berhasil/back.png') }}" class="back-icon">
+            </a>
         </div>
 
       <!-- INVOICE CARD -->

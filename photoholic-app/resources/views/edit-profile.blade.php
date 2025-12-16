@@ -33,11 +33,16 @@
     <!-- KONTEN UTAMA -->
     <main class="edit-screen">
       <!-- KARTU PROFIL -->
-      <section class="profile-card">
+
+      <!-- FORM EDIT DATA -->
+      <section class="form-section">
+        <form method="POST" action="{{ url('/edit-profile') }}" enctype="multipart/form-data">
+          @csrf
+          <section class="profile-card">
         <div class="photo-wrapper">
           <img src="{{ asset('storage/profil/' . ($user->foto_profil ?? 'default.png')) }}" 
                alt="Foto Profil" class="profile-photo" id="profilePreview">
-          <button type="button" class="change-photo-btn" id="changePhotoBtn">Ganti Foto</button>
+          <button type="button" class="change-photo-btn" id="changePhotoBtn" onclick="document.getElementById('gambarInput').click()">Ganti Foto</button>
           <input type="file" name="foto_profil" id="photoInput" accept="image/*" hidden>
         </div>
         <p class="profile-email-info">
@@ -45,10 +50,6 @@
         </p>
       </section>
 
-      <!-- FORM EDIT DATA -->
-      <section class="form-section">
-        <form method="POST" action="{{ url('/edit-profile') }}" enctype="multipart/form-data">
-          @csrf
           <div class="form-group">
             <label for="name">Nama Lengkap</label>
             <input type="text" id="name" name="name" value="{{ old('name', $user->name) }}" required>

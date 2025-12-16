@@ -27,9 +27,7 @@
     <section class="page-head">
       <h1 class="page-title">Tentang Kami</h1>
       <p class="page-subtitle">
-        Kenali Photoholic lebih dekat. Kami hadir untuk
-        membantu kamu mengabadikan setiap momen spesial
-        dengan cara yang fun dan estetik.
+        {{ $about_pages->subtitle ?? '' }}
       </p>
     </section>
 
@@ -40,9 +38,7 @@
       <section class="about-hero-card">
         <h2 class="about-hero-title">Apa itu Photoholic?</h2>
         <p class="about-hero-text">
-          Photoholic adalah layanan studio & photobooth yang siap
-          menangkap momen bahagia kamu bersama teman, pasangan, atau keluarga,
-          dengan konsep yang hangat, playful, dan estetik.
+          {{ $about_pages->description ?? '' }}
         </p>
       </section>
 
@@ -50,8 +46,7 @@
       <section class="about-section">
         <h3 class="about-title">Visi</h3>
         <p class="about-paragraph">
-          Menjadi pilihan utama untuk mengabadikan momen bahagia dengan
-          pengalaman pemotretan yang hangat, nyaman, dan menyenangkan.
+          {{ $about_pages->vision ?? '' }}
         </p>
       </section>
 
@@ -59,9 +54,11 @@
       <section class="about-section">
         <h3 class="about-title">Misi</h3>
         <ul class="about-list">
-          <li>Menyediakan layanan foto yang ramah dan profesional.</li>
-          <li>Menghadirkan hasil foto yang berkualitas dan memorable.</li>
-          <li>Memberikan proses pemesanan yang mudah dan jelas.</li>
+          @if(!empty($about_pages->mission))
+            @foreach(explode("\n", $about_pages->mission) as $item)
+              <li>{{ $item }}</li>
+            @endforeach
+          @endif
         </ul>
       </section>
 
@@ -90,9 +87,7 @@
       <section class="about-section contact-section">
         <h3 class="about-title">Kontak</h3>
         <p class="about-paragraph">
-          Instagram: @photoholic.id<br>
-          Email: minphotoholic@mail.com<br>
-          WhatsApp: 0812-xxxx-xxxx
+          {!! nl2br(e($about_pages->contact ?? '')) !!}
         </p>
       </section>
 
