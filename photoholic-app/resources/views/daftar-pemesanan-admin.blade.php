@@ -93,7 +93,7 @@
         </article>
 
       @empty
-        <p class="empty-text">Belum ada pemesanan lunas.</p>
+        <p class="empty-text">Belum ada pemesanan.</p>
       @endforelse
 
       </section>
@@ -101,9 +101,11 @@
     </main>
 
     <!-- FAB TAMBAH -->
-    <button class="fab-add" type="button">
-      <span>+</span>
-    </button>
+    <a href="{{ route('admin.studio.index') }}">
+      <button class="fab-add" type="button">
+        <span>+</span>
+      </button>
+    </a>
 
     <!-- BOTTOM NAV -->
     <nav class="bottom-nav">

@@ -204,7 +204,6 @@ class BookingController extends Controller
     public function adminIndex()
     {
         $bookings = Booking::with(['user'])
-            ->where('status', 'lunas')
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -221,6 +220,7 @@ class BookingController extends Controller
     public function adminPaymentIndex()
     {
         $bookings = Booking::with('user')
+            ->where('status', 'lunas')
             ->orderByDesc('created_at')
             ->get();
 
