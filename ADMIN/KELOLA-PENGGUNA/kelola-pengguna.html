@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kelola Pengguna</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="kelola-pengguna.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kelola-pengguna.css">
 </head>
 
 <body>
@@ -14,30 +14,21 @@
 
     <!-- STATUS BAR -->
     <div class="status-bar">
-      <img src="assets/jam.png" class="status-clock">
-      <img src="assets/icons.png" class="status-icons">
+      <img src="assets/jam.png" class="status-clock" alt="Jam">
+      <img src="assets/icons.png" class="status-icons" alt="Icons">
     </div>
 
-    <!-- HEADER -->
-    <header class="topbar">
-      <div class="topbar-inner">
-        <img src="assets/logo-header.png" class="logo">
-        <h1 class="page-title">Kelola Pengguna</h1>
-      </div>
+    <!-- HEADER (tanpa logo, judul center besar) -->
+    <header class="topbar topbar-center">
+      <h1 class="page-title page-title-big">Kelola Pengguna</h1>
     </header>
 
     <!-- CONTENT -->
     <div class="users-wrapper">
 
-      <!-- INTRO CARD -->
-      <section class="users-intro-card">
-        <div class="users-intro-icon">
-          <span>👥</span>
-        </div>
-        <div class="users-intro-text">
-          <h2>Manajemen Pengguna</h2>
-          <p>Tambah, lihat, dan kelola akun pengguna Photoholic.</p>
-        </div>
+      <!-- INTRO SIMPLE (tanpa icon & tanpa judul) -->
+      <section class="users-intro-card users-intro-simple">
+        <p class="users-intro-desc">Tambah, lihat, dan kelola akun pengguna Photoholic.</p>
       </section>
 
       <!-- SEARCH -->
@@ -49,10 +40,15 @@
       <h3 class="users-list-title">Daftar Pengguna</h3>
 
       <!-- USER LIST -->
-      <section class="users-list">
+      <section class="users-list" id="usersList">
 
         <!-- USER ITEM 1 -->
-        <article class="user-card">
+        <article class="user-card"
+          data-id="1"
+          data-name="Berlian Admin"
+          data-role="Admin"
+          data-email="admin@gmail.com"
+          data-phone="081234567899">
           <div class="user-main">
             <div class="user-avatar">B</div>
             <div class="user-info">
@@ -65,16 +61,20 @@
             </div>
           </div>
           <div class="user-actions">
-            <button class="btn-chip">Detail</button>
-            <button class="btn-more">⋮</button>
+            <button class="btn-chip" data-action="detail">Detail</button>
+            <button class="btn-more" data-action="more" type="button">⋮</button>
           </div>
         </article>
 
-
-                <!-- USER ITEM 2 -->
-        <article class="user-card">
+        <!-- USER ITEM 2 -->
+        <article class="user-card"
+          data-id="2"
+          data-name="Qonita Admin"
+          data-role="Admin"
+          data-email="admin@gmail.com"
+          data-phone="081234567899">
           <div class="user-main">
-            <div class="user-avatar">B</div>
+            <div class="user-avatar">Q</div>
             <div class="user-info">
               <div class="user-name-row">
                 <span class="user-name">Qonita Admin</span>
@@ -85,13 +85,18 @@
             </div>
           </div>
           <div class="user-actions">
-            <button class="btn-chip">Detail</button>
-            <button class="btn-more">⋮</button>
+            <button class="btn-chip" data-action="detail">Detail</button>
+            <button class="btn-more" data-action="more" type="button">⋮</button>
           </div>
         </article>
 
         <!-- USER ITEM 3 -->
-        <article class="user-card">
+        <article class="user-card"
+          data-id="3"
+          data-name="Lucky Fitrianda"
+          data-role="Customer"
+          data-email="Lucky@mail.com"
+          data-phone="081234567812">
           <div class="user-main">
             <div class="user-avatar">S</div>
             <div class="user-info">
@@ -104,13 +109,18 @@
             </div>
           </div>
           <div class="user-actions">
-            <button class="btn-chip">Detail</button>
-            <button class="btn-more">⋮</button>
+            <button class="btn-chip" data-action="detail">Detail</button>
+            <button class="btn-more" data-action="more" type="button">⋮</button>
           </div>
         </article>
 
         <!-- USER ITEM 4 -->
-        <article class="user-card">
+        <article class="user-card"
+          data-id="4"
+          data-name="Lovina Putri"
+          data-role="Customer"
+          data-email="LOv124.com"
+          data-phone="081278900001">
           <div class="user-main">
             <div class="user-avatar">R</div>
             <div class="user-info">
@@ -123,13 +133,214 @@
             </div>
           </div>
           <div class="user-actions">
-            <button class="btn-chip">Detail</button>
-            <button class="btn-more">⋮</button>
+            <button class="btn-chip" data-action="detail">Detail</button>
+            <button class="btn-more" data-action="more" type="button">⋮</button>
           </div>
         </article>
 
       </section>
     </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- MODAL: DETAIL USER -->
+    <div class="modal" id="modalUser" aria-hidden="true">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" id="userModalTitle">Detail Pengguna</h3>
+            <p class="modal-sub" id="userModalSub">Lihat atau ubah data pengguna.</p>
+          </div>
+          <button class="icon-close" data-close="modalUser" aria-label="Tutup">✕</button>
+        </div>
+
+        <form class="modal-body" id="formUser">
+          <input type="hidden" id="userId">
+
+          <div class="field">
+            <label>Nama</label>
+            <input type="text" id="userName" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Role</label>
+              <select id="userRole">
+                <option value="Admin">Admin</option>
+                <option value="Customer">Customer</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>No. HP</label>
+              <input type="text" id="userPhone" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Email</label>
+            <input type="text" id="userEmail" required>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-secondary" data-close="modalUser">Tutup</button>
+            <button type="submit" class="btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- BOTTOMSHEET: MORE -->
+    <div class="sheet" id="sheetMore" aria-hidden="true">
+      <div class="sheet-box">
+        <div class="sheet-handle"></div>
+        <button class="sheet-item" id="sheetDetail">Detail</button>
+        <button class="sheet-item danger" id="sheetDelete">Hapus</button>
+        <button class="sheet-cancel" data-close="sheetMore">Batal</button>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">Tersimpan ✅</div>
+
   </div>
+
+  <script>
+    const overlay = document.getElementById("overlay");
+    const modalUser = document.getElementById("modalUser");
+    const sheetMore = document.getElementById("sheetMore");
+    const toast = document.getElementById("toast");
+
+    const usersList = document.getElementById("usersList");
+
+    let currentCard = null;
+
+    function openLayer(el){
+      overlay.classList.add("show");
+      el.classList.add("show");
+      el.setAttribute("aria-hidden", "false");
+    }
+
+    function closeLayer(el){
+      el.classList.remove("show");
+      el.setAttribute("aria-hidden", "true");
+      if(!modalUser.classList.contains("show") &&
+         !sheetMore.classList.contains("show")){
+        overlay.classList.remove("show");
+      }
+    }
+
+    function showToast(text){
+      toast.textContent = text;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1600);
+    }
+
+    function cardData(card){
+      return {
+        id: card.dataset.id,
+        name: card.dataset.name,
+        role: card.dataset.role,
+        email: card.dataset.email,
+        phone: card.dataset.phone
+      };
+    }
+
+    function avatarFromName(name){
+      const t = (name || "").trim();
+      return t ? t[0].toUpperCase() : "U";
+    }
+
+    function applyRoleBadge(roleEl, role){
+      if(role === "Admin"){
+        roleEl.textContent = "Admin";
+        roleEl.className = "user-role user-role-admin";
+      } else {
+        roleEl.textContent = "Customer";
+        roleEl.className = "user-role user-role-cust";
+      }
+    }
+
+    // Delegation: tombol detail / more
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-action]");
+      if(!btn) return;
+
+      const action = btn.dataset.action;
+      const card = btn.closest(".user-card");
+      if(!card) return;
+
+      currentCard = card;
+
+      if(action === "detail"){
+        const data = cardData(card);
+        document.getElementById("userId").value = data.id;
+        document.getElementById("userName").value = data.name;
+        document.getElementById("userRole").value = data.role;
+        document.getElementById("userEmail").value = data.email;
+        document.getElementById("userPhone").value = data.phone;
+        openLayer(modalUser);
+      }
+
+      if(action === "more"){
+        openLayer(sheetMore);
+      }
+    });
+
+    // close buttons
+    document.addEventListener("click", (e) => {
+      const closeBtn = e.target.closest("[data-close]");
+      if(!closeBtn) return;
+      closeLayer(document.getElementById(closeBtn.dataset.close));
+    });
+
+    overlay.addEventListener("click", () => {
+      closeLayer(modalUser);
+      closeLayer(sheetMore);
+    });
+
+    // sheet actions
+    document.getElementById("sheetDetail").addEventListener("click", () => {
+      closeLayer(sheetMore);
+      if(currentCard){
+        currentCard.querySelector('[data-action="detail"]').click();
+      }
+    });
+
+    document.getElementById("sheetDelete").addEventListener("click", () => {
+      if(!currentCard) return;
+      currentCard.remove();
+      closeLayer(sheetMore);
+      showToast("Pengguna dihapus ✅");
+    });
+
+    // Save user
+    document.getElementById("formUser").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if(!currentCard) return;
+
+      const name = document.getElementById("userName").value.trim();
+      const role = document.getElementById("userRole").value;
+      const email = document.getElementById("userEmail").value.trim();
+      const phone = document.getElementById("userPhone").value.trim();
+
+      currentCard.dataset.name = name;
+      currentCard.dataset.role = role;
+      currentCard.dataset.email = email;
+      currentCard.dataset.phone = phone;
+
+      currentCard.querySelector(".user-name").textContent = name;
+      currentCard.querySelector(".user-email").textContent = email;
+      currentCard.querySelector(".user-phone").textContent = phone;
+
+      currentCard.querySelector(".user-avatar").textContent = avatarFromName(name);
+
+      const roleEl = currentCard.querySelector(".user-role");
+      applyRoleBadge(roleEl, role);
+
+      closeLayer(modalUser);
+      showToast("Perubahan tersimpan ✅");
+    });
+  </script>
 </body>
 </html>
