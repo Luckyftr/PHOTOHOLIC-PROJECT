@@ -51,21 +51,32 @@ body {
   position: relative;
 }
 
+/* TOP BAR (BACK) */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* back button: */
 .back-btn {
-  background: #0f766e;
-  border-radius: 999px;
   border: none;
-  width: 30px;
-  height: 30px;
+  background: transparent;  
+  width: auto;              
+  height: auto;
+  padding: 4px;             
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
+  cursor: pointer;
 }
 
 .back-icon {
-  width: 18px;
-  height: 18px;
+  width: 30px;           
+  height: 35px;
+  object-fit: contain;
+  display: block;
 }
 
 .page-title {
@@ -135,27 +146,30 @@ body {
 }
 
 /* BUTTONS */
-.btn-primary {
-  width: 100%;
-  background: #f05252;
-  border-radius: 10px;
-  font-size: 14px;
-  color: white;
-  border: none;
-  margin-top: 24px;
-  font-weight: 600;
-}
-
+.btn-primary,
 .btn-secondary {
   width: 100%;
-  background: #ffffff;
-  padding: 12px;
+  padding: 12px;          
   border-radius: 10px;
   font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  line-height: 1;        
+}
+
+/* tombol utama */
+.btn-primary {
+  background: #f05252;
+  color: #ffffff;
+  border: none;
+  margin-top: 24px;       
+}
+
+/* tombol batal */
+.btn-secondary {
+  background: #ffffff;
   color: #f05252;
   border: 2px solid #f05252;
-  margin-top: 10px;
-  font-weight: 600;
 }
 
 /* BOTTOM NAV */

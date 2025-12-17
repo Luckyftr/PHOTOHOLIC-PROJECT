@@ -35,23 +35,6 @@ body {
   border-bottom: 1px solid #eeeeee;
 }
 
-/* kiri: jam */
-.status-left {
-  display: flex;
-  align-items: center;
-}
-
-.status-clock {
-  height: 14px;
-  width: auto;
-}
-
-/* kanan: icon sinyal/wifi/baterai */
-.status-icons {
-  display: flex;
-  align-items: center;
-}
-
 .status-img {
   height: 14px;
   width: auto;
@@ -68,21 +51,26 @@ body {
   margin-bottom: 16px;
 }
 
-/* tombol back pakai gambar back.png */
+/* back button: */
 .back-btn {
-  background: transparent;
   border: none;
-  padding: 0;
-  cursor: pointer;
+  background: transparent;  
+  width: auto;            
+  height: auto;
+  padding: 4px;          
+  box-shadow: none;      
+  border-radius: 0;        
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .back-icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;             
+  height: 35px;
   object-fit: contain;
+  display: block;
 }
 
 /* Title & Subtitle */
@@ -159,7 +147,15 @@ form {
   padding: 12px 0;
   font-size: 15px;
   font-weight: 600;
-  background: #add3cc;
+  background: #add3cc;      
   color: #ffffff;
+  cursor: not-allowed;
+  transition: background 0.25s ease;
+}
+
+/* aktif */
+.btn-primary.active {
+  background: #0f766e;      
   cursor: pointer;
 }
+

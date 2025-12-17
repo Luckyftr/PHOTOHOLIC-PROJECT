@@ -43,7 +43,7 @@ body {
 /* HEADER */
 .topbar {
   background: #F2B6BB;
-  padding: 12px 16px; /* align sama wrapper */
+  padding: 12px 16px; 
 }
 
 /* Topbar versi center */
@@ -61,7 +61,7 @@ body {
   letter-spacing: 0.2px;
 }
 
-/* Logo (sudah gak dipakai, tapi aman) */
+/* Logo */
 .logo {
   display: none;
 }

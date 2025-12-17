@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubah Kata Sandi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ubah-admin1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ubah-admin1.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
         Jaga keamanan akun Anda dengan mengganti kata sandi secara berkala!
       </p>
 
-      <form>
+      <form id="changePassForm">
         <!-- kata sandi lama -->
         <div class="input-group">
           <div class="input-with-icon">
@@ -90,12 +90,13 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-primary">Kirim</button>
+        <button type="submit" class="btn-primary" id="btnKirim" disabled>
+          Kirim
+        </button>
       </form>
     </div>
   </div>
 
-  <!-- JS show/hide password -->
   <script>
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
@@ -109,6 +110,39 @@
         img.src = "assets/eye-closed.png";
       }
     }
+
+    // === tombol aktif kalau semua terisi & password baru sama ===
+    const oldPassword = document.getElementById("oldPassword");
+    const newPassword = document.getElementById("newPassword");
+    const confirmNewPassword = document.getElementById("confirmNewPassword");
+    const btnKirim = document.getElementById("btnKirim");
+    const form = document.getElementById("changePassForm");
+
+    function checkForm() {
+      const oldVal = oldPassword.value.trim();
+      const newVal = newPassword.value.trim();
+      const confirmVal = confirmNewPassword.value.trim();
+
+      const isFilled = oldVal !== "" && newVal !== "" && confirmVal !== "";
+      const isMatch = newVal === confirmVal;
+
+      if (isFilled && isMatch) {
+        btnKirim.classList.add("active");
+        btnKirim.disabled = false;
+      } else {
+        btnKirim.classList.remove("active");
+        btnKirim.disabled = true;
+      }
+    }
+
+    oldPassword.addEventListener("input", checkForm);
+    newPassword.addEventListener("input", checkForm);
+    confirmNewPassword.addEventListener("input", checkForm);
+
+    // biar gak reload (untuk tampilan statis)
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+    });
   </script>
 </body>
 </html>

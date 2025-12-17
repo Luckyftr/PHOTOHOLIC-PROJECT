@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Masuk</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="masuk-admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="masuk-admin.css">
 </head>
 
 <body>
@@ -35,14 +35,24 @@
       </p>
 
       <form>
+        <!-- Email -->
         <div class="input-group">
-          <input type="email" class="input-field" placeholder="Alamat Email" />
+          <input
+            type="email"
+            id="email"
+            class="input-field"
+            placeholder="Alamat Email"
+          />
         </div>
 
         <!-- Password -->
         <div class="input-group">
           <div class="input-with-icon">
-            <input type="password" id="password" placeholder="Kata Sandi" />
+            <input
+              type="password"
+              id="password"
+              placeholder="Kata Sandi"
+            />
             <button type="button" class="eye-icon" onclick="togglePassword('password', this)">
               <img src="assets/eye-closed.png" alt="">
             </button>
@@ -54,10 +64,15 @@
           <a href="#">Lupa Kata Sandi?</a>
         </div>
 
-        <button type="submit" class="btn-primary">Masuk</button>
+        <!-- Button Masuk -->
+        <button type="submit" class="btn-primary" id="btnMasuk" disabled>
+          Masuk
+        </button>
       </form>
+    </div>
+  </div>
 
-  <!-- JS show/hide password -->
+  <!-- JS show/hide password + active button -->
   <script>
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
@@ -71,6 +86,28 @@
         img.src = "assets/eye-closed.png";
       }
     }
+
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const btnMasuk = document.getElementById("btnMasuk");
+
+    function checkForm() {
+      if (emailInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
+        btnMasuk.classList.add("active");
+        btnMasuk.disabled = false;
+      } else {
+        btnMasuk.classList.remove("active");
+        btnMasuk.disabled = true;
+      }
+    }
+
+    emailInput.addEventListener("input", checkForm);
+    passwordInput.addEventListener("input", checkForm);
+
+    // optional: cegah submit reload (kalau masih static)
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+    });
   </script>
 </body>
 </html>

@@ -61,24 +61,33 @@ body {
   background: #ffffff;
 }
 
+/* TOP BAR (BACK) */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* back button:  */
 .back-btn {
-  background: #0f766e;
-  border-radius: 999px;
   border: none;
-  width: 30px;
-  height: 30px;
+  background: transparent;     
+  width: auto;              
+  height: auto;
+  padding: 4px;            
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
   cursor: pointer;
 }
 
 .back-icon {
-  width: 18px;
-  height: 18px;
+  width: 30px;          
+  height: 35px;
+  object-fit: contain;
+  display: block;
 }
-
 .page-title {
   font-size: 16px;
   font-weight: 600;

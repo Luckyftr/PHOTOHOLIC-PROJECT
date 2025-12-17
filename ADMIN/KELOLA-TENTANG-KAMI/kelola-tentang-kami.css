@@ -43,24 +43,20 @@ body {
 /* HEADER */
 .topbar {
   background: #F2B6BB;
-  padding: 12px 16px;
+  padding: 14px 16px;
 }
 
 .topbar-inner {
   display: flex;
   align-items: center;
-  gap: 8px;
-  justify-content: center;
-}
-
-.logo {
-  height: 32px;
+  justify-content: center; /* center title */
 }
 
 .page-title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;       /* lebih besar */
+  font-weight: 700;      /* lebih tegas */
   color: #e84a5f;
+  letter-spacing: 0.2px;
 }
 
 /* CONTENT WRAPPER */
@@ -71,38 +67,26 @@ body {
   height: calc(800px - 32px - 56px);
 }
 
-/* INTRO CARD */
+/* INTRO CARD (tanpa icon & tanpa h2) */
 .about-admin-intro-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px;
-  background: #fff5f7;
+  padding: 14px 14px;
+  background: linear-gradient(180deg, #fff5f7 0%, #ffffff 100%);
+  border: 1px solid #ffd2dc;
   border-radius: 16px;
   margin-bottom: 14px;
-}
-
-.about-admin-intro-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #ffe0e6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-}
-
-.about-admin-intro-text h2 {
-  font-size: 14px;
-  font-weight: 600;
-  color: #e84a5f;
-  margin-bottom: 2px;
+  text-align: center;              /* center */
+  box-shadow: 0 6px 14px rgba(232, 74, 95, 0.08);
 }
 
 .about-admin-intro-text p {
   font-size: 12px;
-  color: #555;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.about-admin-intro-text strong {
+  color: #e84a5f;
+  font-weight: 700;
 }
 
 /* SECTIONS */
@@ -112,7 +96,7 @@ body {
 
 .about-admin-title {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   color: #e84a5f;
   margin-bottom: 6px;
 }
@@ -127,41 +111,53 @@ body {
 /* INPUT & TEXTAREA */
 .about-admin-input {
   width: 100%;
-  padding: 8px 10px;
-  border-radius: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
   border: 1px solid #f3b7c4;
   font-size: 12px;
   margin-bottom: 8px;
+  outline: none;
+}
+
+.about-admin-input:focus {
+  border-color: #e84a5f;
+  box-shadow: 0 0 0 3px rgba(232, 74, 95, 0.12);
 }
 
 .about-admin-textarea {
   width: 100%;
-  min-height: 80px;
+  min-height: 90px;
   resize: none;
-  padding: 8px 10px;
-  border-radius: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
   border: 1px solid #f3b7c4;
   font-size: 12px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Commissioner", sans-serif;
   color: #444;
-  line-height: 1.4;
+  line-height: 1.5;
+  outline: none;
+}
+
+.about-admin-textarea:focus {
+  border-color: #e84a5f;
+  box-shadow: 0 0 0 3px rgba(232, 74, 95, 0.12);
 }
 
 /* BUTTONS */
 .about-admin-actions {
-  margin-top: 8px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .btn-save-about,
 .btn-cancel-about {
   width: 100%;
-  padding: 11px;
+  padding: 12px;
   border-radius: 14px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -170,11 +166,16 @@ body {
   border: none;
   background: #e84a5f;
   color: #fff;
+  box-shadow: 0 10px 18px rgba(232, 74, 95, 0.18);
+}
+
+.btn-save-about:active {
+  transform: translateY(1px);
 }
 
 /* Batal */
 .btn-cancel-about {
-  border: 1px solid #e84a5f;
+  border: 2px solid #e84a5f;
   background: transparent;
   color: #e84a5f;
 }

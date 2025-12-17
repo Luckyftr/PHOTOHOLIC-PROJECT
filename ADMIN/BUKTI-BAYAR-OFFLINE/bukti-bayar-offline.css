@@ -68,24 +68,25 @@ body {
   margin-bottom: 10px;
 }
 
+/* back button: */
 .back-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
   border: none;
-  background: #1f9b76;
-  display: flex;
+  background: transparent;   
+  width: auto;                
+  height: auto;
+  padding: 4px;           
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
 .back-icon {
-  width: 16px;
-  height: 16px;
+  width: 30px;                
+  height: 35px;
   object-fit: contain;
+  display: block;
 }
-
 /* KARTU BUKTI PEMBAYARAN */
 .invoice-wrapper {
   display: flex;

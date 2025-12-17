@@ -3,51 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lupa Kata Sandi</title>
+  <title>Ubah Kata Sandi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="ubah-admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ubah-admin.css">
 </head>
 
 <body>
   <div class="phone">
-    <!-- status bar -->
+    <!-- STATUS BAR -->
     <div class="status-bar">
       <div class="status-left">
-        <img src="assets/jam.png" alt="Jam" class="status-clock">
+        <img src="assets/jam.png" alt="Jam" class="status-img">
       </div>
-
       <div class="status-icons">
         <img src="assets/icons.png" alt="Status icons" class="status-img">
       </div>
     </div>
 
     <div class="screen">
-      <!-- tombol back -->
-<div class="top-row">
-  <button class="back-btn" type="button">
-    <img src="assets/back.png" alt="Kembali" class="back-icon">
-  </button>
-</div>
+      <!-- BACK BUTTON -->
+      <div class="top-row">
+        <button class="back-btn" type="button">
+          <img src="assets/back.png" alt="Kembali" class="back-icon">
+        </button>
+      </div>
 
-      <!-- ilustrasi -->
+      <!-- ILUSTRASI -->
       <div class="illustration">
         <img src="assets/admin-fiks.png" alt="Ilustrasi" class="illustration-img">
       </div>
 
+      <!-- TITLE -->
       <h1 class="title">Ubah Kata Sandi</h1>
       <p class="subtitle">
         Jaga keamanan akun Anda dengan mengganti kata sandi secara berkala!
       </p>
 
-      <form>
+      <!-- FORM -->
+      <form id="resetForm">
         <div class="input-group">
-          <input type="email" class="input-field" placeholder="Alamat Email" />
+          <input
+            type="email"
+            id="email"
+            class="input-field"
+            placeholder="Alamat Email"
+          />
         </div>
 
-        <button type="submit" class="btn-primary">Kirim</button>
+        <button
+          type="submit"
+          class="btn-primary"
+          id="btnKirim"
+          disabled
+        >
+          Kirim
+        </button>
       </form>
     </div>
   </div>
+
+  <!-- JS: aktif/nonaktif tombol -->
+  <script>
+    const emailInput = document.getElementById("email");
+    const btnKirim = document.getElementById("btnKirim");
+    const form = document.getElementById("resetForm");
+
+    function checkEmail() {
+      if (emailInput.value.trim() !== "") {
+        btnKirim.classList.add("active");
+        btnKirim.disabled = false;
+      } else {
+        btnKirim.classList.remove("active");
+        btnKirim.disabled = true;
+      }
+    }
+
+    emailInput.addEventListener("input", checkEmail);
+
+    // cegah reload (karena masih UI)
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+    });
+  </script>
 </body>
 </html>

@@ -46,18 +46,6 @@ body {
   width: auto;
 }
 
-/* kanan: icon sinyal/wifi/baterai */
-.status-icons {
-  display: flex;
-  align-items: center;
-}
-
-.status-img {
-  height: 14px;
-  width: auto;
-  object-fit: contain;
-}
-
 /* Container isi */
 .screen {
   padding: 24px 32px 32px;
@@ -159,8 +147,14 @@ form {
   padding: 12px 0;
   font-size: 15px;
   font-weight: 600;
-  background: #add3cc;
+  background: #add3cc;     
   color: #ffffff;
-  cursor: pointer;
+  cursor: not-allowed;
+  transition: background 0.3s ease;
 }
 
+/* aktif */
+.btn-primary.active {
+  background: #0f766e; 
+  cursor: pointer;
+}
