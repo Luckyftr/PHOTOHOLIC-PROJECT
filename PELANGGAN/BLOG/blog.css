@@ -104,27 +104,21 @@ body {
   background: transparent;
   border: none;
   padding: 0;
-  width: 40px;
-  height: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: auto;
+  height: auto;
 }
 
+/* PAKAI ICON ASLI */
 .back-btn-blog .back-icon-blog {
-  width: 40px;
+  width: 40px;    
   height: 40px;
-  border-radius: 50%;
-  box-shadow:
-    0 2px 6px rgba(0,0,0,0.18),
-    0 4px 12px rgba(0,0,0,0.14);
-}
-
-.blog-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f766e;
+  border-radius: 0; 
+  box-shadow: none; 
+  display: block;
 }
 
 /* BLOG LIST */
@@ -185,14 +179,32 @@ body {
 /* FOOTER */
 .footer-bar {
   background: #F2B6BB;
-  padding: 8px 10px;
+  padding: 10px 8px;
   border-top: 1px solid #f9c3c7;
 }
 
+/* container sejajar satu baris */
 .footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   font-size: 9px;
   color: #F24957;
+  gap: 6px;
+}
+
+/* tiap item (icon + teks) */
+.footer-item {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+/* icon */
+.footer-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
 }

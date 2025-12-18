@@ -194,14 +194,32 @@ body {
 /* FOOTER */
 .footer-bar {
   background: #F2B6BB;
-  padding: 8px 10px;
+  padding: 10px 8px;
   border-top: 1px solid #f9c3c7;
 }
 
+/* container sejajar satu baris */
 .footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   font-size: 9px;
   color: #F24957;
+  gap: 6px;
+}
+
+/* tiap item (icon + teks) */
+.footer-item {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+/* icon */
+.footer-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
 }

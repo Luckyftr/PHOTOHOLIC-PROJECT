@@ -5,26 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="daftar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="daftar.css">
 </head>
 
 <body>
   <div class="phone">
-    <!-- status bar -->
-<div class="status-bar">
-  <div class="status-left">
-    <img src="assets/jam.png" alt="Jam" class="status-clock">
-  </div>
 
-  <div class="status-icons">
-    <img src="assets/icons.png" alt="Status icons" class="status-img">
-  </div>
-</div>
+    <div class="status-bar">
+      <img src="assets/jam.png" alt="Jam" class="status-clock">
+      <img src="assets/icons.png" alt="Status icons" class="status-img">
+    </div>
 
     <div class="screen">
-
-      <!-- ilustrasi -->
       <div class="illustration">
         <img src="assets/logo1.png" alt="Ilustrasi" class="illustration-img">
       </div>
@@ -32,34 +25,31 @@
       <h1 class="title">Daftar</h1>
       <p class="subtitle">Masukkan detail anda untuk Mendaftar</p>
 
-      <form>
-
+      <form id="registerForm" novalidate>
         <div class="input-group">
-          <input type="text" class="input-field" placeholder="Nama" />
+          <input type="text" id="nama" class="input-field" placeholder="Nama" required />
         </div>
 
         <div class="input-group">
-          <input type="email" class="input-field" placeholder="Alamat Email" />
+          <input type="email" id="email" class="input-field" placeholder="Alamat Email" required />
         </div>
 
         <div class="input-group">
-          <input type="tel" class="input-field" placeholder="Nomor Telepon" />
+          <input type="tel" id="telp" class="input-field" placeholder="Nomor Telepon" required />
         </div>
 
-        <!-- Password -->
         <div class="input-group">
           <div class="input-with-icon">
-            <input type="password" id="password" placeholder="Kata Sandi" />
+            <input type="password" id="password" placeholder="Kata Sandi" required />
             <button type="button" class="eye-icon" onclick="togglePassword('password', this)">
               <img src="assets/eye-closed.png" alt="">
             </button>
           </div>
         </div>
 
-        <!-- Konfirmasi password -->
         <div class="input-group">
           <div class="input-with-icon">
-            <input type="password" id="confirmPassword" placeholder="Konfirmasi Kata Sandi" />
+            <input type="password" id="confirmPassword" placeholder="Konfirmasi Kata Sandi" required />
             <button type="button" class="eye-icon" onclick="togglePassword('confirmPassword', this)">
               <img src="assets/eye-closed.png" alt="">
             </button>
@@ -73,28 +63,26 @@
           </label>
         </div>
 
-        <button type="submit" class="btn-daftar">Daftar</button>
+        <button type="submit" class="btn-daftar" id="btnDaftar" disabled>Daftar</button>
       </form>
 
       <div class="google-section">
-  <button type="button" class="google-btn">
-    <img src="assets/google.png" alt="Google" class="google-logo">
-  </button>
-</div>
+        <button type="button" class="google-btn">
+          <img src="assets/google.png" alt="Google" class="google-logo">
+        </button>
+      </div>
 
       <p class="bottom-text">
         Sudah punya akun? <a href="#">Masuk</a>
       </p>
-
     </div>
+
   </div>
 
-  <!-- JS untuk show/hide password -->
   <script>
     function togglePassword(inputId, btn) {
       const input = document.getElementById(inputId);
       const img = btn.querySelector("img");
-
       if (input.type === "password") {
         input.type = "text";
         img.src = "assets/eye-open.png";
@@ -103,7 +91,44 @@
         img.src = "assets/eye-closed.png";
       }
     }
-  </script>
 
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("#registerForm");
+      const btn = document.querySelector("#btnDaftar");
+
+      const nama = document.querySelector("#nama");
+      const email = document.querySelector("#email");
+      const telp = document.querySelector("#telp");
+      const pass = document.querySelector("#password");
+      const confirm = document.querySelector("#confirmPassword");
+      const terms = document.querySelector("#terms");
+
+      function checkForm() {
+        const namaOk = nama.value.trim().length > 0;
+        const emailOk = email.value.trim().length > 0 && email.checkValidity();
+        const telpOk = telp.value.trim().length > 0;
+        const passOk = pass.value.trim().length >= 6;
+        const confirmOk = confirm.value === pass.value && confirm.value.trim().length > 0;
+        const termsOk = terms.checked;
+
+        const valid = namaOk && emailOk && telpOk && passOk && confirmOk && termsOk;
+
+        btn.disabled = !valid;
+        btn.classList.toggle("enabled", valid);
+      }
+
+      // pas halaman dibuka + setiap ngetik
+      ["input", "change", "keyup"].forEach(evt => {
+        form.addEventListener(evt, checkForm);
+      });
+      checkForm();
+
+      // prevent submit demo
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!btn.disabled) alert("Pendaftaran berhasil!");
+      });
+    });
+  </script>
 </body>
 </html>
