@@ -270,36 +270,18 @@ body {
 }
 
 .studio-btn {
-  width: 80%;               
-  max-width: 260px;         
-  display: block;           
-  margin: 12px auto 0;      
+  display: block;             
+  width: 100%;
   border-radius: 999px;
   border: none;
-  padding: 8px 0;          
-  font-size: 11px;          
+  padding: 8px 0;            
+  font-size: 12px;
   font-weight: 600;
   background: #F24957;
   color: #ffffff;
-  margin-top: auto;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  text-align: center;         
+  text-decoration: none;      
 }
-
-.studio-btn:hover {
-  background: #d63c4e;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 8px rgba(0,0,0,0.15);
-}
-
-.studio-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
 
 /* INFO TERBARU (BLOG) – dibesarkan sedikit */
 .blog-highlight {
@@ -356,14 +338,32 @@ body {
 /* FOOTER */
 .footer-bar {
   background: #F2B6BB;
-  padding: 8px 10px;
+  padding: 10px 8px;
   border-top: 1px solid #f9c3c7;
 }
 
+/* container sejajar satu baris */
 .footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   font-size: 9px;
   color: #F24957;
+  gap: 6px;
+}
+
+/* tiap item (icon + teks) */
+.footer-item {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  gap: 4px;
+  white-space: nowrap; 
+}
+
+/* icon */
+.footer-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
 }

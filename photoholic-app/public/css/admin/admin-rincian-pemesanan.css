@@ -68,23 +68,26 @@ body {
   margin-bottom: 12px;
 }
 
+/* back button: */
 .back-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
   border: none;
-  background: #ffffff;
-  display: flex;
+  background: transparent;  
+  width: auto;               
+  height: auto;
+  padding: 4px;          
+  box-shadow: none;        
+  border-radius: 0;          
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
   cursor: pointer;
 }
 
 .back-icon {
-  width: 14px;
-  height: 14px;
+  width: 30px;              
+  height: 35px;
   object-fit: contain;
+  display: block;
 }
 
 .page-title-detail {
@@ -219,15 +222,6 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-
-.bottom-nav a{
-    text-decoration: none !important;   /* removes underline */
-}
-
-.bottom-nav a span {
-    text-decoration: none !important;
-}
-
 
 .nav-item {
   display: flex;

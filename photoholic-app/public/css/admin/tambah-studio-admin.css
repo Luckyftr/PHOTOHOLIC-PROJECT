@@ -49,17 +49,26 @@ body {
   padding: 10px 14px;
 }
 
+/* back button: */
 .back-btn {
-  background: none;
   border: none;
-  margin-right: 10px;
+  background: transparent;  
+  width: auto;             
+  height: auto;
+  padding: 4px;         
+  box-shadow: none;          
+  border-radius: 0;      
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-
 }
 
 .back-icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;            
+  height: 35px;
+  object-fit: contain;
+  display: block;
 }
 
 .page-title {
@@ -152,14 +161,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-.bottom-nav a{
-    text-decoration: none !important;   /* removes underline */
-}
-
-.bottom-nav a span {
-    text-decoration: none !important;
 }
 
 .nav-item {
