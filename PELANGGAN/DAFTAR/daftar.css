@@ -145,6 +145,17 @@ form {
 
 .google-logo {
   width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.google-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* BOTTOM */

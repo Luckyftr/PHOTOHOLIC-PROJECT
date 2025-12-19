@@ -261,17 +261,3 @@ body {
   height: auto;
   object-fit: contain;
 }
-
-/* TOMBOL BAYAR */
-.btn-pay {
-  width: 100%;
-  background: #0f766e;
-  color: #fff;
-  padding: 12px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 15px;
-  border: none;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
