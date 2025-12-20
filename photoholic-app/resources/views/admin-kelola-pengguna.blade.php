@@ -70,10 +70,11 @@
                      </div>
                  </div>
  
-                 <div class="user-actions">
-                     <button class="btn-chip" data-action="detail">Detail</button>
-                     <button class="btn-more" data-action="more" type="button">⋮</button>
-                 </div>
+                <div class="user-actions">
+                  <button class="btn-primary btn-manage" data-action="manage">
+                    Kelola
+                  </button>
+                </div>
                  </article>
              @endforeach
        </section>
@@ -98,11 +99,6 @@
         <form class="modal-body" id="formUser">
           <input type="hidden" id="userId">
 
-          <div class="field">
-            <label>Nama</label>
-            <input type="text" id="userName" required>
-          </div>
-
           <div class="field-row">
             <div class="field">
               <label>Role</label>
@@ -111,18 +107,12 @@
                 <option value="user">user</option>
               </select>
             </div>
-            <div class="field">
-              <label>No. HP</label>
-              <input type="text" id="userPhone" required>
-            </div>
-          </div>
-
-          <div class="field">
-            <label>Email</label>
-            <input type="text" id="userEmail" required>
           </div>
 
           <div class="modal-actions">
+            <button type="button" class="btn-primary" id="btnDeleteUser">
+              Hapus
+            </button>
             <button type="button" class="btn-secondary" data-close="modalUser">Tutup</button>
             <button type="submit" class="btn-primary">Simpan</button>
           </div>
@@ -130,15 +120,6 @@
       </div>
     </div>
 
-    <!-- BOTTOMSHEET: MORE -->
-    <div class="sheet" id="sheetMore" aria-hidden="true">
-      <div class="sheet-box">
-        <div class="sheet-handle"></div>
-        <button class="sheet-item" id="sheetDetail">Detail</button>
-        <button class="sheet-item danger" id="sheetDelete">Hapus</button>
-        <button class="sheet-cancel" data-close="sheetMore">Batal</button>
-      </div>
-    </div>
 
     <!-- TOAST -->
     <div class="toast" id="toast">Tersimpan ✅</div>
@@ -148,7 +129,6 @@
   <script>
     const overlay = document.getElementById("overlay");
     const modalUser = document.getElementById("modalUser");
-    const sheetMore = document.getElementById("sheetMore");
     const toast = document.getElementById("toast");
 
     const usersList = document.getElementById("usersList");
@@ -164,8 +144,7 @@
     function closeLayer(el){
       el.classList.remove("show");
       el.setAttribute("aria-hidden", "true");
-      if(!modalUser.classList.contains("show") &&
-         !sheetMore.classList.contains("show")){
+      if (!modalUser.classList.contains("show")) {
         overlay.classList.remove("show");
       }
     }
@@ -176,20 +155,6 @@
       setTimeout(() => toast.classList.remove("show"), 1600);
     }
 
-    function cardData(card){
-      return {
-        id: card.dataset.id,
-        name: card.dataset.name,
-        role: card.dataset.role,
-        email: card.dataset.email,
-        phone: card.dataset.phone
-      };
-    }
-
-    function avatarFromName(name){
-      const t = (name || "").trim();
-      return t ? t[0].toUpperCase() : "U";
-    }
 
     function applyRoleBadge(roleEl, role){
       if(role === "admin"){
@@ -201,128 +166,97 @@
       }
     }
 
-    // Delegation: tombol detail / more
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-action]");
-      if(!btn) return;
-
-      const action = btn.dataset.action;
-      const card = btn.closest(".user-card");
-      if(!card) return;
-
-      currentCard = card;
-
-      if(action === "detail"){
-        const data = cardData(card);
-        document.getElementById("userId").value = data.id;
-        document.getElementById("userName").value = data.name;
-        document.getElementById("userRole").value = data.role;
-        document.getElementById("userEmail").value = data.email;
-        document.getElementById("userPhone").value = data.phone;
-        openLayer(modalUser);
-      }
-
-      if(action === "more"){
-        openLayer(sheetMore);
-      }
-    });
 
     // close buttons
     document.addEventListener("click", (e) => {
-      const closeBtn = e.target.closest("[data-close]");
-      if(!closeBtn) return;
-      closeLayer(document.getElementById(closeBtn.dataset.close));
-    });
+              const closeBtn = e.target.closest("[data-close]");
+              if(!closeBtn) return;
+              closeLayer(document.getElementById(closeBtn.dataset.close));
+            });
 
-    overlay.addEventListener("click", () => {
-      closeLayer(modalUser);
-      closeLayer(sheetMore);
-    });
+            overlay.addEventListener("click", () => {
+              closeLayer(modalUser);
+            });
 
-    // sheet actions
-    document.getElementById("sheetDetail").addEventListener("click", () => {
-      closeLayer(sheetMore);
-      if(currentCard){
-        currentCard.querySelector('[data-action="detail"]').click();
-      }
-    });
+            document.addEventListener("click", (e) => {
+          const btn = e.target.closest('[data-action="manage"]');
+          if (!btn) return;
 
-    document.getElementById("sheetDelete").addEventListener("click", async () => {
-        if (!currentCard) return;
+          const card = btn.closest(".user-card");
+          if (!card) return;
 
-        const userId = currentCard.dataset.id;
+          currentCard = card;
 
-        if (!confirm("Yakin ingin menghapus pengguna ini?")) return;
+          document.getElementById("userId").value = card.dataset.id;
+          document.getElementById("userRole").value = card.dataset.role;
 
-        const res = await fetch(`/admin/users/${userId}`, {
-            method: "DELETE",
-            headers: {
-                "X-CSRF-TOKEN": document
-                    .querySelector('meta[name="csrf-token"]')
-                    .getAttribute("content"),
-                "Accept": "application/json"
-            }
+          openLayer(modalUser);
         });
 
-        if (!res.ok) {
-            alert("Gagal menghapus pengguna");
-            return;
-        }
 
-        currentCard.remove();
-        closeLayer(sheetMore);
-        showToast("Pengguna dihapus ✅");
+        document.getElementById("btnDeleteUser").addEventListener("click", async () => {
+      if (!currentCard) return;
+
+      if (!confirm("Yakin ingin menghapus pengguna ini?")) return;
+
+      const userId = currentCard.dataset.id;
+
+      const res = await fetch(`/admin/users/${userId}`, {
+        method: "DELETE",
+        headers: {
+          "X-CSRF-TOKEN": document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content"),
+          "Accept": "application/json"
+        }
+      });
+
+      if (!res.ok) {
+        alert("Gagal menghapus pengguna");
+        return;
+      }
+
+      currentCard.remove();
+      closeLayer(modalUser);
+      showToast("Pengguna dihapus ✅");
     });
+
 
             // Save user
     document.getElementById("formUser").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        if (!currentCard) return;
+      e.preventDefault();
+      if (!currentCard) return;
 
-        const data = {
-            id: document.getElementById("userId").value,
-            name: document.getElementById("userName").value.trim(),
-            role: document.getElementById("userRole").value,
-            email: document.getElementById("userEmail").value.trim(),
-            phone: document.getElementById("userPhone").value.trim(),
-        };
+      const userId = document.getElementById("userId").value;
+      const role = document.getElementById("userRole").value;
 
-        const res = await fetch("{{ route('admin.users.update') }}", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-TOKEN": document
-                .querySelector('meta[name="csrf-token"]')
-                .getAttribute("content"),
-            },
-            body: JSON.stringify(data),
-        });
+      const res = await fetch("{{ route('admin.users.update') }}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content"),
+        },
+        body: JSON.stringify({ id: userId, role }),
+      });
 
-        if (!res.ok) {
-            alert("Gagal menyimpan perubahan");
-            return;
-        }
+      if (!res.ok) {
+        alert("Gagal menyimpan perubahan");
+        return;
+      }
 
-        // UPDATE UI AFTER SUCCESS
-        currentCard.dataset.name = data.name;
-        currentCard.dataset.role = data.role;
-        currentCard.dataset.email = data.email;
-        currentCard.dataset.phone = data.phone;
+      // Update UI
+      currentCard.dataset.role = role;
+      applyRoleBadge(
+        currentCard.querySelector(".user-role"),
+        role
+      );
 
-        currentCard.querySelector(".user-name").textContent = data.name;
-        currentCard.querySelector(".user-email").textContent = data.email;
-        currentCard.querySelector(".user-phone").textContent = data.phone;
-        currentCard.querySelector(".user-avatar").textContent =
-            avatarFromName(data.name);
-
-        applyRoleBadge(
-            currentCard.querySelector(".user-role"),
-            data.role
-        );
-
-        closeLayer(modalUser);
-        showToast("Perubahan tersimpan ✅");
+      closeLayer(modalUser);
+      showToast("Role diperbarui ✅");
     });
+
 
   </script>
 </body>

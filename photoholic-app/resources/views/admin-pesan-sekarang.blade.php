@@ -84,6 +84,24 @@
               Waktu di luar jam operasional.
             </p>
           </div>
+
+          <!-- METODE PEMBAYARAN -->
+          <div class="field-group">
+            <label for="metode_pembayaran">Metode Pembayaran</label>
+            <div class="input-wrapper">
+              <select
+                id="metode_pembayaran"
+                name="metode_pembayaran"
+                class="input-field select-field"
+                required
+              >
+                <option value="">Pilih metode pembayaran</option>
+                <option value="TUNAI">Tunai</option>
+                <option value="QRIS">QRIS</option>
+              </select>
+            </div>
+          </div>
+
         </form>
       </section>
 
@@ -108,6 +126,7 @@
     const btnPesan     = document.getElementById('btnPesan');
     const totalHargaEl = document.getElementById('totalHarga');
     const waktuErrorEl = document.getElementById('waktuError');
+    const metodeSelect = document.getElementById('metode_pembayaran');
     const hargaPerSesi = {{ $studioPrice }};
 
     function isWaktuValid(value) {
@@ -120,18 +139,20 @@
     function updateButtonAndTotal() {
       const tanggalTerisi = tanggalInput.value.trim() !== "";
       const sesiTerisi = sesiSelect.value.trim() !== "";
+      const metodeTerisi = metodeSelect.value.trim() !== "";
       const waktuVal = waktuInput.value;
       const waktuValid = isWaktuValid(waktuVal);
 
       waktuErrorEl.style.display = (waktuVal && !waktuValid) ? 'block' : 'none';
 
-      const semuaTerisi = tanggalTerisi && sesiTerisi && waktuValid;
+      const semuaTerisi = tanggalTerisi && sesiTerisi && waktuValid && metodeTerisi;
 
       btnPesan.disabled = !semuaTerisi;
-      totalHargaEl.textContent = semuaTerisi ? 'Rp. ' + (parseInt(sesiSelect.value)*hargaPerSesi).toLocaleString() : 'Rp. 0';
+      totalHargaEl.textContent = semuaTerisi
+        ? 'Rp. ' + (parseInt(sesiSelect.value) * hargaPerSesi).toLocaleString()
+        : 'Rp. 0';
 
-      if (semuaTerisi) btnPesan.classList.add('enabled');
-      else btnPesan.classList.remove('enabled');
+      btnPesan.classList.toggle('enabled', semuaTerisi);
     }
 
     btnPesan.addEventListener('click', () => {
@@ -141,6 +162,8 @@
     tanggalInput.addEventListener('change', updateButtonAndTotal);
     sesiSelect.addEventListener('change', updateButtonAndTotal);
     waktuInput.addEventListener('change', updateButtonAndTotal);
+    metodeSelect.addEventListener('change', updateButtonAndTotal);
+
   </script>
 </body>
 </html>

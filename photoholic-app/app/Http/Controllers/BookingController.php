@@ -41,7 +41,7 @@ class BookingController extends Controller
 
 
         $jumlah_sesi = $request->sesi;
-        $harga_per_sesi = 45000;
+        $harga_per_sesi = $studio->harga;
         $subtotal = $harga_per_sesi * $jumlah_sesi;
 
         // Hitung jam selesai
@@ -73,6 +73,7 @@ class BookingController extends Controller
         // Simpan booking PENDING
         $booking = Booking::create([
             'user_id'        => auth()->id(),
+            'studio_id'      => $studio->id,
             'studio'         => $studioName,
             'tanggal'        => $request->tanggal,
             'sesi'           => $jumlah_sesi,

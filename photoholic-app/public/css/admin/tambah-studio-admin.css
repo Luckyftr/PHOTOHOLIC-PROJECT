@@ -163,6 +163,14 @@ body {
   align-items: center;
 }
 
+.bottom-nav a{
+    text-decoration: none !important;   /* removes underline */
+}
+
+.bottom-nav a span {
+    text-decoration: none !important;
+}
+
 .nav-item {
   display: flex;
   flex-direction: column;

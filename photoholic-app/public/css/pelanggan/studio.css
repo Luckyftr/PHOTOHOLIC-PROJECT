@@ -161,6 +161,12 @@ body {
   background: #F24957;
   color: #ffffff;
   margin-top: auto;   
+
+  text-decoration: none;     
+  display: flex;             
+  align-items: center;      
+  justify-content: center; 
+
 }
 
 /* FOTO FULL (TIDAK KEpotong) */
