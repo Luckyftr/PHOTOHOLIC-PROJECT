@@ -118,6 +118,9 @@
       </section>
 
 
+      <button class="btn-pay" type="button" onclick="location.href='{{ route('admin.payment.qris', $booking->id) }}'">
+        Bayar Sekarang
+      </button>
     </main>
   </div>
 </body>

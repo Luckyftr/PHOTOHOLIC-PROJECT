@@ -324,6 +324,16 @@ body {
   gap: 4px;
 }
 
+.blog-slide {
+  display: none;
+}
+
+.blog-slide.active {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
 .dot {
   width: 6px;
   height: 6px;

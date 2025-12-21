@@ -12,6 +12,8 @@ use App\Http\Controllers\StudioController;
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminStudioController;
+use App\Http\Controllers\BerandaController;
+
 
 
 
@@ -42,9 +44,10 @@ Route::post('/masuk', [AuthController::class, 'masukAksi'])->name('masuk.aksi');
 
 
 
-Route::get('/admin-beranda', function () {
-    return view('admin-beranda');
-});
+Route::get('/admin-beranda', [AdminController::class, 'beranda'])
+    ->middleware('auth')
+    ->name('admin.beranda');
+
 
 Route::get('/test-session', function () {
     session(['foo' => 'bar']);
@@ -141,9 +144,8 @@ Route::get('/ubahPW-berhasil', function () {
 });
 
 // Halaman umum
-Route::get('/beranda', function () {
-    return view('beranda');
-});
+Route::get('/beranda', [BerandaController::class, 'index'])
+    ->name('pelanggan.beranda');
 
 
 /*Route::get('/studio', function () {
@@ -162,6 +164,8 @@ Route::post('/admin/booking/store', [AdminStudioController::class, 'adminstore']
     ->name('admin.booking.store');
 Route::get('/admin/booking/{id}/invoice', [AdminStudioController::class, 'admininvoice'])
     ->name('admin.booking.invoice');
+Route::get('admin/bayar-berhasil/{id}', [AdminStudioController::class, 'adminpaymentReceipt'])->name('admin.pembayaran.bukti'); 
+Route::get('/admin/qris/{id}', [AdminStudioController::class, 'adminqris'])->name('admin.payment.qris'); // QRIS
 
 
 

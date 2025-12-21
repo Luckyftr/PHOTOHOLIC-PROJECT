@@ -68,10 +68,11 @@
           <div class="booking-field">
             <select class="booking-select" name="studio" required>
               <option value="">Studio</option>
-              <option value="A">Classy</option>
-              <option value="B">Lavatory</option>
-              <option value="C">Oven</option>
-              <option value="D">Spotlight</option>
+              @foreach ($studios as $studio)
+                <option value="{{ $studio->id }}">
+                  {{ $studio->name }}
+                </option>
+              @endforeach
             </select>
           </div>
 
@@ -110,46 +111,34 @@
       <h2 class="section-title">PILIH STUDIO PHOTOBOOTH KAMU</h2>
 
       <div class="studio-list">
-        <article class="studio-card">
-          <img src="{{ asset('asset/pelanggan/beranda/studio-classy.png') }}" class="studio-img">
-          <div class="studio-body">
-            <h3>Classy</h3>
-            <p class="studio-desc">Max 10 Orang<br>Paper Negatif Film</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'A']) }}" class="studio-btn">Pesan Sekarang</a>
-          </div>
-        </article>
+        @foreach ($studios as $studio)
+          <article class="studio-card">
+            <img
+            src="{{ asset('asset/Studio-foto/' . $studio->gambar) }}"
+            class="studio-img"
+            alt="{{ $studio->nama }}"
+            >
 
-        <article class="studio-card">
-          <img src="{{ asset('asset/pelanggan/beranda/studio-lavatory.png') }}" class="studio-img">
-          <div class="studio-body">
-            <h3>Lavatory</h3>
-            <p class="studio-desc">Max 6 Orang<br>Photo Paper 4R</p>
-            <p class="studio-price">Rp 35.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'B']) }}" class="studio-btn">Pesan Sekarang</a>
-          </div>
-        </article>
+            <div class="studio-body">
+              <h3>{{ $studio->nama }}</h3>
 
-        <article class="studio-card">
-          <img src="{{ asset('asset/pelanggan/beranda/studio-oven.png') }}" class="studio-img">
-          <div class="studio-body">
-            <h3>Oven</h3>
-            <p class="studio-desc">Max 4 Orang<br>Photo Paper 4R</p>
-            <p class="studio-price">Rp 35.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'C']) }}" class="studio-btn">Pesan Sekarang</a>
-          </div>
-        </article>
+              <p class="studio-desc">
+                {!! nl2br(e($studio->deskripsi)) !!}
+              </p>
 
-        <article class="studio-card">
-          <img src="{{ asset('asset/pelanggan/beranda/studio-spotlight.png') }}" class="studio-img">
-          <div class="studio-body">
-            <h3>Spotlight</h3>
-            <p class="studio-desc">Max 10 Orang<br>Photo Paper 4R</p>
-            <p class="studio-price">Rp 45.000/Sesi</p>
-            <a href="{{ route('booking.create', ['studio' => 'D']) }}" class="studio-btn">Pesan Sekarang</a>
-          </div>
-        </article>
+              <p class="studio-price">
+                Rp {{ number_format($studio->harga, 0, ',', '.') }}/Sesi
+              </p>
+
+              <a href="{{ route('booking.create', ['studio' => $studio->code]) }}"
+                class="studio-btn">
+                Pesan Sekarang
+              </a>
+            </div>
+          </article>
+        @endforeach
       </div>
+
     </section>
 
     <!-- INFO TERBARU -->
@@ -157,22 +146,35 @@
       <h2 class="section-title">INFO TERBARU PHOTOHOLIC</h2>
 
       <div class="blog-highlight">
-        <img src="{{ asset('asset/pelanggan/beranda/blog1.png') }}" class="blog-thumb">
+        @foreach ($blogs as $index => $blog)
+          <div class="blog-slide {{ $index === 0 ? 'active' : '' }}">
 
-        <div class="blog-content">
-          <p class="blog-text">
-            Photoholic selalu siap jadi tempat kabur sebentar dari rutinitas ✨.
-            Mau sendirian, bareng bestie, atau sama pasangan, booth kita selalu ready buat negasin momen kamu.
-            <a href="/blog" class="blog-more">Selengkapnya..</a>
-          </p>
+            <img 
+              src="{{ asset('storage/blogs/' . $blog->image) }}" 
+              class="blog-thumb"
+              alt="{{ $blog->title }}"
+            >
 
-          <div class="blog-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            <div class="blog-content">
+              <p class="blog-text">
+                {{ Str::limit($blog->excerpt, 120) }}
+                <a href="{{ $blog->instagram_url }}" target="_blank" class="blog-more">
+                  Selengkapnya..
+                </a>
+              </p>
+
+              {{-- DOTS MUST LIVE HERE --}}
+              <div class="blog-dots">
+                @foreach ($blogs as $i => $dotBlog)
+                  <span class="dot {{ $i === 0 ? 'active' : '' }}"></span>
+                @endforeach
+              </div>
+            </div>
+
           </div>
-        </div>
+        @endforeach
       </div>
+
     </section>
 
   </div><!-- /screen -->

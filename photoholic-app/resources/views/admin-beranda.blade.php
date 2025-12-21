@@ -42,7 +42,7 @@
               <!-- ikon kalender (placeholder) -->
               <img src="{{ asset('asset/admin/admin-beranda/icon-booking.png') }} " alt="Booking" class="stat-icon">
             </div>
-            <div class="stat-value">12</div>
+            <div class="stat-value">{{ $totalBookingToday }}</div>
           </div>
 
           <!-- Total pendapatan bulan ini -->
@@ -52,7 +52,10 @@
               <!-- ikon uang (placeholder) -->
               <img src="{{ asset('asset/admin/admin-beranda/icon-income.png') }}" alt="Pendapatan" class="stat-icon">
             </div>
-            <div class="stat-text">Rp 4.5 Juta</div>
+            <div class="stat-text">
+              Rp {{ number_format($totalPendapatanThisMonth, 0, ',', '.') }}
+            </div>
+
           </div>
 
           <!-- Studio terpopuler -->
@@ -62,7 +65,7 @@
               <!-- ikon studio (placeholder) -->
               <img src="{{ asset('asset/admin/admin-beranda/icon-studio.png') }}" alt="Studio" class="stat-icon">
             </div>
-            <div class="stat-text">Classy</div>
+            <div class="stat-text">{{ $studioTerpopuler }}</div>
           </div>
 
           <!-- Total pengguna -->
@@ -72,7 +75,7 @@
               <!-- ikon user (placeholder) -->
               <img src="{{ asset('asset/admin/admin-beranda/icon-user.png') }}" alt="Pengguna" class="stat-icon">
             </div>
-            <div class="stat-text">240</div>
+            <div class="stat-text">{{ $totalUsers }}</div>
           </div>
         </div>
 
@@ -82,27 +85,20 @@
         <div class="chart-card">
           <div class="chart-header">
             <div class="chart-title">Pemesanan</div>
-            <button class="chart-filter" type="button">
-              Mingguan
-              <span class="chart-filter-icon">▾</span>
-            </button>
+            <select class="chart-filter" onchange="switchChart(this.value)">
+              <option value="weekly">Mingguan</option>
+              <option value="daily">Harian</option>
+              <option value="monthly">Bulanan</option>
+            </select>
           </div>
 
           <div class="chart-body">
             <div class="chart-area">
-              <div class="chart-line"></div>
-              <div class="chart-point"></div>
+              <canvas id="bookingChart"></canvas>
             </div>
 
-            <div class="chart-footer">
-              <span>Sun</span>
-              <span>Mon</span>
-              <span>Tue</span>
-              <span>Wed</span>
-              <span>Thu</span>
-              <span>Fri</span>
-              <span>Sat</span>
-            </div>
+
+          
           </div>
         </div>
       </section>
@@ -147,5 +143,54 @@
     </nav>
 
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const dailyData = @json($dailyData);
+    const weeklyData = @json($weeklyData);
+    const monthlyData = @json($monthlyData);
+
+    const labelsDaily = ['11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+    const labelsWeekly = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const labelsMonthly = Array.from({ length: monthlyData.length }, (_, i) => i + 1);
+
+    const ctx = document.getElementById('bookingChart').getContext('2d');
+
+    let chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labelsWeekly,
+        datasets: [{
+          label: 'Pemesanan',
+          data: weeklyData,
+          borderColor: '#5A67D8',
+          backgroundColor: 'rgba(90,103,216,0.2)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    function switchChart(type) {
+      if (type === 'daily') {
+        chart.data.labels = labelsDaily;
+        chart.data.datasets[0].data = dailyData;
+      } else if (type === 'monthly') {
+        chart.data.labels = labelsMonthly;
+        chart.data.datasets[0].data = monthlyData;
+      } else {
+        chart.data.labels = labelsWeekly;
+        chart.data.datasets[0].data = weeklyData;
+      }
+      chart.update();
+    }
+  </script>
+
 </body>
 </html>
