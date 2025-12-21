@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Reminder Sesi</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reminder-admin.css" />
+</head>
+
+<body>
+  <div class="phone">
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-left">
+        <img src="assets/jam.png" alt="Jam" class="status-clock" />
+      </div>
+      <div class="status-icons">
+        <img src="assets/icons.png" alt="Status icons" class="status-img" />
+      </div>
+    </div>
+
+    <div class="screen">
+      <!-- TOP ROW -->
+      <div class="top-row">
+        <button class="back-btn" type="button" aria-label="Kembali" onclick="history.back()">
+          <img src="assets/back.png" alt="Kembali" class="back-icon" />
+        </button>
+
+        <div class="top-title">
+          <h1>Reminder Sesi</h1>
+          <p>Kirim pengingat untuk jadwal yang akan dimulai.</p>
+        </div>
+
+        <button class="ghost-btn" id="btnRefresh" type="button" aria-label="Refresh">
+          <img src="assets/refresh.png" alt="Refresh" class="ghost-icon" />
+        </button>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="search-wrap">
+        <div class="search">
+          <img src="assets/search.png" alt="" class="search-ico" />
+          <input id="searchInput" type="text" placeholder="Cari nama / paket / jam..." />
+          <button class="clear-btn" id="btnClearSearch" type="button" aria-label="Hapus pencarian">×</button>
+        </div>
+      </div>
+
+      <!-- FILTER CHIPS -->
+      <div class="chips-block">
+        <div class="chips-title">Filter cepat</div>
+
+        <div class="chips-row">
+          <button class="chip active" data-group="day" data-value="today" type="button">Hari ini</button>
+          <button class="chip" data-group="day" data-value="tomorrow" type="button">Besok</button>
+          <button class="chip" data-group="day" data-value="7d" type="button">7 hari</button>
+        </div>
+
+        <div class="chips-row">
+          <button class="chip active" data-group="window" data-value="2h" type="button">≤ 2 jam</button>
+          <button class="chip" data-group="window" data-value="6h" type="button">≤ 6 jam</button>
+          <button class="chip" data-group="window" data-value="24h" type="button">≤ 24 jam</button>
+          <button class="chip" data-group="window" data-value="all" type="button">Semua</button>
+        </div>
+
+        <div class="chips-row">
+          <button class="chip active" data-group="status" data-value="unsent" type="button">Belum dikirim</button>
+          <button class="chip" data-group="status" data-value="sent" type="button">Sudah dikirim</button>
+          <button class="chip" data-group="status" data-value="any" type="button">Semua status</button>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="summary">
+        <div class="summary-left">
+          <div class="summary-big" id="summaryCount">0</div>
+          <div class="summary-sub">Sesi tampil</div>
+        </div>
+
+        <button class="btn-secondary" id="btnSendAll" type="button">Kirim semua</button>
+      </div>
+
+      <!-- LIST -->
+      <div class="list" id="listBookings"></div>
+
+      <!-- EMPTY STATE -->
+      <div class="empty" id="emptyState" hidden>
+        <img src="assets/empty.png" alt="" class="empty-img" />
+        <h3>Tidak ada sesi yang cocok</h3>
+        <p>Coba ubah filter atau kata kunci pencarian.</p>
+        <button class="btn-primary" id="btnResetFilters" type="button">Reset filter</button>
+      </div>
+    </div>
+
+    <!-- NAV BAR BAWAH (SAMA KAYA GAMBAR) -->
+    <nav class="bottom-nav">
+      <a class="nav-item" href="beranda-admin.html" data-nav="home">
+        <img src="assets/nav-home.png" alt="Halaman Utama" class="nav-item-icon">
+        <span>Halaman Utama</span>
+      </a>
+
+      <a class="nav-item" href="pemesanan-admin.html" data-nav="booking">
+        <img src="assets/nav-booking.png" alt="Pemesanan" class="nav-item-icon">
+        <span>Pemesanan</span>
+      </a>
+
+      <a class="nav-item" href="studio-admin.html" data-nav="studio">
+        <img src="assets/nav-studio.png" alt="Studio" class="nav-item-icon">
+        <span>Studio</span>
+      </a>
+
+      <a class="nav-item" href="pembayaran-admin.html" data-nav="payment">
+        <img src="assets/nav-payment.png" alt="Pembayaran" class="nav-item-icon">
+        <span>Pembayaran</span>
+      </a>
+
+      <!-- Reminder masuk Lainnya, jadi active-nya di sini -->
+      <a class="nav-item active" href="lainnya-admin.html" data-nav="more">
+        <img src="assets/nav-more.png" alt="Lainnya" class="nav-item-icon">
+        <span>Lainnya</span>
+      </a>
+    </nav>
+
+    <!-- BOTTOM SHEET: PREVIEW -->
+    <div class="overlay" id="overlay" hidden></div>
+
+    <div class="sheet" id="sheet" aria-hidden="true">
+      <div class="sheet-handle"></div>
+
+      <div class="sheet-head">
+        <div class="sheet-title">
+          <h2>Preview Pengingat</h2>
+          <p>Periksa dan kirim ke pelanggan.</p>
+        </div>
+        <button class="sheet-close" id="btnCloseSheet" type="button" aria-label="Tutup">×</button>
+      </div>
+
+      <div class="sheet-body">
+        <div class="sheet-card">
+          <div class="meta">
+            <div class="meta-row">
+              <span class="meta-label">Pelanggan</span>
+              <span class="meta-value" id="pvName">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Jadwal</span>
+              <span class="meta-value" id="pvTime">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Paket</span>
+              <span class="meta-value" id="pvPackage">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Kontak</span>
+              <span class="meta-value" id="pvContact">-</span>
+            </div>
+          </div>
+
+          <div class="channel">
+            <div class="channel-title">Channel</div>
+            <div class="segmented" id="channelSegment">
+              <button class="seg active" data-channel="wa" type="button">WhatsApp</button>
+              <button class="seg" data-channel="email" type="button">Email</button>
+            </div>
+          </div>
+
+          <div class="message">
+            <div class="message-title">Pesan</div>
+            <textarea id="pvMessage" rows="6"></textarea>
+            <div class="hint">Tips: kamu bisa edit pesan sebelum dikirim.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <button class="btn-secondary" id="btnCopy" type="button">Salin teks</button>
+        <button class="btn-primary" id="btnSendNow" type="button">Kirim sekarang</button>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast" hidden>
+      <div class="toast-dot"></div>
+      <div class="toast-text" id="toastText">Pengingat terkirim</div>
+    </div>
+  </div>
+
+  <script src="reminder-admin.js"></script>
+</body>
+</html>

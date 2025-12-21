@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tambah Jadwal Pemesanan</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="tambah-jadwal-offline.css">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tambah-jadwal-offline.css">
 </head>
 
 <body>
@@ -23,100 +23,451 @@
 
     <!-- KONTEN -->
     <main class="schedule-screen">
-      <!-- HEADER ATAS -->
+      <!-- HEADER -->
       <div class="top-bar">
-        <button class="back-btn" type="button">
+        <button class="back-btn" type="button" onclick="history.back()">
           <img src="assets/back.png" alt="Kembali" class="back-icon">
         </button>
         <h1 class="page-title">Tambah Jadwal Pemesanan</h1>
       </div>
 
-      <!-- FORM -->
-      <div class="form-wrapper">
-
+      <!-- FORM (SCROLL) -->
+      <form class="form-wrapper" id="bookingForm" novalidate>
         <!-- NAMA -->
         <div class="form-group">
-          <label class="form-label">Nama Lengkap</label>
-          <input
-            type="text"
-            class="input-field"
-            placeholder="Nama lengkap pemesan">
+          <label class="form-label" for="fullName">Nama Lengkap</label>
+          <input id="fullName" name="fullName" type="text" class="input-field" placeholder="Nama lengkap pemesan" required>
+          <small class="hint">Wajib diisi.</small>
         </div>
 
         <!-- EMAIL -->
         <div class="form-group">
-          <label class="form-label">Email</label>
-          <input
-            type="email"
-            class="input-field"
-            placeholder="Email pemesan">
+          <label class="form-label" for="email">Email</label>
+          <input id="email" name="email" type="email" class="input-field" placeholder="Email pemesan" required>
+          <small class="hint">Wajib diisi.</small>
         </div>
 
         <!-- NOMOR TELP -->
         <div class="form-group">
-          <label class="form-label">Nomor Telp</label>
-          <input
-            type="tel"
-            class="input-field"
-            placeholder="Nomor telp pemesan">
+          <label class="form-label" for="phone">Nomor Telp</label>
+          <input id="phone" name="phone" type="tel" class="input-field" placeholder="Nomor telp pemesan" inputmode="numeric" required>
+          <small class="hint">Wajib diisi.</small>
         </div>
 
         <!-- STUDIO -->
         <div class="form-group">
-          <label class="form-label">Studio</label>
-          <div class="select-field">
-            <span class="select-text">Pilih studio photobooth</span>
+          <label class="form-label" for="studio">Studio</label>
+          <div class="select-wrap">
+            <select id="studio" name="studio" class="select-native" required>
+              <option value="" selected disabled>Pilih studio photobooth</option>
+              <option value="classy">Classy (Rp 45.000 / sesi)</option>
+              <option value="oven">Oven (Rp 35.000 / sesi)</option>
+              <option value="lavatory">Lavatory (Rp 35.000 / sesi)</option>
+              <option value="spotlight">Spotlight (Rp 45.000 / sesi)</option>
+            </select>
             <img src="assets/icon-chevron-down.png" alt="" class="select-icon">
           </div>
+          <small class="hint">Pilih 1 studio.</small>
         </div>
 
-        <!-- TANGGAL -->
+        <!-- TANGGAL (KALENDER CUSTOM DARI GAMBAR KAMU) -->
         <div class="form-group">
-          <label class="form-label">Tanggal</label>
+          <label class="form-label" for="date">Tanggal</label>
           <div class="field-with-icon">
-            <span class="field-placeholder">Pilih tanggal booking</span>
-            <img src="assets/icon-calendar.png" alt="" class="icon-right">
+            <input id="date" name="date" type="date" class="input-in-field date-input" required aria-label="Pilih tanggal booking">
+            <button type="button" class="icon-btn" id="calendarBtn" aria-label="Buka kalender">
+              <!-- ganti src icon kalender kamu -->
+              <img src="assets/icon-calendar.png" alt="" class="icon-right">
+            </button>
           </div>
+          <small class="hint">Pilih tanggal booking.</small>
         </div>
 
         <!-- SESI -->
         <div class="form-group">
-          <label class="form-label">Sesi</label>
-          <div class="select-field">
-            <span class="select-text">Pilih sesi booking</span>
+          <label class="form-label" for="session">Sesi</label>
+          <div class="select-wrap">
+            <select id="session" name="session" class="select-native" required>
+              <option value="" selected disabled>Pilih sesi booking</option>
+              <option value="1">1 Sesi (5 menit)</option>
+              <option value="2">2 Sesi (10 menit)</option>
+            </select>
             <img src="assets/icon-chevron-down.png" alt="" class="select-icon">
           </div>
+          <small class="hint">Hanya 1 atau 2 sesi.</small>
         </div>
 
         <!-- WAKTU -->
         <div class="form-group">
-          <label class="form-label">Waktu</label>
-          <div class="field-with-icon">
-            <span class="field-placeholder">Pilih waktu booking</span>
-            <img src="assets/icon-info.png" alt="" class="icon-right">
+          <label class="form-label" for="time">Waktu</label>
+          <div class="select-wrap">
+            <select id="time" name="time" class="select-native" required>
+              <option value="" selected disabled>Pilih waktu booking</option>
+            </select>
+            <img src="assets/icon-info.png" alt="" class="select-icon">
           </div>
+
+          <small class="hint">Jam operasional 11.00 – 23.00 WIB.</small>
         </div>
 
         <!-- METODE PEMBAYARAN -->
         <div class="form-group">
-          <label class="form-label">Metode Pembayaran</label>
-          <div class="select-field">
-            <span class="select-text">Pilih metode pembayaran</span>
+          <label class="form-label" for="payment">Metode Pembayaran</label>
+          <div class="select-wrap">
+            <select id="payment" name="payment" class="select-native" required>
+              <option value="" selected disabled>Pilih metode pembayaran</option>
+              <option value="qris">QRIS</option>
+              <option value="tunai">Tunai</option>
+            </select>
             <img src="assets/icon-chevron-down.png" alt="" class="select-icon">
           </div>
+          <small class="hint">Pilih QRIS atau Tunai.</small>
         </div>
-      </div>
 
-      <!-- PANEL BAWAH -->
+        <!-- NOTE / ALERT -->
+        <div class="alert" id="alertBox" aria-live="polite" style="display:none;"></div>
+      </form>
+
+      <!-- PANEL BAWAH (STICKY) -->
       <div class="bottom-panel">
         <div class="total-row">
           <span class="total-label">Total</span>
-          <span class="total-value">Rp 0</span>
+          <span class="total-value" id="totalText">Rp 0</span>
         </div>
 
-        <button class="btn-pay" type="button">Ke Pembayaran</button>
+        <button class="btn-pay" id="payBtn" type="button" disabled>Ke Pembayaran</button>
+        <p class="footnote">Tombol aktif kalau semua data valid & jadwal tersedia.</p>
       </div>
     </main>
   </div>
+
+  <script>
+    // =========================
+    // CONFIG
+    // =========================
+    const STUDIO_PRICE = {
+      classy: 45000,
+      oven: 35000,
+      lavatory: 35000,
+      spotlight: 45000
+    };
+
+    // 1 sesi = 5 menit, 2 sesi = 10 menit
+    const SESSION_MINUTES = { 1: 5, 2: 10 };
+
+    // Jam operasional 11:00 - 23:00 WIB
+    const OPEN_MIN = 11 * 60;
+    const CLOSE_MIN = 23 * 60;
+
+    // =========================
+    // DATA BOOKING (contoh)
+    // Kamu tinggal ganti isi sesuai data backend nanti.
+    // Format: { date:'YYYY-MM-DD', studio:'classy', start:'HH:MM', sessions:1|2 }
+    // =========================
+    const bookedSlots = [
+      // contoh: tanggal 22 banyak terbooking
+      { date: '2025-12-22', studio: 'classy', start: '11:00', sessions: 1 },
+      { date: '2025-12-22', studio: 'classy', start: '11:05', sessions: 1 },
+      { date: '2025-12-22', studio: 'classy', start: '11:10', sessions: 1 },
+      { date: '2025-12-22', studio: 'classy', start: '12:00', sessions: 1 },
+      { date: '2025-12-22', studio: 'classy', start: '12:05', sessions: 1 },
+      { date: '2025-12-22', studio: 'classy', start: '13:30', sessions: 1 },
+      { date: '2025-12-22', studio: 'classy', start: '13:35', sessions: 1 },
+      { date: '2025-12-22', studio: 'classy', start: '15:00', sessions: 2 }, // 10 menit block
+
+      // contoh lain
+      { date: '2025-12-23', studio: 'oven', start: '20:00', sessions: 2 }
+    ];
+
+    // =========================
+    // DOM
+    // =========================
+    const fullNameEl = document.getElementById('fullName');
+    const emailEl = document.getElementById('email');
+    const phoneEl = document.getElementById('phone');
+    const studioEl = document.getElementById('studio');
+    const dateEl = document.getElementById('date');
+    const calendarBtn = document.getElementById('calendarBtn');
+    const sessionEl = document.getElementById('session');
+    const timeEl = document.getElementById('time');
+    const paymentEl = document.getElementById('payment');
+
+    const totalText = document.getElementById('totalText');
+    const payBtn = document.getElementById('payBtn');
+    const alertBox = document.getElementById('alertBox');
+
+    // min date = hari ini
+    (() => {
+      const t = new Date();
+      const yyyy = t.getFullYear();
+      const mm = String(t.getMonth() + 1).padStart(2, '0');
+      const dd = String(t.getDate()).padStart(2, '0');
+      dateEl.min = `${yyyy}-${mm}-${dd}`;
+    })();
+
+    // =========================
+    // HELPERS
+    // =========================
+    const rupiah = (n) => new Intl.NumberFormat('id-ID').format(n);
+
+    function showAlert(msg, type = 'warning') {
+      alertBox.className = `alert alert-${type}`;
+      alertBox.textContent = msg;
+      alertBox.style.display = 'block';
+    }
+
+    function hideAlert() {
+      alertBox.style.display = 'none';
+      alertBox.textContent = '';
+    }
+
+    function parseTimeToMinutes(hhmm) {
+      const [hh, mm] = hhmm.split(':').map(Number);
+      return hh * 60 + mm;
+    }
+
+    function minutesToHHMM(min) {
+      const hh = String(Math.floor(min / 60)).padStart(2,'0');
+      const mm = String(min % 60).padStart(2,'0');
+      return `${hh}:${mm}`;
+    }
+
+    function overlaps(startA, endA, startB, endB) {
+      return startA < endB && startB < endA;
+    }
+
+    function basicEmailValid(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    }
+
+    function phoneValid(v) {
+      const digits = v.replace(/\D/g, '');
+      return digits.length >= 10;
+    }
+
+    function getSessionCount() {
+      return sessionEl.value ? Number(sessionEl.value) : 0;
+    }
+
+    function getDurationMinutes(sessions) {
+      return sessions ? SESSION_MINUTES[sessions] : 0;
+    }
+
+    function getPrice() {
+      return studioEl.value ? STUDIO_PRICE[studioEl.value] : 0;
+    }
+
+    function computeTotal() {
+      const total = getPrice() * getSessionCount();
+      totalText.textContent = `Rp ${rupiah(total || 0)}`;
+    }
+
+    function isWithinOperationalHours(startHHMM, sessions) {
+      if (!startHHMM || !sessions) return false;
+      const startMin = parseTimeToMinutes(startHHMM);
+      const endMin = startMin + getDurationMinutes(sessions);
+      return startMin >= OPEN_MIN && endMin <= CLOSE_MIN;
+    }
+
+    function isBooked(date, studio, startHHMM, sessions) {
+      if (!date || !studio || !startHHMM || !sessions) return false;
+
+      const durA = getDurationMinutes(sessions);
+      const startA = parseTimeToMinutes(startHHMM);
+      const endA = startA + durA;
+
+      return bookedSlots.some(b => {
+        if (b.date !== date) return false;
+        if (b.studio !== studio) return false;
+
+        const durB = getDurationMinutes(b.sessions);
+        const startB = parseTimeToMinutes(b.start);
+        const endB = startB + durB;
+
+        return overlaps(startA, endA, startB, endB);
+      });
+    }
+
+    function allFilled() {
+      return (
+        fullNameEl.value.trim().length > 0 &&
+        basicEmailValid(emailEl.value) &&
+        phoneValid(phoneEl.value) &&
+        studioEl.value &&
+        dateEl.value &&
+        sessionEl.value &&
+        timeEl.value &&
+        paymentEl.value
+      );
+    }
+
+    // baca status dari option terpilih (ok / booked / closed)
+    function getSelectedTimeStatus() {
+      const opt = timeEl.options[timeEl.selectedIndex];
+      return opt ? (opt.dataset.status || 'ok') : 'ok';
+    }
+
+    // =========================
+    // BUILD TIME OPTIONS
+    // Status:
+    // - ok: tersedia
+    // - booked: sudah terbooking (tetap bisa dipilih, tapi tombol tidak aktif + note)
+    // - closed: tutup (tetap bisa dipilih, tapi tombol tidak aktif + note)
+    // =========================
+    function buildTimeOptionsWithStatus() {
+      timeEl.innerHTML = `<option value="" selected disabled>Pilih waktu booking</option>`;
+
+      const sessions = getSessionCount();
+      if (!sessions) return;
+
+      const duration = getDurationMinutes(sessions);
+
+      // Slot start tiap 5 menit dari 11:00 sampai 23:00
+      for (let m = OPEN_MIN; m <= CLOSE_MIN; m += 5) {
+        const start = minutesToHHMM(m);
+        const endMin = m + duration;
+        const end = minutesToHHMM(endMin);
+
+        let status = 'ok';
+
+        // tutup kalau selesai lewat 23:00
+        if (endMin > CLOSE_MIN) status = 'closed';
+
+        // terbooking kalau overlap dengan bookedSlots (butuh date+studio dipilih)
+        if (status === 'ok' && dateEl.value && studioEl.value) {
+          if (isBooked(dateEl.value, studioEl.value, start, sessions)) status = 'booked';
+        }
+
+        const opt = document.createElement('option');
+        opt.value = start;
+        opt.dataset.status = status;
+
+        if (status === 'ok') {
+          opt.textContent = `${start} – ${end}`;
+        } else if (status === 'booked') {
+          opt.textContent = `${start} – ${end}  •  TERBOOKING`;
+          // tidak disabled (biar user bisa pilih & dapat pesan)
+        } else {
+          opt.textContent = `${start} – ${end}  •  TUTUP`;
+          // tidak disabled (biar user bisa pilih & dapat pesan)
+        }
+
+        timeEl.appendChild(opt);
+      }
+    }
+
+    // =========================
+    // BUTTON STATE + NOTE
+    // =========================
+    function updateButtonState() {
+      computeTotal();
+
+      if (!allFilled()) {
+        hideAlert();
+        payBtn.disabled = true;
+        payBtn.classList.remove('btn-active');
+        return;
+      }
+
+      const sessions = getSessionCount();
+      const status = getSelectedTimeStatus();
+
+      if (status === 'closed') {
+        showAlert('Maaf, waktu ini tidak bisa dibooking karena studio sudah tutup (di luar jam operasional).', 'danger');
+        payBtn.disabled = true;
+        payBtn.classList.remove('btn-active');
+        return;
+      }
+
+      if (status === 'booked') {
+        showAlert('Maaf, slot ini tidak bisa dibooking karena sudah terbooking orang lain. Silakan pilih waktu yang tersedia.', 'danger');
+        payBtn.disabled = true;
+        payBtn.classList.remove('btn-active');
+        return;
+      }
+
+      // safety check tambahan
+      if (!isWithinOperationalHours(timeEl.value, sessions)) {
+        showAlert('Maaf, waktu ini di luar jam operasional (11.00–23.00 WIB).', 'danger');
+        payBtn.disabled = true;
+        payBtn.classList.remove('btn-active');
+        return;
+      }
+
+      if (isBooked(dateEl.value, studioEl.value, timeEl.value, sessions)) {
+        showAlert('Maaf, slot ini sudah terbooking orang lain. Silakan pilih waktu yang tersedia.', 'danger');
+        payBtn.disabled = true;
+        payBtn.classList.remove('btn-active');
+        return;
+      }
+
+      hideAlert();
+      payBtn.disabled = false;
+      payBtn.classList.add('btn-active');
+    }
+
+    // =========================
+    // EVENTS
+    // =========================
+    calendarBtn.addEventListener('click', () => {
+      if (typeof dateEl.showPicker === 'function') dateEl.showPicker();
+      else { dateEl.focus(); dateEl.click(); }
+    });
+
+    // Rebuild waktu karena status booked bergantung date+studio+sesi
+    sessionEl.addEventListener('change', () => {
+      // reset waktu
+      timeEl.value = '';
+      buildTimeOptionsWithStatus();
+      updateButtonState();
+    });
+
+    studioEl.addEventListener('change', () => {
+      timeEl.value = '';
+      buildTimeOptionsWithStatus();
+      updateButtonState();
+    });
+
+    dateEl.addEventListener('change', () => {
+      timeEl.value = '';
+      buildTimeOptionsWithStatus();
+      updateButtonState();
+    });
+
+    [fullNameEl, emailEl, phoneEl, timeEl, paymentEl].forEach(el => {
+      el.addEventListener('input', updateButtonState);
+      el.addEventListener('change', updateButtonState);
+    });
+
+    payBtn.addEventListener('click', () => {
+      if (payBtn.disabled) {
+        showAlert('Lengkapi data dan pilih waktu yang tersedia dulu ya.', 'warning');
+        return;
+      }
+
+      // payload contoh
+      const payload = {
+        fullName: fullNameEl.value.trim(),
+        email: emailEl.value.trim(),
+        phone: phoneEl.value.trim(),
+        studio: studioEl.value,
+        date: dateEl.value,
+        sessions: getSessionCount(),
+        startTime: timeEl.value,
+        payment: paymentEl.value,
+        total: getPrice() * getSessionCount()
+      };
+
+      showAlert('Data sudah siap. Lanjut ke pembayaran!', 'success');
+      console.log('BOOKING PAYLOAD:', payload);
+
+      // window.location.href = "pembayaran.html";
+    });
+
+    // INIT
+    computeTotal();
+    buildTimeOptionsWithStatus();
+    updateButtonState();
+  </script>
 </body>
 </html>

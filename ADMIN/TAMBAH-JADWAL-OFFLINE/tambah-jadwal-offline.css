@@ -1,9 +1,5 @@
 /* RESET */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* BODY & FRAME HP */
 body {
@@ -38,178 +34,164 @@ body {
   border-bottom: 1px solid #e5e7eb;
 }
 
-.status-left,
-.status-icons {
-  display: flex;
-  align-items: center;
-}
-
-.status-clock,
-.status-img {
-  height: 14px;
-  width: auto;
-  object-fit: contain;
-}
+.status-left, .status-icons { display: flex; align-items: center; }
+.status-clock, .status-img { height: 14px; width: auto; object-fit: contain; }
 
 /* KONTEN UTAMA */
 .schedule-screen {
   flex: 1;
-  padding: 14px 16px 16px;
   background: #f3f4f6;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  overflow: hidden;
 }
 
-/* HEADER ATAS */
+/* HEADER */
 .top-bar {
+  padding: 14px 16px 6px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* back button: */
-.back-btn {
-  border: none;
-  background: transparent;  
-  width: auto;            
-  height: auto;
-  padding: 4px;             
-  box-shadow: none;     
-  border-radius: 0;        
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
+.back-btn { border: none; background: transparent; padding: 4px; cursor: pointer; }
+.back-icon { width: 30px; height: 35px; object-fit: contain; display: block; }
 
-.back-icon {
-  width: 30px;         
-  height: 35px;
-  object-fit: contain;
-  display: block;
-}
+.page-title { font-size: 16px; font-weight: 700; color: #111827; }
 
-.page-title {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-/* FORM WRAPPER */
+/* FORM SCROLL */
 .form-wrapper {
   flex: 1;
-  margin-top: 4px;
+  padding: 10px 16px 150px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
 }
 
-/* GROUP FORM */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 13px; font-weight: 600; color: #4b5563; }
 
-.form-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #4b5563;
-}
-
-/* INPUT & FIELD DASAR */
-.input-field,
-.select-field {
+/* INPUT */
+.input-field {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #d1d5db;
   background: #ffffff;
   font-size: 14px;
-  padding: 8px 10px;
+  padding: 10px 12px;
   outline: none;
 }
+.input-field::placeholder { color: #9ca3af; }
+.input-field:focus { border-color: #9ca3af; }
 
-.input-field::placeholder,
-.select-placeholder {
-  color: #9ca3af;
-}
+/* SELECT */
+.select-wrap { position: relative; width: 100%; }
 
-/* FIELD SELECT (dengan ikon di kanan) */
-.select-field {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 12px;
-  cursor: pointer;
-}
-
-.select-text {
+.select-native {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
   font-size: 14px;
-  color: #9ca3af;
+  padding: 10px 40px 10px 12px;
+  outline: none;
+  color: #111827;
 }
+.select-native:invalid { color: #9ca3af; }
+.select-native:focus { border-color: #9ca3af; }
 
 .select-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 14px;
   height: 14px;
   object-fit: contain;
+  pointer-events: none;
 }
 
-/* FIELD DENGAN IKON DI KANAN (TANGGAL, WAKTU) */
+/* FIELD TANGGAL */
 .field-with-icon {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-radius: 6px;
+  gap: 8px;
+  border-radius: 10px;
   border: 1px solid #d1d5db;
   background: #ffffff;
-  padding: 8px 10px;
+  padding: 6px 10px;
 }
 
-.field-placeholder {
+.input-in-field {
+  width: 100%;
+  border: none;
+  outline: none;
   font-size: 14px;
-  color: #9ca3af;
+  padding: 6px 6px;
+  background: transparent;
+  color: #111827;
 }
 
-.icon-right {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
+/* hide native calendar icon */
+.date-input::-webkit-calendar-picker-indicator { opacity: 0; display: none; }
+.date-input::-webkit-inner-spin-button,
+.date-input::-webkit-clear-button { display: none; }
 
-/* FOOTER – TOTAL & TOMBOL */
+/* calendar button */
+.icon-btn { border: none; background: transparent; padding: 4px; cursor: pointer; }
+.icon-right { width: 18px; height: 18px; object-fit: contain; display: block; }
+
+.hint { font-size: 11px; color: #6b7280; }
+
+/* ALERT */
+.alert {
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.35;
+  border: 1px solid transparent;
+}
+.alert-warning { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+.alert-danger  { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+.alert-success { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+
+/* BOTTOM PANEL */
 .bottom-panel {
-  margin-top: 8px;
+  position: sticky;
+  bottom: 0;
   background: #ffffff;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 12px 12px;
+  border-radius: 12px 12px 0 0;
+  padding: 10px 12px 14px;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
+.total-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; margin-bottom: 8px; }
+.total-label { color: #4b5563; }
+.total-value { font-weight: 800; color: #111827; }
 
-.total-label {
-  color: #4b5563;
-}
-
-.total-value {
-  font-weight: 600;
-}
-
-/* TOMBOL KE PEMBAYARAN */
+/* BUTTON */
 .btn-pay {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
-  padding: 10px 12px;
+  padding: 11px 12px;
   font-size: 13px;
-  font-weight: 600;
-  background: #6fcf97;
+  font-weight: 800;
+  background: #6fcf97; /* default */
   color: #ffffff;
-  cursor: pointer;
+  cursor: not-allowed;
+  transition: 0.2s ease;
+  opacity: 0.78;
 }
+.btn-pay.btn-active {
+  background: #1f8f5f; /* hijau tua */
+  cursor: pointer;
+  opacity: 1;
+}
+.btn-pay:disabled { pointer-events: none; }
+
+.footnote { margin-top: 8px; font-size: 11px; color: #6b7280; text-align: center; }
